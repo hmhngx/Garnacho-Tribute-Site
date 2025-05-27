@@ -27,7 +27,7 @@ const player = {
   age: 27,
   height: '180 cm',
   weight: '80 kg',
-  image: '/goals/newcastle.png', // Assumes a cutout image
+  image: 'src/assets/nobg2.png', // Assumes a cutout image
   seasonStats: {
     appearances: { total: 30, sub: 5 },
     goals: 8,
