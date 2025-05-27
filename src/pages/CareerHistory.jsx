@@ -19,7 +19,7 @@ const player = {
   position: 'Winger',
   nationality: 'Argentina',
   jersey: 17,
-  image: '/images/garnacho-full.jpg', // Assumes a full-body cutout image
+  image: 'src/assets/nobg3.png',
   career: {
     clubs: [
       { name: 'Atletico Madrid Youth', years: '2015-2020', matches: 50, goals: 15 },
@@ -36,8 +36,7 @@ const player = {
 
 const gradientBg = 'linear-gradient(135deg, #1A2A44 0%, #0F1C2C 100%)'; // Deep navy to darker navy
 const cardBg = 'rgba(255, 255, 255, 0.1)';
-// const accentBlue = '#4B6CB7';
-// const mutedRed = '#A52A2A';
+
 
 const CareerHistory = () => {
   return (
