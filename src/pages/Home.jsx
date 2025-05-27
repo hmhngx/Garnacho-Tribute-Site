@@ -156,7 +156,7 @@ const Home = () => {
           </Heading>
         </MotionBox>
 
-        {/* Foreground: Garnacho Image with Manchester United Crest Above */}
+        {/* Foreground: Garnacho Image */}
         <MotionBox
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -173,21 +173,6 @@ const Home = () => {
             boxSize="100%"
             objectFit="contain"
             filter="brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))"
-            zIndex={2}
-          />
-          {/* Manchester United Crest Above Garnacho's Head */}
-          <Image
-            src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
-            alt="Manchester United Crest"
-            boxSize={{ base: '40px', md: '50px' }}
-            position="absolute"
-            top={{ base: '20px', md: '20px' }}
-            left="55%"
-            transform="translateX(-50%)"
-            objectFit="contain"
-            zIndex={3}
-            boxShadow="0 0 10px rgba(211, 47, 47, 0.5)"
-            _hover={{ transform: 'translateX(-50%) scale(1.1)', boxShadow: '0 0 15px rgba(211, 47, 47, 0.8)', transition: 'all 0.3s' }}
           />
         </MotionBox>
 
@@ -214,7 +199,7 @@ const Home = () => {
       </Box>
 
       {/* Card Slider Section */}
-      <Box py={{ base: 12, md: 16 }} bg="rgba(0, 0, 0, 0.8)">
+      <Box id="cards" py={{ base: 12, md: 16 }} bg="rgba(0, 0, 0, 0.8)">
         <Container maxW="100vw" width="100%">
           <HStack
             spacing={{ base: 4, md: 6, lg: 8 }}
@@ -249,7 +234,7 @@ const Home = () => {
                   width="100%"
                   height="100%"
                   objectFit="cover"
-                  filter="brightness(0.5)"
+                  filter="brightness(1.2)" // Increased brightness for better display
                 />
                 <Box
                   position="absolute"
