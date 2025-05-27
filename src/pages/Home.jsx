@@ -4,42 +4,109 @@ import {
   Heading,
   Text,
   Stack,
-  SimpleGrid,
-  Icon,
-  useColorModeValue,
-  Button,
-  Input,
-  VStack,
-  HStack,
   Image,
+  Button,
+  HStack,
+  Icon,
+  VStack,
 } from '@chakra-ui/react';
-import { FaFutbol, FaTrophy, FaTshirt, FaCamera } from 'react-icons/fa';
+import { FaPlay, FaBookOpen } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
-import { RxChevronRight } from 'react-icons/rx';
 
 const MotionBox = motion(Box);
 
-const Feature = ({ title, text, icon }) => {
-  return (
-    <Stack>
-      <Icon as={icon} w={10} h={10} color="red.500" />
-      <Text fontWeight={600}>{title}</Text>
-      <Text color={useColorModeValue('gray.600', 'gray.400')}>{text}</Text>
-    </Stack>
-  );
-};
-
 const Home = () => {
+  const cards = [
+    {
+      title: 'About Garnacho',
+      description: 'Know more about Garnacho.',
+      image: '/src/assets/bio.png',
+      link: '/bio',
+      type: 'article',
+    },
+    {
+      title: 'Garnacho Stats',
+      description: 'Check out Alejandro Garnacho’s performance stats.',
+      image: '/src/assets/stats.png',
+      link: '/stats',
+      type: 'article',
+    },
+    {
+      title: 'Career Milestones',
+      description: 'Explore the key moments that shaped his journey.',
+      image: '/src/assets/goals.png',
+      link: '/career-history',
+      type: 'article',
+    },
+    {
+      title: 'All Goals',
+      description: 'All the goals Garnacho has scored for Manchester United first team',
+      image: '/src/assets/garnacho-hero.jpg',
+      link: '/goals',
+      type: 'article',
+    },
+    {
+      title: 'Shop Merchandise',
+      description: 'Get official Garnacho gear and collectibles.',
+      image: '/src/assets/merch.png',
+      link: '/merchandise',
+      type: 'article',
+    },
+  ];
+
   return (
-    <Box>
+    <Box
+      minH="100vh"
+      bg="#0A0A0A"
+      py={{ base: 8, md: 12 }}
+      px={{ base: 4, md: 8 }}
+      w="100vw"
+      minW="100vw"
+      overflowX="hidden"
+      position="relative"
+    >
+      {/* Navigation Bar */}
+      <Box
+        bg="rgba(0, 0, 0, 0.8)"
+        py={3}
+        px={{ base: 4, md: 8 }}
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        zIndex={10}
+        borderBottom="1px solid rgba(255, 255, 255, 0.1)"
+      >
+        <HStack justify="space-between" align="center" color="white">
+          <HStack spacing={6}>
+            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Bio</Text>
+            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Stats</Text>
+          </HStack>
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
+            alt="Manchester United Logo"
+            boxSize={{ base: '40px', md: '50px' }}
+            objectFit="contain"
+          />
+          <HStack spacing={6}>
+            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Shop</Text>
+            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Gallery</Text>
+          </HStack>
+        </HStack>
+      </Box>
+
       {/* Hero Section */}
       <Box
         position="relative"
         height="100vh"
         minHeight="100vh"
         overflow="hidden"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
       >
+        {/* Background with Neon Eiffel Tower and Messi Silhouette */}
         <Box
           position="absolute"
           top={0}
@@ -47,314 +114,208 @@ const Home = () => {
           right={0}
           bottom={0}
           zIndex={0}
+          bgImage="/src/assets/nobg4.png"
+          bgSize="cover"
+          bgPosition="center"
+          filter="brightness(0.5)"
+          opacity={1}
         >
-          <Image
-            src="/images/garnacho-hero.jpg"
-            alt="Alejandro Garnacho"
-            objectFit="cover"
-            width="100%"
-            height="100%"
-            filter="brightness(0.7)"
+          <Box
+            position="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            bgImage="/src/assets/garnacho-hero.jpg"
+            bgSize="contain"
+            bgPosition="bottom right"
+            bgRepeat="no-repeat"
+            opacity={0.3}
           />
         </Box>
 
-        <Container maxW="100vw" width="100%" position="relative" zIndex={1}>
-          <Stack
-            direction={{ base: 'column', md: 'row' }}
-            spacing={{ base: 8, md: 12, lg: 20 }}
-            py={{ base: 12, md: 18, lg: 20 }}
-            align="start"
+        {/* Background Text: VIVA GARNACHO 17 */}
+        <MotionBox
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          position="absolute"
+          zIndex={1}
+          textAlign="center"
+        >
+          <Heading
+            fontSize={{ base: '5xl', md: '7xl', lg: '9xl' }}
+            fontWeight="extrabold"
+            fontFamily="sans-serif"
+            textTransform="uppercase"
+            color="white"
+            opacity={1}
+            textShadow="0 0 20px rgba(211, 47, 47, 0.5)"
           >
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              flex={1}
-            >
-              <Heading
-                as="h1"
-                fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
-                fontWeight="bold"
-                color="white"
-                textShadow="2px 2px 4px rgba(0,0,0,0.5)"
-              >
-                Celebrate the Magic of Garnacho's Journey
-              </Heading>
-            </MotionBox>
+            VIVA GARNACHO <Text as="span" color="#D32F2F">17</Text>
+          </Heading>
+        </MotionBox>
 
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              flex={1}
+        {/* Foreground: Garnacho Image with Manchester United Crest Above */}
+        <MotionBox
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.05, filter: 'drop-shadow(0 0 20px #D32F2F)' }}
+          transition={{ duration: 0.5 }}
+          position="absolute"
+          zIndex={2}
+          boxSize={{ base: '500px', md: '500px', lg: '900px' }}
+          mx="auto"
+        >
+          <Image
+            src="/src/assets/nobg.png"
+            alt="Alejandro Garnacho"
+            boxSize="100%"
+            objectFit="contain"
+            filter="brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))"
+            zIndex={2}
+          />
+          {/* Manchester United Crest Above Garnacho's Head */}
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
+            alt="Manchester United Crest"
+            boxSize={{ base: '40px', md: '50px' }}
+            position="absolute"
+            top={{ base: '20px', md: '20px' }}
+            left="55%"
+            transform="translateX(-50%)"
+            objectFit="contain"
+            zIndex={3}
+            boxShadow="0 0 10px rgba(211, 47, 47, 0.5)"
+            _hover={{ transform: 'translateX(-50%) scale(1.1)', boxShadow: '0 0 15px rgba(211, 47, 47, 0.8)', transition: 'all 0.3s' }}
+          />
+        </MotionBox>
+
+        {/* Text Overlay */}
+        <Container maxW="100vw" width="100%" position="relative" zIndex={3} textAlign="center" px={{ base: 4, md: 8 }}>
+          <MotionBox
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Heading
+              fontSize={{ base: '4xl', md: '6xl', lg: '8xl' }}
+              fontWeight="extrabold"
+              fontFamily="sans-serif"
+              textTransform="uppercase"
+              color="azure"
+              textShadow="0 0 10px rgba(0, 0, 0, 0.3)"
+              mt={{ base: '200px', md: '250px', lg: '500px' }}
             >
-              <VStack align="start" spacing={6}>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color="white"
-                  textShadow="1px 1px 2px rgba(0,0,0,0.5)"
+              RONALDO'S REGEN
+            </Heading>
+          </MotionBox>
+        </Container>
+      </Box>
+
+      {/* Card Slider Section */}
+      <Box py={{ base: 12, md: 16 }} bg="rgba(0, 0, 0, 0.8)">
+        <Container maxW="100vw" width="100%">
+          <HStack
+            spacing={{ base: 4, md: 6, lg: 8 }}
+            overflowX="auto"
+            py={4}
+            px={{ base: 2, md: 4 }}
+            css={{
+              '&::-webkit-scrollbar': { display: 'none' },
+              '-ms-overflow-style': 'none',
+              'scrollbar-width': 'none',
+            }}
+          >
+            {cards.map((card, index) => (
+              <MotionBox
+                key={index}
+                minW="300px"
+                maxW="300px"
+                minH="400px"
+                position="relative"
+                overflow="hidden"
+                borderRadius="xl"
+                boxShadow="0 0 15px rgba(29, 185, 84, 0.5)"
+                _hover={{
+                  transform: 'rotate(2deg) scale(1.05)',
+                  boxShadow: '0 0 25px rgba(29, 185, 84, 0.8)',
+                  transition: 'all 0.3s',
+                }}
+              >
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width="100%"
+                  height="100%"
+                  objectFit="cover"
+                  filter="brightness(0.5)"
+                />
+                <Box
+                  position="absolute"
+                  top={0}
+                  left={0}
+                  right={0}
+                  bottom={0}
+                  bgGradient="linear(to-b, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8))"
+                />
+                <VStack
+                  position="absolute"
+                  bottom={4}
+                  left={4}
+                  right={4}
+                  spacing={4}
+                  align="start"
+                  p={4}
+                  bg="rgba(255, 255, 255, 0.1)"
+                  backdropFilter="blur(8px)"
+                  borderRadius="md"
+                  border="1px solid rgba(255, 255, 255, 0.2)"
                 >
-                  Join us in honoring Alejandro Garnacho, a rising star in soccer.
-                  Experience his incredible journey through goals, stats, and
-                  unforgettable moments.
-                </Text>
-                <HStack spacing={4}>
-                  <Button
-                    as={RouterLink}
-                    to="/bio"
-                    size="lg"
-                    colorScheme="red"
-                    _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
-                  >
-                    Learn More
-                  </Button>
-                  <Button
-                    as={RouterLink}
-                    to="/newsletter"
-                    size="lg"
-                    variant="outline"
+                  <Text
+                    fontSize={{ base: 'xl', md: '2xl' }}
+                    fontWeight="bold"
                     color="white"
-                    borderColor="white"
+                    textShadow="0 0 5px rgba(0, 0, 0, 0.5)"
+                    lineHeight="shorter"
+                  >
+                    {card.title}
+                  </Text>
+                  <Text
+                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontWeight="light"
+                    color="gray.100"
+                    textShadow="0 0 5px rgba(0, 0, 0, 0.5)"
+                    lineHeight="normal"
+                    noOfLines={3}
+                  >
+                    {card.description}
+                  </Text>
+                  <Button
+                    as={RouterLink}
+                    to={card.link}
+                    size="sm"
+                    bgGradient="linear(to-r, #1E88E5, #AB47BC)"
+                    color="white"
+                    borderRadius="full"
+                    leftIcon={<Icon as={card.type === 'video' ? FaPlay : FaBookOpen} />}
+                    boxShadow="0 0 10px rgba(30, 136, 229, 0.5)"
                     _hover={{
-                      bg: 'whiteAlpha.200',
-                      transform: 'translateY(-2px)',
+                      bgGradient: 'linear(to-r, #AB47BC, #1E88E5)',
+                      transform: 'scale(1.05)',
+                      boxShadow: '0 0 15px rgba(171, 71, 188, 0.8)',
                     }}
                   >
-                    Sign Up
+                    {card.type === 'video' ? 'Watch' : 'Read More'}
                   </Button>
-                </HStack>
-              </VStack>
-            </MotionBox>
-          </Stack>
-        </Container>
-      </Box>
-
-      {/* Services Section */}
-      <Box py={20}>
-        <Container maxW="100vw" width="100%">
-          <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
-            <Feature
-              icon={FaFutbol}
-              title="Bio"
-              text="Learn about Alejandro's journey from youth to professional football"
-            />
-            <Feature
-              icon={FaTrophy}
-              title="Stats"
-              text="Explore detailed statistics and achievements"
-            />
-            <Feature
-              icon={FaTshirt}
-              title="Merchandise"
-              text="Get official Garnacho merchandise and collectibles"
-            />
-            <Feature
-              icon={FaCamera}
-              title="Gallery"
-              text="View amazing photos and moments from his career"
-            />
-          </SimpleGrid>
-        </Container>
-      </Box>
-
-      {/* Testimonial Section */}
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} py={20}>
-        <Container maxW="100vw" width="100%">
-          <Stack spacing={8} align={'center'} textAlign={'center'}>
-            <Heading>What They Say</Heading>
-            <Text fontSize={'xl'}>
-              "Garnacho is one of the most exciting young talents I've seen in years."
-              <br />
-              - Erik ten Hag
-            </Text>
-          </Stack>
-        </Container>
-      </Box>
-
-      {/* Newsletter Section */}
-      <Box py={20}>
-        <Container maxW="100vw" width="100%">
-          <VStack spacing={8} align={'center'} textAlign={'center'}>
-            <Heading>Stay Updated</Heading>
-            <Text>Subscribe to our newsletter for the latest updates on Garnacho's career</Text>
-            <HStack>
-              <Input placeholder="Enter your email" />
-              <Button colorScheme="red">Subscribe</Button>
-            </HStack>
-          </VStack>
-        </Container>
-      </Box>
-
-      {/* Rest of the content */}
-      <Container maxW="100vw" width="100%" py={16}>
-        <VStack spacing={16}>
-          {/* Journey Section */}
-          <Box textAlign="center" maxW="3xl" mx="auto">
-            <Text
-              fontSize="lg"
-              fontWeight="semibold"
-              color="red.500"
-              mb={3}
-            >
-              Tribute
-            </Text>
-            <Heading
-              fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
-              fontWeight="bold"
-              mb={6}
-            >
-              Explore Alejandro Garnacho's Incredible Journey
-            </Heading>
-            <Text fontSize={{ base: 'md', md: 'lg' }} color={useColorModeValue('gray.600', 'gray.400')}>
-              Dive into the life and achievements of Alejandro Garnacho.
-              Discover his bio, stats, career milestones, and unforgettable
-              goals.
-            </Text>
-          </Box>
-
-          {/* Feature Grid */}
-          <Stack
-            direction={{ base: 'column', md: 'row' }}
-            spacing={{ base: 12, md: 8, lg: 12 }}
-            justify="center"
-            align="stretch"
-          >
-            <FeatureCard
-              icon="/images/career-icon.svg"
-              title="Uncover His Inspiring Career History"
-              description="Learn about the key moments that shaped his career."
-              link="/career-history"
-            />
-            <FeatureCard
-              icon="/images/goals-icon.svg"
-              title="Celebrate His Memorable Goals"
-              description="Relive each goal with stunning visuals and videos."
-              link="/goals"
-            />
-            <FeatureCard
-              icon="/images/merch-icon.svg"
-              title="Shop Exclusive Merchandise"
-              description="Get your hands on unique items celebrating Garnacho."
-              link="/merchandise"
-            />
-          </Stack>
-
-          {/* CTA Buttons */}
-          <HStack spacing={4} justify="center">
-            <Button
-              as={RouterLink}
-              to="/bio"
-              size="lg"
-              colorScheme="red"
-              _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
-            >
-              Learn More
-            </Button>
-            <Button
-              as={RouterLink}
-              to="/newsletter"
-              size="lg"
-              variant="outline"
-              rightIcon={<Icon as={RxChevronRight} />}
-            >
-              Sign Up
-            </Button>
+                </VStack>
+              </MotionBox>
+            ))}
           </HStack>
-
-          {/* Featured Stats Section */}
-          // ... existing code ...
-        </VStack>
-      </Container>
+        </Container>
+      </Box>
     </Box>
   );
 };
 
-const FeatureCard = ({ icon, title, description, link }) => (
-  <Box
-    flex={1}
-    maxW="400px"
-    p={8}
-    bg={useColorModeValue('white', 'gray.800')}
-    rounded="lg"
-    shadow="lg"
-    textAlign="center"
-    transition="all 0.3s"
-    _hover={{
-      transform: 'translateY(-5px)',
-      shadow: 'xl',
-    }}
-  >
-    <Box mb={6}>
-      <Image
-        src={icon}
-        alt={title}
-        boxSize="48px"
-        mx="auto"
-      />
-    </Box>
-    <Heading
-      fontSize={{ base: '2xl', md: '3xl' }}
-      fontWeight="bold"
-      mb={4}
-    >
-      {title}
-    </Heading>
-    <Text color={useColorModeValue('gray.600', 'gray.400')} mb={6}>
-      {description}
-    </Text>
-    <Button
-      as={RouterLink}
-      to={link}
-      variant="ghost"
-      colorScheme="red"
-      rightIcon={<Icon as={RxChevronRight} />}
-    >
-      Explore
-    </Button>
-  </Box>
-);
-
-const StatCard = ({ title, value, description }) => (
-  <Box
-    p={6}
-    bg={useColorModeValue('white', 'gray.800')}
-    rounded="lg"
-    shadow="lg"
-    textAlign="center"
-    flex={1}
-    maxW="300px"
-  >
-    <Text fontSize="2xl" fontWeight="bold" color="red.500">
-      {value}
-    </Text>
-    <Text fontSize="xl" fontWeight="semibold" mt={2}>
-      {title}
-    </Text>
-    <Text color={useColorModeValue('gray.600', 'gray.400')} mt={2}>
-      {description}
-    </Text>
-  </Box>
-);
-
-const NewsCard = ({ title, date, description }) => (
-  <Box
-    p={6}
-    bg={useColorModeValue('white', 'gray.800')}
-    rounded="lg"
-    shadow="lg"
-    flex={1}
-    maxW="300px"
-  >
-    <Text fontSize="sm" color={useColorModeValue('gray.500', 'gray.400')}>
-      {date}
-    </Text>
-    <Text fontSize="xl" fontWeight="semibold" mt={2}>
-      {title}
-    </Text>
-    <Text color={useColorModeValue('gray.600', 'gray.400')} mt={2}>
-      {description}
-    </Text>
-  </Box>
-);
-
-export default Home; 
+export default Home;
