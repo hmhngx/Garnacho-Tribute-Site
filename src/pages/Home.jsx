@@ -59,8 +59,8 @@ const Home = () => {
     <Box
       minH="100vh"
       bg="#0A0A0A"
-      py={{ base: 8, md: 12 }}
-      px={{ base: 4, md: 8 }}
+      py={{ base: 4, md: 8, lg: 12 }}
+      px={{ base: 2, md: 4, lg: 8 }}
       w="100vw"
       minW="100vw"
       overflowX="hidden"
@@ -78,22 +78,6 @@ const Home = () => {
         zIndex={10}
         borderBottom="1px solid rgba(255, 255, 255, 0.1)"
       >
-        <HStack justify="space-between" align="center" color="white">
-          <HStack spacing={6}>
-            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Bio</Text>
-            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Stats</Text>
-          </HStack>
-          <Image
-            src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
-            alt="Manchester United Logo"
-            boxSize={{ base: '40px', md: '50px' }}
-            objectFit="contain"
-          />
-          <HStack spacing={6}>
-            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Shop</Text>
-            <Text _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }} transition="all 0.3s">Gallery</Text>
-          </HStack>
-        </HStack>
       </Box>
 
       {/* Hero Section */}
@@ -144,7 +128,7 @@ const Home = () => {
           textAlign="center"
         >
           <Heading
-            fontSize={{ base: '5xl', md: '7xl', lg: '9xl' }}
+            fontSize={{ base: '3xl', md: '5xl', lg: '9xl' }}
             fontWeight="extrabold"
             fontFamily="sans-serif"
             textTransform="uppercase"
@@ -164,7 +148,7 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           position="absolute"
           zIndex={2}
-          boxSize={{ base: '500px', md: '500px', lg: '900px' }}
+          boxSize={{ base: '300px', md: '400px', lg: '900px' }}
           mx="auto"
         >
           <Image
@@ -177,20 +161,20 @@ const Home = () => {
         </MotionBox>
 
         {/* Text Overlay */}
-        <Container maxW="100vw" width="100%" position="relative" zIndex={3} textAlign="center" px={{ base: 4, md: 8 }}>
+        <Container maxW="100vw" width="100%" position="relative" zIndex={3} textAlign="center" px={{ base: 2, md: 4, lg: 8 }}>
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Heading
-              fontSize={{ base: '4xl', md: '6xl', lg: '8xl' }}
+              fontSize={{ base: '2xl', md: '4xl', lg: '8xl' }}
               fontWeight="extrabold"
               fontFamily="sans-serif"
               textTransform="uppercase"
               color="azure"
               textShadow="0 0 10px rgba(0, 0, 0, 0.3)"
-              mt={{ base: '200px', md: '250px', lg: '500px' }}
+              mt={{ base: '100px', md: '200px', lg: '500px' }}
             >
               RONALDO'S REGEN
             </Heading>
@@ -199,13 +183,13 @@ const Home = () => {
       </Box>
 
       {/* Card Slider Section */}
-      <Box id="cards" py={{ base: 12, md: 16 }} bg="rgba(0, 0, 0, 0.8)">
+      <Box id="cards" py={{ base: 8, md: 12, lg: 16 }} bg="rgba(0, 0, 0, 0.8)">
         <Container maxW="100vw" width="100%">
           <HStack
-            spacing={{ base: 4, md: 6, lg: 8 }}
+            spacing={{ base: 2, md: 4, lg: 8 }}
             overflowX="auto"
             py={4}
-            px={{ base: 2, md: 4 }}
+            px={{ base: 1, md: 2, lg: 4 }}
             css={{
               '&::-webkit-scrollbar': { display: 'none' },
               '-ms-overflow-style': 'none',
@@ -215,9 +199,9 @@ const Home = () => {
             {cards.map((card, index) => (
               <MotionBox
                 key={index}
-                minW="300px"
-                maxW="300px"
-                minH="400px"
+                minW={{ base: '200px', md: '250px', lg: '300px' }}
+                maxW={{ base: '200px', md: '250px', lg: '300px' }}
+                minH={{ base: '300px', md: '350px', lg: '400px' }}
                 position="relative"
                 overflow="hidden"
                 borderRadius="xl"
@@ -234,7 +218,7 @@ const Home = () => {
                   width="100%"
                   height="100%"
                   objectFit="cover"
-                  filter="brightness(1.2)" // Increased brightness for better display
+                  filter="brightness(1.2)"
                 />
                 <Box
                   position="absolute"
@@ -249,16 +233,16 @@ const Home = () => {
                   bottom={4}
                   left={4}
                   right={4}
-                  spacing={4}
+                  spacing={2}
                   align="start"
-                  p={4}
+                  p={3}
                   bg="rgba(255, 255, 255, 0.1)"
                   backdropFilter="blur(8px)"
                   borderRadius="md"
                   border="1px solid rgba(255, 255, 255, 0.2)"
                 >
                   <Text
-                    fontSize={{ base: 'xl', md: '2xl' }}
+                    fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
                     fontWeight="bold"
                     color="white"
                     textShadow="0 0 5px rgba(0, 0, 0, 0.5)"
@@ -267,7 +251,7 @@ const Home = () => {
                     {card.title}
                   </Text>
                   <Text
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontSize={{ base: 'xs', md: 'sm', lg: 'md' }}
                     fontWeight="light"
                     color="gray.100"
                     textShadow="0 0 5px rgba(0, 0, 0, 0.5)"

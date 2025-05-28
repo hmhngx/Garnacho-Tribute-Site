@@ -50,33 +50,6 @@ const CareerHistory = () => {
       overflowX="hidden"
       position="relative"
     >
-      {/* Navigation Bar */}
-      <Box
-        bg="rgba(0, 0, 0, 0.5)"
-        py={3}
-        px={{ base: 6, md: 12 }}
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        zIndex={10}
-        borderBottom="1px solid rgba(255, 255, 255, 0.1)"
-      >
-        <HStack justify="space-between" color="white">
-          <Text fontSize="xl" fontWeight="bold">🏟️</Text>
-          <HStack spacing={6}>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Club</Text>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Teams</Text>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Awards</Text>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Bio</Text>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Stats</Text>
-          </HStack>
-          <HStack spacing={4}>
-            <Text>🔍</Text>
-            <Text _hover={{ color: 'whiteAlpha.900', transform: 'scale(1.05)' }} transition="all 0.3s">Sign In</Text>
-          </HStack>
-        </HStack>
-      </Box>
 
       <Container maxW="100vw" width="100%" position="relative" zIndex={1} p={0} mt={{ base: 16, md: 20 }}>
         <Flex
