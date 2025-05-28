@@ -8,17 +8,15 @@ import {
   Tag,
   HStack,
   VStack,
-  SimpleGrid,
   Flex,
   Badge,
   Icon,
   Button,
   Collapse,
   useDisclosure,
-  Tooltip,
 } from '@chakra-ui/react';
-import { ChevronDownIcon, ChevronUpIcon, ArrowRightIcon, ExternalLinkIcon } from '@chakra-ui/icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLinkIcon, ChevronDownIcon, ChevronUpIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 
 const MotionBox = motion(Box);
@@ -31,7 +29,7 @@ const player = {
   age: 21,
   height: '180 CM',
   weight: '70 KG',
-  image: '/src/assets/nobg2.png',
+  image: '/src/assets/nobg6.png',
   seasonStats: {
     appearances: { total: 30, sub: 5 },
     goals: 8,
@@ -42,117 +40,238 @@ const player = {
   },
   preferredPositions: ['LW', 'RW'],
   form: [
-    { opponent: 'Arsenal', date: '2025-05-15', rating: 7.2, minutes: 90, result: 'W 2-1', color: '#00FF00' },
-    { opponent: 'Chelsea', date: '2025-05-10', rating: 6.5, minutes: 75, result: 'D 1-1', color: '#FF4500' },
-    { opponent: 'Liverpool', date: '2025-05-05', rating: 5.8, minutes: 60, result: 'L 0-2', color: '#FF0000' },
-    { opponent: 'Tottenham', date: '2025-04-30', rating: 7.8, minutes: 85, result: 'W 3-1', color: '#00FF00' },
-    { opponent: 'Man City', date: '2025-04-25', rating: 6.9, minutes: 70, result: 'D 2-2', color: '#FF4500' },
+    { opponent: 'Aston Villa', date: '2023-12-27', rating: 8.4, clubLogo: '/src/assets/clubs/aston.png' },
+    { opponent: 'Chelsea', date: '2024-04-05', rating: 8.5, clubLogo: '/src/assets/clubs/chelsea.png' },
+    { opponent: 'Leicester', date: '2024-10-31', rating: 8.6, clubLogo: '/src/assets/clubs/leicester.png' },
+    { opponent: 'West Ham', date: '2024-02-04', rating: 8.9, clubLogo: '/src/assets/clubs/westham.png' },
+    { opponent: 'Barnsley', date: '2024-09-18', rating: 9.8, clubLogo: '/src/assets/clubs/barnsley.png' },
   ],
 };
 
-const gradientBg = 'linear-gradient(135deg, #1A1A40 0%, #2C1B47 100%)';
-const cardBg = 'rgba(255, 255, 255, 0.03)';
+const gradientBg = 'linear-gradient(135deg, #1A1A40 0%, #2C1B47 100%), radial-gradient(circle at 20% 20%, rgba(255, 69, 0, 0.1) 0%, transparent 70%)';
+const cardBg = 'rgba(255, 255, 255, 0.02)';
 const neonGreen = '#00FF00';
 const neonRed = '#FF3C3C';
+const neonYellow = '#FFFF00';
+const neonOrange = '#FF4500';
+const neonPurple = '#BF00FF';
+const gray300 = '#BBBBBB';
+const gray200 = '#AAAAAA';
+const neonAqua = '#00ffff';
+const neonBlue = '#0040ff';
 
 const Stats = () => {
-  const { isOpen: isPositionMapOpen, onToggle: togglePositionMap } = useDisclosure();
   const averageRating = player.form.reduce((sum, match) => sum + match.rating, 0) / player.form.length;
+
+  const getRatingColor = (rating) => {
+    if (rating > 9.0) return neonBlue;
+    if (rating > 8.0) return neonAqua;
+    if (rating > 7.5) return neonGreen;
+    if (rating >= 6.5) return neonYellow;
+    return neonRed;
+  };
+
+  // Disclosure hooks for each box
+  const bioStatsDisclosure = useDisclosure();
+  const seasonStatsDisclosure = useDisclosure();
+  const positionsDisclosure = useDisclosure();
+  const performanceDisclosure = useDisclosure();
+  const liveStatsDisclosure = useDisclosure();
 
   return (
     <Box
       minH="100vh"
       bg={gradientBg}
-      py={{ base: 12, md: 20 }}
+      py={6}
       px={{ base: 4, md: 8 }}
       w="100vw"
       minW="100vw"
       overflowX="hidden"
       position="relative"
+      filter="drop-shadow(0 0 20px rgba(255, 69, 0, 0.2))"
     >
-      {/* Background Gradient Accent */}
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        right="0"
-        bottom="0"
-        zIndex={-1}
-        bg="radial-gradient(circle, rgba(255,69,0,0.1) 0%, rgba(0,0,0,0) 70%)"
-      />
-
-      <Container maxW="100vw" width="100%" position="relative" zIndex={1} p={0} mt={{ base: 12, md: 16 }}>
+      <Container maxW="100vw" width="100%" position="relative" zIndex={1} p={0}>
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          gap={{ base: 6, md: 10 }}
+          gap={{ base: 6, md: 8 }}
           w="full"
-          maxW="100%"
-          alignItems="center"
+          alignItems="flex-start"
         >
-          {/* Left Section: Player Image & Basic Bio */}
+          {/* Left Section: Player Identity */}
           <MotionBox
+            w={{ base: '100%', md: '1fr' }}
+            mb={{ base: 6, md: 0 }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            w={{ base: '100%', md: '40%' }}
-            textAlign="center"
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <VStack spacing={4} align="center">
-              {/* Player Name */}
-              <Heading
-                fontSize={{ base: '2xl', md: '3xl' }}
-                fontWeight="extrabold"
-                color="white"
-                fontFamily="sans-serif"
-                lineHeight={1}
-                textShadow="0 0 5px rgba(255, 255, 255, 0.5)"
-              >
-                {player.name}
-              </Heading>
-
-              {/* Player Image */}
-              <Box
-                position="relative"
-                w="full"
-                h={{ base: '250px', md: '350px' }}
-                background="radial-gradient(circle at center, rgba(255,255,255,0.1), transparent)"
-                filter="drop-shadow(0 0 15px rgba(255, 255, 255, 0.1))"
-              >
-                <Image
-                  src={player.image}
-                  alt={player.name}
-                  boxSize={{ base: '200px', md: '300px' }}
-                  objectFit="contain"
+            <VStack spacing={6} align="left">
+              {/* Player Image with Jersey Number Overlay */}
+              <Box position="relative" w="full" h={{ base: '450px', md: '605px' }}>
+                {/* Background Spotlight Effect */}
+                <Box
                   position="absolute"
                   top="50%"
                   left="50%"
-                  transform="translate(-50%, -50%) rotate(-5deg)"
-                  zIndex={2}
-                  filter="drop-shadow(0 0 20px rgba(255, 69, 0, 0.3))"
-                  _hover={{ transform: 'translate(-50%, -50%) rotate(-5deg) scale(1.05)', transition: 'all 0.3s' }}
+                  transform="translate(-50%, -50%)"
+                  w={{ base: '200px', md: '300px' }}
+                  h={{ base: '200px', md: '300px' }}
+                  bg="radial-gradient(circle, rgba(255, 60, 60, 0.15) 0%, transparent 70%)"
+                  borderRadius="full"
+                  zIndex={1}
                 />
+                {/* Jersey Number */}
+                <Box
+                  position="absolute"
+                  top={{ base: '20px', md: '40px' }}
+                  left={{ base: '200px', md: '300px' }}
+                  fontSize={{ base: '80px', md: '100px' }}
+                  fontWeight={900}
+                  color={neonRed}
+                  opacity={0.25}
+                  textShadow="0 0 20px #FF4500, 0 0 10px #FF4500"
+                  zIndex={0}
+                >
+                  #{player.jersey}
+                </Box>
+                <MotionBox
+                  position="absolute"
+                  bottom="0"
+                  left="0"
+                  whileHover={{ scale: 1.05, filter: 'drop-shadow(0 0 30px rgba(255, 69, 0, 0.5))' }}
+                  transition={{ duration: 0.4 }}
+                  zIndex={2}
+                >
+                  <Image
+                    src={player.image}
+                    alt={player.name}
+                    boxSize={{ base: '300px', md: '527px' }}
+                    objectFit="contain"
+                    filter="drop-shadow(0 0 15px rgba(255, 69, 0, 0.3))"
+                  />
+                </MotionBox>
               </Box>
 
-              {/* Bio Details */}
-              <HStack
-                spacing={4}
-                justify="center"
-                color="white"
-                textShadow="0 0 5px rgba(255, 255, 255, 0.5)"
-                fontSize={{ base: 'sm', md: 'sm' }}
-              >
-                <Text>
-                  <strong style={{ color: 'white', fontWeight: '700' }}>AGE:</strong> {player.age}
-                </Text>
-                <Text>
-                  <strong style={{ color: 'white', fontWeight: '700' }}>HEIGHT:</strong> {player.height}
-                </Text>
-                <Text>
-                  <strong style={{ color: 'white', fontWeight: '700' }}>WEIGHT:</strong> {player.weight}
-                </Text>
+              {/* Player Info Text */}
+              <HStack spacing={3} align="center">
+                <MotionBox
+                  whileHover={{ scale: 1.1, color: neonPurple, textShadow: '0 0 10px #BF00FF' }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Heading
+                    fontSize={{ base: '32px', md: '36px' }}
+                    fontWeight={800}
+                    color="white"
+                    fontFamily="'Poppins', sans-serif"
+                    textTransform="uppercase"
+                    letterSpacing="1px"
+                    textShadow="0 1px 2px rgba(255, 255, 255, 0.1)"
+                  >
+                    {player.name}
+                  </Heading>
+                </MotionBox>
+                <Image
+                  src="/src/assets/argentina.png"
+                  alt="Argentina Flag"
+                  boxSize={{ base: '24px', md: '24px' }}
+                  objectFit="contain"
+                  alignSelf="center"
+                />
               </HStack>
+              <Text
+                fontSize={{ base: '14px', md: '14px' }}
+                fontWeight={500}
+                color={gray300}
+                letterSpacing="1px"
+                mt={{ base: '-10px', md: '-10px' }}
+              >
+                {player.position}
+              </Text>
 
-              {/* Full Bio Button */}
+              {/* Bio Stats Panel */}
+              <MotionBox
+                bg={cardBg}
+                borderRadius="16px"
+                boxShadow="0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 69, 0, 0.1)"
+                p={{ base: 4, md: 6 }}
+                w="full"
+                whileHover={{ scale: 1.03, boxShadow: '0 0 25px rgba(255, 69, 0, 0.3)' }}
+                transition={{ duration: 0.3 }}
+                backdropFilter="blur(10px)"
+              >
+                <HStack
+                  justify="space-between"
+                  align="center"
+                  onClick={bioStatsDisclosure.onToggle}
+                  cursor="pointer"
+                  mb={bioStatsDisclosure.isOpen ? 4 : 0}
+                >
+                  <Text
+                    fontSize="16px"
+                    fontWeight={700}
+                    color="white"
+                    textTransform="uppercase"
+                    textShadow="0 0 5px rgba(255, 255, 255, 0.3)"
+                  >
+                    Bio Stats
+                  </Text>
+                  <Icon
+                    as={bioStatsDisclosure.isOpen ? ChevronUpIcon : ChevronDownIcon}
+                    color="white"
+                    boxSize={6}
+                    transition="transform 0.3s ease"
+                    transform={bioStatsDisclosure.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
+                  />
+                </HStack>
+                <Collapse in={bioStatsDisclosure.isOpen} animateOpacity>
+                  <Flex
+                    bg="#0A0A0A"
+                    color="white"
+                    justify="space-between"
+                    align="center"
+                    px={{ base: 4, md: 6 }}
+                    py={{ base: 2, md: 3 }}
+                    flexDirection={{ base: 'column', md: 'row' }}
+                    gap={{ base: 4, md: 0 }}
+                    borderRadius="12px"
+                  >
+                    {[
+                      { value: player.age, unit: "YR" },
+                      { value: parseInt(player.height.split(' ')[0]), unit: "CM" },
+                      { value: parseInt(player.weight.split(' ')[0]), unit: "KG" },
+                    ].map((stat, index) => (
+                      <MotionBox
+                        key={index}
+                        textAlign="center"
+                        px={{ base: 2, md: 4 }}
+                        borderRight={index < 2 ? "1px solid rgba(255,255,255,0.1)" : "none"}
+                        whileHover={{ scale: 1.1, color: neonOrange, textShadow: '0 0 15px #FF4500' }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Text
+                          fontSize={{ base: '20px', md: '24px' }}
+                          fontWeight="bold"
+                          letterSpacing="1px"
+                          textTransform="uppercase"
+                          fontFamily="'Poppins', sans-serif"
+                        >
+                          {stat.value}
+                        </Text>
+                        <Text
+                          fontSize={{ base: '12px', md: '14px' }}
+                          opacity={0.7}
+                          letterSpacing="1.5px"
+                          textTransform="uppercase"
+                          fontFamily="'Poppins', sans-serif"
+                        >
+                          {stat.unit}
+                        </Text>
+                      </MotionBox>
+                    ))}
+                  </Flex>
+                </Collapse>
+              </MotionBox>
+
               <Button
                 as={RouterLink}
                 to="/bio"
@@ -161,231 +280,319 @@ const Stats = () => {
                 border="2px solid #FF3C3C"
                 color="#FF3C3C"
                 borderRadius="50px"
-                padding="6px 16px"
-                transition="0.3s ease"
-                _hover={{ backgroundColor: '#FF3C3C', color: '#ffffff' }}
+                padding="6px 18px"
+                textTransform="uppercase"
+                fontWeight={600}
+                letterSpacing="1px"
+                fontFamily="'Poppins', sans-serif"
+                rightIcon={<ArrowForwardIcon />}
+                whileHover={{ scale: 1.05, backgroundColor: '#FF3C3C', color: '#FFFFFF' }}
+                transition={{ duration: 0.3 }}
+                _hover={{ backgroundColor: '#FF3C3C', color: 'white', transform: 'translateY(-2px)' }}
               >
                 Full Bio
               </Button>
             </VStack>
           </MotionBox>
 
-          {/* Right Section: Player Info, Stats, Position Map, Iframe */}
-          <VStack spacing={6} align="start" w={{ base: '100%', md: '60%' }}>
-            {/* Player Info */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              w="full"
-            >
-              <Heading
-                fontSize={{ base: '2xl', md: '4xl' }}
-                fontWeight="extrabold"
-                color="white"
-                fontFamily="sans-serif"
-                lineHeight={1}
+          {/* Right Section: Performance Dashboard */}
+          <Box w={{ base: '100%', md: '2fr' }}>
+            <VStack spacing={8} align="stretch">
+              {/* Season Stats Panel */}
+              <MotionBox
+                bg={cardBg}
+                borderRadius="16px"
+                boxShadow="0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 0, 0.1)"
+                p={{ base: 16, md: 24 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 25px rgba(0, 255, 0, 0.3)' }}
+                transition={{ duration: 0.3 }}
+                backdropFilter="blur(10px)"
               >
-                {player.name}
-              </Heading>
-              <HStack spacing={2} mt={2}>
-                <Tag size="sm" bg={cardBg} color="white">{player.position}</Tag>
-                <Text fontSize="sm" color="white">🇦🇷 {player.nationality}</Text>
-              </HStack>
-              <Text fontSize="xl" color="white" fontWeight="bold" mt={1}>#{player.jersey}</Text>
-            </MotionBox>
-
-            {/* Season Stats Box */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              bg={cardBg}
-              borderRadius="12px"
-              p={{ base: 4, md: 6 }}
-              w="full"
-              boxShadow="0 0 15px rgba(0, 0, 0, 0.4)"
-              border="1px solid rgba(255, 255, 255, 0.1)"
-              backdropFilter="blur(10px)"
-              _hover={{ transform: 'translateY(-2px)', transition: 'all 0.3s' }}
-            >
-              <Text fontSize="xl" fontWeight="700" color="white" mb={2}>
-                Season Stats
-              </Text>
-              <VStack spacing={3} align="start">
-                <StatRow label="Appearances" value={`${player.seasonStats.appearances.total} (${player.seasonStats.appearances.sub})`} color={neonGreen} />
-                <StatRow label="Goals" value={player.seasonStats.goals} color={neonRed} />
-                <StatRow label="Assists" value={player.seasonStats.assists} color={neonGreen} />
-                <StatRow label="Shots per game" value={player.seasonStats.shotsPerGame} color={neonRed} />
-                <StatRow label="Dribbles per game" value={player.seasonStats.dribblesPerGame} color={neonGreen} />
-                <StatRow label="Pass Accuracy" value={`${player.seasonStats.passAccuracy}%`} color={neonRed} />
-              </VStack>
-            </MotionBox>
-
-            {/* Position Map */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              bg={cardBg}
-              borderRadius="12px"
-              p={{ base: 4, md: 6 }}
-              w="full"
-              boxShadow="0 0 15px rgba(0, 0, 0, 0.4)"
-              border="1px solid rgba(255, 255, 255, 0.1)"
-              backdropFilter="blur(10px)"
-              _hover={{ transform: 'translateY(-2px)', transition: 'all 0.3s' }}
-            >
-              <HStack justify="space-between" mb={2}>
-                <Text fontSize="xl" fontWeight="700" color="white">
-                  Position Map
-                </Text>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  color="white"
-                  onClick={togglePositionMap}
-                  rightIcon={
-                    <MotionBox
-                      animate={{ rotate: isPositionMapOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {isPositionMapOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                    </MotionBox>
-                  }
+                <HStack
+                  justify="space-between"
+                  align="center"
+                  onClick={seasonStatsDisclosure.onToggle}
+                  cursor="pointer"
+                  mb={seasonStatsDisclosure.isOpen ? 4 : 0}
                 >
-                  {isPositionMapOpen ? 'Hide' : 'Show'}
-                </Button>
-              </HStack>
-              <AnimatePresence>
-                {isPositionMapOpen && (
-                  <MotionBox
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
+                  <Text
+                    fontSize="16px"
+                    fontWeight={700}
+                    color="white"
+                    textTransform="uppercase"
+                    textShadow="0 0 5px rgba(255, 255, 255, 0.3)"
                   >
-                    <Box
-                      position="relative"
-                      w="full"
-                      h={{ base: '150px', md: '200px' }}
-                      bg="url('/src/assets/pitch.png') center/cover"
-                      borderRadius="md"
-                      backgroundSize="contain"
-                      backgroundRepeat="no-repeat"
-                      backgroundPosition="center"
-                    >
-                    </Box>
-                  </MotionBox>
-                )}
-              </AnimatePresence>
-            </MotionBox>
+                    Season Stats
+                  </Text>
+                  <Icon
+                    as={seasonStatsDisclosure.isOpen ? ChevronUpIcon : ChevronDownIcon}
+                    color="white"
+                    boxSize={6}
+                    transition="transform 0.3s ease"
+                    transform={seasonStatsDisclosure.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
+                  />
+                </HStack>
+                <Collapse in={seasonStatsDisclosure.isOpen} animateOpacity>
+                  <VStack spacing={3} align="start">
+                    <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 10px #00FF00' }} transition={{ duration: 0.3 }}>
+                      <Text fontSize="15px" fontWeight={500} color={gray200}>Appearances: <Text as="span" fontWeight={600} color="white">{player.seasonStats.appearances.total} ({player.seasonStats.appearances.sub})</Text></Text>
+                    </MotionBox>
+                    <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 10px #00FF00' }} transition={{ duration: 0.3 }}>
+                      <Text fontSize="15px" fontWeight={500} color={gray200}>Goals / Assists: <Text as="span" fontWeight={600} color="white">{player.seasonStats.goals} / {player.seasonStats.assists}</Text></Text>
+                    </MotionBox>
+                    <MotionBox whileHover={{ color: neonRed, textShadow: '0 0 10px #FF3C3C' }} transition={{ duration: 0.3 }}>
+                      <Text fontSize="15px" fontWeight={500} color={gray200}>Shots per game: <Text as="span" fontWeight={600} color={player.seasonStats.shotsPerGame < 3 ? neonRed : gray200}>{player.seasonStats.shotsPerGame}</Text></Text>
+                    </MotionBox>
+                    <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 10px #00FF00' }} transition={{ duration: 0.3 }}>
+                      <Text fontSize="15px" fontWeight={500} color={gray200}>Dribbles per game: <Text as="span" fontWeight={600} color={neonGreen}>{player.seasonStats.dribblesPerGame}</Text></Text>
+                    </MotionBox>
+                    <MotionBox whileHover={{ color: neonRed, textShadow: '0 0 10px #FF3C3C' }} transition={{ duration: 0.3 }}>
+                      <Text fontSize="15px" fontWeight={500} color={gray200}>Pass Accuracy: <Text as="span" fontWeight={600} color={player.seasonStats.passAccuracy >= 85 ? "white" : neonRed}>{player.seasonStats.passAccuracy}%</Text></Text>
+                    </MotionBox>
+                  </VStack>
+                </Collapse>
+              </MotionBox>
 
-            {/* Live Stats */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.0 }}
-              bg={cardBg}
-              borderRadius="12px"
-              p={{ base: 4, md: 6 }}
-              w="full"
-              boxShadow="0 0 15px rgba(0, 0, 0, 0.4)"
-              border="1px solid rgba(255, 255, 0.1)"
-              backdropFilter="blur(10px)"
-              _hover={{ transform: 'translateY(-2px)', transition: 'all 0.3s' }}
-            >
-              <HStack justify="space-between" mb={2}>
-                <Text fontSize="xl" fontWeight="700" color="white">
-                  Live Stats
-                </Text>
-                <Button
-                  as="a"
-                  href="https://www.sofascore.com/player/alejandro-garnacho/1135873"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="sm"
-                  variant="ghost"
-                  color="white"
-                  _hover={{ color: '#FF3C3C', textDecoration: 'underline' }}
-                  rightIcon={<ExternalLinkIcon />}
+              {/* Playing Positions Map */}
+              <MotionBox
+                bg={cardBg}
+                borderRadius="16px"
+                boxShadow="0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 255, 0.1)"
+                p={{ base: 16, md: 24 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 25px rgba(0, 0, 255, 0.3)' }}
+                transition={{ duration: 0.3 }}
+                backdropFilter="blur(10px)"
+              >
+                <HStack
+                  justify="space-between"
+                  align="center"
+                  onClick={positionsDisclosure.onToggle}
+                  cursor="pointer"
+                  mb={positionsDisclosure.isOpen ? 4 : 0}
                 >
-                  View
-                </Button>
-              </HStack>
-            </MotionBox>
+                  <Text
+                    fontSize="16px"
+                    fontWeight={700}
+                    color="white"
+                    textTransform="uppercase"
+                    textShadow="0 0 5px rgba(255, 255, 255, 0.3)"
+                  >
+                    Playing Positions
+                  </Text>
+                  <Icon
+                    as={positionsDisclosure.isOpen ? ChevronUpIcon : ChevronDownIcon}
+                    color="white"
+                    boxSize={6}
+                    transition="transform 0.3s ease"
+                    transform={positionsDisclosure.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
+                  />
+                </HStack>
+                <Collapse in={positionsDisclosure.isOpen} animateOpacity>
+                  <Box
+                    w="full"
+                    h={{ base: '150px', md: '200px' }}
+                    bg="url('/src/assets/pitch.png') center/contain no-repeat"
+                    position="relative"
+                  >
+                    {player.preferredPositions.map((pos, index) => (
+                      <MotionBox
+                        key={index}
+                        position="absolute"
+                        top={{ LW: '30%', RW: '30%', ST: '50%' }[pos] || '50%'}
+                        left={{ LW: '20%', RW: '80%', ST: '50%' }[pos] || '50%'}
+                        w="20px"
+                        h="20px"
+                        bg={player.preferredPositions.includes(pos) ? neonRed : gray200}
+                        borderRadius="50%"
+                        whileHover={{ scale: 1.2, boxShadow: '0 0 15px #FF3C3C' }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    ))}
+                  </Box>
+                </Collapse>
+              </MotionBox>
 
-            {/* Physical Form Tracking */}
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              bg={cardBg}
-              borderRadius="12px"
-              p={{ base: 4, md: 6 }}
-              w="full"
-              boxShadow="0 0 15px rgba(0, 0, 0, 0.4)"
-              border="1px solid rgba(255, 255, 0.1)"
-              backdropFilter="blur(10px)"
-              _hover={{ transform: 'translateY(-2px)', transition: 'all 0.3s' }}
-            >
-              <Text fontSize="xl" fontWeight="700" color="white" mb={2}>
-                Physical Form Tracking
-              </Text>
-              <HStack spacing={{ base: 2, md: 4 }} overflowX={{ base: 'auto', md: 'visible' }} pb={2} css={{ '&::-webkit-scrollbar': { display: 'none' } }}>
-                {player.form.map((match, index) => (
-                  <Tooltip key={index} label={`Minutes: ${match.minutes}, Result: ${match.result}`} hasArrow>
-                    <MotionBox
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                      position="relative"
-                    >
-                      <VStack spacing={1} minW="80px">
-                        <Text fontSize="xs" color="white" textAlign="center">{match.opponent}</Text>
-                        <Text fontSize="xs" color="gray.400">{match.date}</Text>
-                        <Badge bg={match.color} color="black" borderRadius="full" px={2} py={1}>
-                          {match.rating}
-                        </Badge>
-                      </VStack>
-                      {/* Connecting line for trend */}
-                      {index < player.form.length - 1 && (
+              {/* Physical Form Panel */}
+              <MotionBox
+                bg={cardBg}
+                borderRadius="16px"
+                boxShadow="0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.1)"
+                p={{ base: 16, md: 24 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 25px rgba(255, 165, 0, 0.3)' }}
+                transition={{ duration: 0.3 }}
+                backdropFilter="blur(10px)"
+              >
+                <HStack
+                  justify="space-between"
+                  align="center"
+                  onClick={performanceDisclosure.onToggle}
+                  cursor="pointer"
+                  mb={performanceDisclosure.isOpen ? 4 : 0}
+                >
+                  <Text
+                    fontSize="16px"
+                    fontWeight={700}
+                    color="white"
+                    textTransform="uppercase"
+                    textShadow="0 0 5px rgba(255, 255, 255, 0.3)"
+                  >
+                    Best Performance
+                  </Text>
+                  <Icon
+                    as={performanceDisclosure.isOpen ? ChevronUpIcon : ChevronDownIcon}
+                    color="white"
+                    boxSize={6}
+                    transition="transform 0.3s ease"
+                    transform={performanceDisclosure.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
+                  />
+                </HStack>
+                <Collapse in={performanceDisclosure.isOpen} animateOpacity>
+                  <HStack spacing={4} wrap="wrap" justify="space-between">
+                    {player.form.map((match, index) => (
+                      <MotionBox
+                        key={index}
+                        spacing={1}
+                        align="center"
+                        whileHover={{ scale: 1.1, boxShadow: `0 0 15px ${getRatingColor(match.rating)}` }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <VStack spacing={1}>
+                          <Image
+                            src={match.clubLogo}
+                            alt={`${match.opponent} logo`}
+                            boxSize="24px"
+                            objectFit="contain"
+                            borderRadius="full"
+                            filter="drop-shadow(0 0 5px rgba(255, 255, 255, 0.2))"
+                            _hover={{ filter: 'drop-shadow(0 0 10px #FF4500)' }}
+                          />
+                          <Text fontSize="xs" color={gray200}>{match.date.split('-')[1] + '.' + match.date.split('-')[2]}</Text>
+                          <Badge
+                            bg={getRatingColor(match.rating)}
+                            color="white"
+                            borderRadius="full"
+                            px={2}
+                            py={1}
+                            fontSize="xs"
+                            fontWeight={600}
+                            boxShadow={`0 0 10px ${getRatingColor(match.rating)}`}
+                            _hover={{ boxShadow: `0 0 20px ${getRatingColor(match.rating)}` }}
+                          >
+                            {match.rating}
+                          </Badge>
+                        </VStack>
+                      </MotionBox>
+                    ))}
+                  </HStack>
+                  <Box
+                    position="relative"
+                    h="2px"
+                    bg="transparent"
+                    mt={2}
+                  >
+                    {player.form.map((match, index) => (
+                      index < player.form.length - 1 && (
                         <Box
+                          key={index}
                           position="absolute"
-                          top="50%"
-                          left="100%"
-                          width={`calc(${100 / (player.form.length - 1)}vw * 0.8)`}
+                          top="0"
+                          left={`${(index / (player.form.length - 1)) * 100}%`}
+                          width={`${100 / (player.form.length - 1)}%`}
                           height="2px"
-                          bg={match.color}
-                          transform="translateY(-50%)"
+                          bgGradient={`linear(to-r, ${getRatingColor(match.rating)}, ${getRatingColor(player.form[index + 1].rating)})`}
+                          boxShadow={`0 0 5px ${getRatingColor(match.rating)}`}
                           zIndex={-1}
                         />
-                      )}
-                    </MotionBox>
-                  </Tooltip>
-                ))}
-              </HStack>
-              <Text mt={2} fontSize="sm" color="white">
-                Average Rating: {averageRating.toFixed(1)}
-              </Text>
-            </MotionBox>
-          </VStack>
+                      )
+                    ))}
+                  </Box>
+                  <Text fontSize="sm" color={gray200} mt={2}>
+                    Average Rating: <Text as="span" color={neonOrange} fontWeight={600} textShadow="0 0 10px #FF4500">{averageRating.toFixed(1)}</Text>
+                  </Text>
+                </Collapse>
+              </MotionBox>
+
+              {/* Live Stats */}
+              <MotionBox
+                bg={cardBg}
+                borderRadius="16px"
+                boxShadow="0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 255, 0.1)"
+                p={{ base: 16, md: 24 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 25px rgba(255, 0, 255, 0.3)' }}
+                transition={{ duration: 0.3 }}
+                position="relative"
+                minWidth="300px"
+                maxWidth="100%"
+                backdropFilter="blur(10px)"
+              >
+                <HStack
+                  justify="space-between"
+                  align="center"
+                  onClick={liveStatsDisclosure.onToggle}
+                  cursor="pointer"
+                  mb={liveStatsDisclosure.isOpen ? 4 : 0}
+                >
+                  <Text
+                    fontSize="16px"
+                    fontWeight={700}
+                    color="white"
+                    textTransform="uppercase"
+                    textShadow="0 0 5px rgba(255, 255, 255, 0.3)"
+                  >
+                    Live Stats
+                  </Text>
+                  <Icon
+                    as={liveStatsDisclosure.isOpen ? ChevronUpIcon : ChevronDownIcon}
+                    color="white"
+                    boxSize={6}
+                    transition="transform 0.3s ease"
+                    transform={liveStatsDisclosure.isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}
+                  />
+                </HStack>
+                <Collapse in={liveStatsDisclosure.isOpen} animateOpacity>
+                  <HStack justify="space-between" spacing={6} align="center" w="full">
+                    <Box position="relative" minWidth="250px" maxWidth="250px" height="100px">
+                      <Image
+                        src="/src/assets/stats-icon.png"
+                        alt="Live Stats Icon"
+                        width={{ base: '250px', md: '250px' }}
+                        height={{ base: '120px', md: '120px' }}
+                        objectFit="contain"
+                        position="center"
+                        top="0"
+                        left="0"
+                        filter="drop-shadow(0 0 5px #FF4500)"
+                        _hover={{ filter: 'drop-shadow(0 0 10px #FF4500)' }}
+                      />
+                    </Box>
+                    <Button
+                      as="a"
+                      href="https://www.sofascore.com/player/alejandro-garnacho/1135873"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="lg"
+                      variant="ghost"
+                      color="white"
+                      _hover={{ color: neonPurple, transform: 'translateY(-2px)', textShadow: '0 0 10px #BF00FF' }}
+                      rightIcon={<ExternalLinkIcon />}
+                      transition="all 0.3s ease"
+                      fontWeight={600}
+                      textTransform="uppercase"
+                      padding="8px 20px"
+                      borderRadius="50px"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      View
+                    </Button>
+                  </HStack>
+                </Collapse>
+              </MotionBox>
+            </VStack>
+          </Box>
         </Flex>
       </Container>
     </Box>
   );
 };
-
-const StatRow = ({ label, value, color }) => (
-  <MotionBox
-    whileHover={{ scale: 1.03, x: 5 }}
-    transition={{ duration: 0.3 }}
-    w="full"
-  >
-    <HStack spacing={2}>
-      <strong style={{ color: 'white', fontSize: 'sm' }}>{label}:</strong>
-      <span style={{ color: color, fontSize: 'sm', fontWeight: 'bold' }}>{value}</span>
-    </HStack>
-  </MotionBox>
-);
 
 export default Stats;
