@@ -16,7 +16,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const MotionBox = motion(Box);
 
-const ProductCard = ({ image, title, price, description, badge }) => {
+const ProductCard = ({ image, title, price, description, badge, href }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -97,6 +97,8 @@ const ProductCard = ({ image, title, price, description, badge }) => {
           </Text>
           <Button
             className="shop-btn"
+            as="a"
+            href={href}
             bgGradient="linear(to right, #A12FFF, #FFA723)"
             color="white"
             fontWeight="bold"
@@ -127,43 +129,49 @@ const Merchandise = () => {
       title: "Garnacho Home Jersey",
       price: 89.99,
       description: "Limited edition authentic MUFC kit",
-      image: "/placeholder.jpg",
-      badge: "New"
+      image: "/src/assets/cool.png",
+      badge: "New",
+      href: "https://www.kitbag.com/en/alejandro-garnacho/a-2581410041+z-902965-451765480"
     },
     {
       id: 2,
       title: "Iconic Poster",
       price: 19.99,
-      description: "Celebrate the bicycle kick",
-      image: "/placeholder.jpg"
+      description: "Garnacho aesthetic poster",
+      image: "/src/assets/poster.png",
+      href: "https://www.etsy.com/search?q=garnacho+poster&ref=search_bar&dd_referrer=https%3A%2F%2Fwww.etsy.com%2Flisting%2F1632801929%2Falejandro-garnacho-poster-alejandro"
     },
     {
       id: 3,
       title: "Signature T-Shirt",
       price: 29.99,
       description: "Designed with Garnacho’s autograph",
-      image: "placeholder.jpg"
+      image: "/src/assets/signed.png",
+      href: "https://www.ebay.co.uk/itm/256421464540"
     },
     {
       id: 4,
       title: "Training Kit",
       price: 59.99,
       description: "Official training gear for fans",
-      image: "placeholder.jpg"
+      image: "/src/assets/training.png",
+      href: "https://www.uksoccershop.com/p-374298/2024-2025-man-utd-pre-match-shirt-black-kids-garnacho-17.html"
     },
     {
       id: 5,
       title: "Cap",
       price: 14.99,
       description: "Stylish cap with Garnacho logo",
-      image: "placeholder.jpg"
+      image: "/src/assets/cap.png",
+      href: "https://www.redbubble.com/shop?query=garnacho%20cap&ref=search_box"
     },
     {
       id: 6,
       title: "Mug",
       price: 9.99,
       description: "Collectible mug with player design",
-      image: "placeholder.jpg"
+      image: "/src/assets/mug.png",
+      href: "https://mustshop.org/products/Alejandro-Garnacho-Mug.html?fullSite=1"
     },
   ];
 
@@ -231,7 +239,7 @@ const Merchandise = () => {
           <Button
             className="shop-btn"
             as="a"
-            href="#products"
+            href="https://www.ebay.com/sch/i.html?_nkw=garnacho+merch&_sacat=0&_from=R40&_trksid=p2334524.m570.l1313&_odkw=garnacho&_osacat=0"
             bgGradient="linear(to right, #A12FFF, #FFA723)"
             color="white"
             fontWeight="bold"
