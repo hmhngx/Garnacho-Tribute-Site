@@ -394,20 +394,6 @@ const Stats = () => {
                     bg="url('/src/assets/pitch.png') center/contain no-repeat"
                     position="relative"
                   >
-                    {player.preferredPositions.map((pos, index) => (
-                      <MotionBox
-                        key={index}
-                        position="absolute"
-                        top={{ LW: '30%', RW: '30%', ST: '50%' }[pos] || '50%'}
-                        left={{ LW: '20%', RW: '80%', ST: '50%' }[pos] || '50%'}
-                        w="20px"
-                        h="20px"
-                        bg={player.preferredPositions.includes(pos) ? neonRed : gray200}
-                        borderRadius="50%"
-                        whileHover={{ scale: 1.2, boxShadow: '0 0 15px #FF3C3C' }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    ))}
                   </Box>
                 </Collapse>
               </MotionBox>
