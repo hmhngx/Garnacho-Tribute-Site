@@ -33,13 +33,11 @@ const Footer = () => {
           © 2025 Garnacho Tribute. All rights reserved
         </Text>
         <Stack direction="row" spacing={8}>
-          <Icon
-            as={FaTwitter}
-            boxSize={6}
-            color="#FFFFFF"
-            border="1px solid #FFFFFF"
-            borderRadius="full"
-            p={1}
+          <Box
+            as="a"
+            href="https://twitter.com/agarnacho7"
+            target="_blank"
+            rel="noopener noreferrer"
             _hover={{
               color: '#FF3C3C',
               borderColor: '#FF3C3C',
@@ -47,14 +45,21 @@ const Footer = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-          />
-          <Icon
-            as={FaInstagram}
-            boxSize={6}
-            color="#FFFFFF"
-            border="1px solid #FFFFFF"
-            borderRadius="full"
-            p={1}
+          >
+            <Icon
+              as={FaTwitter}
+              boxSize={6}
+              color="#FFFFFF"
+              border="1px solid #FFFFFF"
+              borderRadius="full"
+              p={1}
+            />
+          </Box>
+          <Box
+            as="a"
+            href="https://instagram.com/garnacho7"
+            target="_blank"
+            rel="noopener noreferrer"
             _hover={{
               color: '#FF3C3C',
               borderColor: '#FF3C3C',
@@ -62,14 +67,21 @@ const Footer = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-          />
-          <Icon
-            as={FaFacebook}
-            boxSize={6}
-            color="#FFFFFF"
-            border="1px solid #FFFFFF"
-            borderRadius="full"
-            p={1}
+          >
+            <Icon
+              as={FaInstagram}
+              boxSize={6}
+              color="#FFFFFF"
+              border="1px solid #FFFFFF"
+              borderRadius="full"
+              p={1}
+            />
+          </Box>
+          <Box
+            as="a"
+            href="https://www.facebook.com/AlejandroGarnachoOfficial/"
+            target="_blank"
+            rel="noopener noreferrer"
             _hover={{
               color: '#FF3C3C',
               borderColor: '#FF3C3C',
@@ -77,7 +89,16 @@ const Footer = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-          />
+          >
+            <Icon
+              as={FaFacebook}
+              boxSize={6}
+              color="#FFFFFF"
+              border="1px solid #FFFFFF"
+              borderRadius="full"
+              p={1}
+            />
+          </Box>
         </Stack>
       </Container>
     </Box>
