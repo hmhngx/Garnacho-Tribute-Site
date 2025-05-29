@@ -27,8 +27,8 @@ const Navbar = () => {
   return (
     <Box
       bg="#0A0A0A"
-      px={{ base: 4, md: 8 }}
-      py={5} // 20px vertical padding
+      px={{ base: 2, md: 2 }} // Reduced horizontal padding
+      py={3} // Reduced vertical padding from 5 (20px) to 3 (12px)
       position="fixed"
       w="100%"
       zIndex={999}
@@ -39,7 +39,7 @@ const Navbar = () => {
         {/* Left: Menu */}
         <Stack
           direction="row"
-          spacing={10} // Wide spacing
+          spacing={4} // Reduced spacing from 10 to 4
           display={{ base: 'none', md: 'flex' }}
           alignItems="center"
         >
@@ -50,7 +50,7 @@ const Navbar = () => {
             fontWeight="bold"
             color="#FFFFFF"
             textTransform="uppercase"
-            letterSpacing="2px"
+            letterSpacing="1px" // Reduced from 2px to 1px for compactness
             fontFamily="sans-serif"
             _hover={{
               color: '#FF3C3C',
@@ -58,7 +58,7 @@ const Navbar = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-            _active={{ bg: '#FF3C3C', px: 4, borderRadius: 'full' }}
+            _active={{ bg: '#FF3C3C', px: 3, borderRadius: 'full' }} // Reduced px from 4 to 3
           >
             Bio
           </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
             fontWeight="bold"
             color="#FFFFFF"
             textTransform="uppercase"
-            letterSpacing="2px"
+            letterSpacing="1px"
             fontFamily="sans-serif"
             _hover={{
               color: '#FF3C3C',
@@ -77,7 +77,7 @@ const Navbar = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-            _active={{ bg: '#FF3C3C', px: 4, borderRadius: 'full' }}
+            _active={{ bg: '#FF3C3C', px: 3, borderRadius: 'full' }}
           >
             Stats
           </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
             fontWeight="bold"
             color="#FFFFFF"
             textTransform="uppercase"
-            letterSpacing="2px"
+            letterSpacing="1px"
             fontFamily="sans-serif"
             _hover={{
               color: '#FF3C3C',
@@ -96,7 +96,7 @@ const Navbar = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-            _active={{ bg: '#FF3C3C', px: 4, borderRadius: 'full' }}
+            _active={{ bg: '#FF3C3C', px: 3, borderRadius: 'full' }}
           >
             Career History
           </Link>
@@ -107,7 +107,7 @@ const Navbar = () => {
             fontWeight="bold"
             color="#FFFFFF"
             textTransform="uppercase"
-            letterSpacing="2px"
+            letterSpacing="1px"
             fontFamily="sans-serif"
             _hover={{
               color: '#FF3C3C',
@@ -115,7 +115,7 @@ const Navbar = () => {
               boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
               transition: 'all 0.3s',
             }}
-            _active={{ bg: '#FF3C3C', px: 4, borderRadius: 'full' }}
+            _active={{ bg: '#FF3C3C', px: 3, borderRadius: 'full' }}
           >
             Goals
           </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
                 fontWeight="bold"
                 color="#FFFFFF"
                 textTransform="uppercase"
-                letterSpacing="2px"
+                letterSpacing="1px"
                 fontFamily="sans-serif"
                 _hover={{
                   color: '#FF3C3C',
@@ -146,8 +146,8 @@ const Navbar = () => {
             <AnimatePresence>
               {isDropdownOpen && (
                 <PopoverContent
-                  p={4}
-                  w="200px"
+                  p={2} // Reduced from 4 to 2
+                  w="150px" // Reduced from 200px to 150px
                   bg="#0A0A0A"
                   border="1px solid rgba(255, 255, 255, 0.1)"
                   boxShadow="0 4px 12px rgba(0, 0, 0, 0.5)"
@@ -157,15 +157,15 @@ const Navbar = () => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <VStack align="start">
+                  <VStack align="start" spacing={2}> {/* Reduced spacing from 4 to 2 */}
                     <Link
                       as={RouterLink}
                       to="/merchandise"
-                      fontSize="sm"
+                      fontSize="xs" // Reduced from sm to xs
                       fontWeight="bold"
                       color="#FFFFFF"
                       textTransform="uppercase"
-                      letterSpacing="2px"
+                      letterSpacing="1px"
                       fontFamily="sans-serif"
                       _hover={{
                         color: '#FF3C3C',
@@ -178,11 +178,11 @@ const Navbar = () => {
                     <Link
                       as={RouterLink}
                       to="/gallery"
-                      fontSize="sm"
+                      fontSize="xs"
                       fontWeight="bold"
                       color="#FFFFFF"
                       textTransform="uppercase"
-                      letterSpacing="2px"
+                      letterSpacing="1px"
                       fontFamily="sans-serif"
                       _hover={{
                         color: '#FF3C3C',
@@ -195,11 +195,11 @@ const Navbar = () => {
                     <Link
                       as={RouterLink}
                       to="/gracias-garnacho"
-                      fontSize="sm"
+                      fontSize="xs"
                       fontWeight="bold"
                       color="#FFFFFF"
                       textTransform="uppercase"
-                      letterSpacing="2px"
+                      letterSpacing="1px"
                       fontFamily="sans-serif"
                       _hover={{
                         color: '#FF3C3C',
@@ -222,7 +222,7 @@ const Navbar = () => {
             <Image
               src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
               alt="Manchester United Logo"
-              boxSize={{ base: '40px', md: '50px' }}
+              boxSize={{ base: '30px', md: '40px' }} // Reduced from 40px/50px to 30px/40px
               objectFit="contain"
               _hover={{ transform: 'scale(1.1)', transition: 'all 0.3s' }}
             />
@@ -231,7 +231,7 @@ const Navbar = () => {
 
         {/* Right: Icons */}
         <Flex alignItems="center">
-          <Stack direction="row" spacing={6} display={{ base: 'none', md: 'flex' }}>
+          <Stack direction="row" spacing={4} display={{ base: 'none', md: 'flex' }}> {/* Reduced spacing from 6 to 4 */}
             <IconButton
               as={RouterLink}
               to="/#cards"
@@ -248,6 +248,7 @@ const Navbar = () => {
                 transition: 'all 0.3s',
               }}
               aria-label="Scroll to Cards"
+              size="sm" // Reduced size
             />
           </Stack>
 
@@ -255,7 +256,7 @@ const Navbar = () => {
           <Flex display={{ base: 'flex', md: 'none' }}>
             <IconButton
               onClick={onToggle}
-              icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+              icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={4} h={4} />} // Reduced icon size
               variant="ghost"
               color="#FFFFFF"
               border="1px solid #FFFFFF"
@@ -268,6 +269,7 @@ const Navbar = () => {
                 transition: 'all 0.3s',
               }}
               aria-label="Toggle Navigation"
+              size="sm" // Reduced size
             />
           </Flex>
         </Flex>
@@ -275,8 +277,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <Collapse in={isOpen} animateOpacity>
-        <Box pb={4} display={{ md: 'none' }}>
-          <Stack as="nav" spacing={4}>
+        <Box pb={3} display={{ md: 'none' }}> {/* Reduced pb from 4 to 3 */}
+          <Stack as="nav" spacing={3}> {/* Reduced spacing from 4 to 3 */}
             <Link
               as={RouterLink}
               to="/bio"
@@ -284,7 +286,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -297,7 +299,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -310,7 +312,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -323,7 +325,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -336,7 +338,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -349,7 +351,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
@@ -362,7 +364,7 @@ const Navbar = () => {
               fontWeight="bold"
               color="#FFFFFF"
               textTransform="uppercase"
-              letterSpacing="2px"
+              letterSpacing="1px"
               fontFamily="sans-serif"
               _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
             >
