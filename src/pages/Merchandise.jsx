@@ -1,48 +1,122 @@
 import {
   Box,
-  Container,
   Heading,
   Text,
   SimpleGrid,
   Image,
   Button,
-  useColorModeValue,
   VStack,
   HStack,
   Badge,
-  Input,
-  Textarea,
+  Icon,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+
+const MotionBox = motion(Box);
 
 const ProductCard = ({ image, title, price, description, badge }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <Box
-      borderWidth="1px"
-      borderRadius="lg"
+    <MotionBox
+      className="card"
+      bg="#1e133a"
+      borderRadius="12px"
       overflow="hidden"
-      bg={useColorModeValue('white', 'gray.800')}
+      boxShadow={isHovered ? '0 6px 30px rgba(255, 255, 255, 0.15)' : '0 4px 20px rgba(255, 255, 255, 0.05)'}
+      transition="transform 0.3s ease, box-shadow 0.3s ease"
+      whileHover={{ y: -5 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      p={2}
+      w="100%"
     >
-      <Image src={image} alt={title} h="300px" w="100%" objectFit="cover" />
-      <Box p={6}>
+      <MotionBox>
+        <Image
+          src={image}
+          alt={title}
+          h="200px"
+          w="100%"
+          objectFit="cover"
+          borderRadius="10px"
+          transition="transform 0.3s ease"
+          _hover={{ transform: 'scale(1.05)' }}
+        />
+      </MotionBox>
+      <Box p={3}>
         {badge && (
-          <Badge borderRadius="full" px="2" colorScheme="red" mb={2}>
+          <Badge
+            borderRadius="full"
+            px="1"
+            colorScheme="red"
+            mb={1}
+            boxShadow={isHovered ? '0 0 10px rgba(255, 69, 0, 0.5)' : 'none'}
+            transition="box-shadow 0.3s"
+            fontSize="xs"
+          >
             {badge}
           </Badge>
         )}
-        <Heading size="md" mb={2}>
+        <Heading
+          className="card-title"
+          size="sm"
+          mb={1}
+          textTransform="uppercase"
+          letterSpacing="1px"
+          fontWeight={700}
+          fontFamily="'Poppins', sans-serif"
+          fontSize="18px"
+          color="white"
+          bgGradient="linear(to-r, white, #FFA723)"
+          bgClip="text"
+          textShadow={isHovered ? '0 0 5px rgba(255, 69, 0, 0.3)' : 'none'}
+          transition="text-shadow 0.3s"
+        >
           {title}
         </Heading>
-        <Text color={useColorModeValue('gray.600', 'gray.400')} mb={4}>
+        <Text
+          color="gray.400"
+          mb={2}
+          fontSize="12px"
+          fontFamily="'Poppins', sans-serif"
+          fontWeight={400}
+        >
           {description}
         </Text>
-        <HStack justify="space-between">
-          <Text fontWeight="bold" fontSize="xl">
+        <HStack justify="space-between" align="center">
+          <Text
+            fontWeight="bold"
+            fontSize="lg"
+            color="#f4364c"
+            textShadow={isHovered ? '0 0 5px rgba(244, 54, 76, 0.5)' : 'none'}
+            transition="text-shadow 0.3s"
+          >
             ${price}
           </Text>
-          <Button colorScheme="red">Add to Cart</Button>
+          <Button
+            className="shop-btn"
+            bgGradient="linear(to right, #A12FFF, #FFA723)"
+            color="white"
+            fontWeight="bold"
+            borderRadius="6px"
+            size="sm"
+            rightIcon={<Icon as={ArrowForwardIcon} />}
+            _hover={{
+              bgGradient: 'linear(to right, #FFA723, #A12FFF)',
+              boxShadow: '0 0 15px rgba(255, 69, 0, 0.7)',
+              transform: 'scale(1.05)',
+            }}
+            transition="all 0.3s"
+            px={3}
+            py={1}
+          >
+            Add to Cart
+          </Button>
         </HStack>
       </Box>
-    </Box>
+    </MotionBox>
   );
 };
 
@@ -52,71 +126,169 @@ const Merchandise = () => {
       id: 1,
       title: "Garnacho Home Jersey",
       price: 89.99,
-      description: "Official Manchester United home jersey with Garnacho's name and number",
+      description: "Limited edition authentic MUFC kit",
       image: "/placeholder.jpg",
       badge: "New"
     },
     {
       id: 2,
-      title: "Garnacho Poster",
+      title: "Iconic Poster",
       price: 19.99,
-      description: "High-quality poster featuring Garnacho's iconic celebration",
+      description: "Celebrate the bicycle kick",
       image: "/placeholder.jpg"
     },
     {
       id: 3,
-      title: "Garnacho T-Shirt",
+      title: "Signature T-Shirt",
       price: 29.99,
-      description: "Casual t-shirt with Garnacho's signature",
-      image: "/placeholder.jpg"
+      description: "Designed with Garnacho’s autograph",
+      image: "placeholder.jpg"
     },
-    // Add more products here
+    {
+      id: 4,
+      title: "Training Kit",
+      price: 59.99,
+      description: "Official training gear for fans",
+      image: "placeholder.jpg"
+    },
+    {
+      id: 5,
+      title: "Cap",
+      price: 14.99,
+      description: "Stylish cap with Garnacho logo",
+      image: "placeholder.jpg"
+    },
+    {
+      id: 6,
+      title: "Mug",
+      price: 9.99,
+      description: "Collectible mug with player design",
+      image: "placeholder.jpg"
+    },
   ];
 
   return (
-    <Box>
+    <Box
+      bg="linear-gradient(180deg, #1a0f2e 0%, #2b0c44 100%)"
+      w="100vw"
+      minW="100vw"
+      minH="100vh"
+      overflowX="hidden"
+      py={6}
+      px={{ base: 2, md: 8 }}
+    >
+      {/* Twinkling Dot Particles */}
+      {[...Array(20)].map((_, i) => (
+        <Box
+          key={i}
+          position="absolute"
+          w="2px"
+          h="2px"
+          bg="white"
+          opacity={0.3}
+          top={`${Math.random() * 100}%`}
+          left={`${Math.random() * 100}%`}
+          animation="twinkle 2s infinite alternate"
+          _before={{
+            content: '""',
+            position: 'absolute',
+            w: '4px',
+            h: '4px',
+            bg: 'white',
+            opacity: 0.1,
+            borderRadius: '50%',
+          }}
+        />
+      ))}
+
       {/* Header Section */}
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} py={20}>
-        <Container maxW="100vw" width="100%">
-          <VStack spacing={8} align={'center'} textAlign={'center'}>
-            <Heading fontSize={'4xl'}>Official Merchandise</Heading>
-            <Text fontSize={'xl'} color={useColorModeValue('gray.600', 'gray.400')}>
-              Show your support with exclusive Garnacho merchandise
-            </Text>
-          </VStack>
-        </Container>
+      <Box w="100%">
+        <VStack spacing={4} align="center" textAlign="center" w="100%" mt={7}>
+          <HStack spacing={2}>
+            <Box as="span" fontSize="2xl" color="orange.400">🔥</Box>
+            <Heading
+              fontSize={{ base: '32px', md: '48px' }}
+              textTransform="uppercase"
+              letterSpacing="2px"
+              fontWeight={800}
+              fontFamily="'Poppins', sans-serif"
+              color="white"
+              bgGradient="linear(to-r, white, #FFA723)"
+              bgClip="text"
+              textShadow="0 0 10px #FFA723"
+            >
+              Official Garnacho Collection
+            </Heading>
+          </HStack>
+          <Text
+            fontSize={{ base: '14px', md: '20px' }}
+            color="gray.300"
+            fontFamily="'Poppins', sans-serif"
+            maxW="600px"
+          >
+            Support the rising star with official merchandise
+          </Text>
+          <Button
+            className="shop-btn"
+            as="a"
+            href="#products"
+            bgGradient="linear(to right, #A12FFF, #FFA723)"
+            color="white"
+            fontWeight="bold"
+            borderRadius="6px"
+            rightIcon={<Icon as={ArrowForwardIcon} />}
+            _hover={{
+              bgGradient: 'linear(to right, #FFA723, #A12FFF)',
+              boxShadow: '0 0 15px rgba(255, 69, 0, 0.7)',
+              transform: 'scale(1.05)',
+            }}
+            transition="all 0.3s"
+            px={6}
+            py={2}
+          >
+            Shop Now
+          </Button>
+        </VStack>
       </Box>
-
       {/* Products Grid */}
-      <Box py={20}>
-        <Container maxW="100vw" width="100%">
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
-            {products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </SimpleGrid>
-        </Container>
+      <Box py={6} id="products" w="100%">
+        <SimpleGrid
+          className="product-grid"
+          columns={{ base: 1, md: 2, lg: 3 }}
+          spacing={4}
+          maxW="100vw"
+          w="100%"
+          mx="auto"
+        >
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </SimpleGrid>
       </Box>
 
-      {/* Contact Form */}
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} py={20}>
-        <Container maxW="100vw" width="100%">
-          <VStack spacing={8} align={'center'}>
-            <Heading>Contact Us</Heading>
-            <Text>Have questions about our merchandise? Get in touch!</Text>
-            <VStack spacing={4} w="100%" maxW="500px">
-              <Input placeholder="Your Name" />
-              <Input placeholder="Your Email" />
-              <Textarea placeholder="Your Message" />
-              <Button colorScheme="red" w="100%">
-                Send Message
-              </Button>
-            </VStack>
-          </VStack>
-        </Container>
-      </Box>
+      <style>
+        {`
+          @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 0.7; }
+          }
+          @media (max-width: 768px) {
+            .product-grid {
+              display: flex;
+              flex-direction: column;
+              gap: 24px;
+            }
+            .chakra-heading {
+              font-size: 24px;
+            }
+            .chakra-text {
+              font-size: 14px;
+            }
+          }
+        `}
+      </style>
     </Box>
   );
 };
 
-export default Merchandise; 
+export default Merchandise;
