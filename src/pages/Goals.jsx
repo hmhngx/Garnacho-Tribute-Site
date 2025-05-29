@@ -132,7 +132,7 @@ const Goals = () => {
     'Europa League': europaLeagueLogo,
   };
 
-  // Mock match outcomes for each goal (since actual data isn't provided)
+  // Mock match outcomes for each goal
   const matchOutcomes = {
     1: "W 1–0", 2: "W 2–1", 3: "D 1–1", 4: "W 3–1", 5: "W 2–0", 6: "L 1–2",
     7: "W 2–1", 8: "D 2–2", 9: "W 3–2", 10: "W 3–2", 11: "L 1–2", 12: "L 1–2",
@@ -579,7 +579,7 @@ const Goals = () => {
               >
                 <span
                   style={{
-                    background: "linear-gradient(90deg,rgb(221, 0, 0),rgb(255, 255, 255))",
+                    background: "linear-gradient(90deg,rgb(163, 51, 51),rgb(255, 255, 255))",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     fontWeight: "900",
@@ -592,7 +592,7 @@ const Goals = () => {
             <Text
               fontFamily="'Oswald', sans-serif"
               fontSize={{ base: '20px', md: '20px' }}
-              fontWeight="800"
+              fontWeight="700"
               color="#D00000"
               letterSpacing="wider"
               textTransform="uppercase"
@@ -737,7 +737,7 @@ const Goals = () => {
                 <Text
                   fontFamily="'Inter', sans-serif"
                   fontSize="14px"
-                  fontWeight="600"
+                  fontWeight="700"
                   color="#D00000"
                   mb={3}
                 >
@@ -865,113 +865,137 @@ const Goals = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <ModalCloseButton size="sm" />
+            <ModalCloseButton
+              bg="black"
+              color="white"
+              borderRadius="full"
+              size="sm"
+              _hover={{
+                bg: "#ff3c3c",
+                boxShadow: "0 0 10px #ff3c3c",
+                transform: "scale(1.1)",
+              }}
+              w="32px"
+              h="32px"
+              p={2}
+              top={2}
+              right={2}
+            />
             <ModalBody py={4}>
-              <VStack spacing={4} align="stretch">
-                <Box position="relative">
-                  <Box
-                    position="absolute"
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                    width="80%"
-                    height="80%"
-                    boxShadow="0 0 60px rgba(180, 0, 0, 0.4)"
-                    borderRadius="full"
-                    zIndex={1}
-                  />
-                  <Image
-                    src={selectedGoal?.image}
-                    alt={selectedGoal?.title}
-                    maxH="240px"
-                    mx="auto"
-                    objectFit="contain"
-                    filter="drop-shadow(0 10px 25px rgba(255, 0, 0, 0.4))"
-                    zIndex={2}
-                    position="relative"
-                  />
-                </Box>
-                <Box>
-                  <Text
-                    fontFamily="'Oswald', sans-serif"
-                    fontSize="lg"
-                    fontWeight="extrabold"
-                    textTransform="uppercase"
-                    letterSpacing="1px"
-                    mt={2}
-                  >
-                    {selectedGoal?.title}
-                  </Text>
-                  <Text fontSize="sm" color="gray.500">
-                    <strong style={{ color: "#D00000" }}>{selectedGoal?.date}</strong> • {selectedGoal?.venue}
-                  </Text>
-                  <HStack spacing={2} mt={3}>
-                    <Badge
-                      bg="#B80000"
-                      color="white"
-                      px={3}
-                      py={1}
+              <MotionBox
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <VStack spacing={4} align="stretch">
+                  <Box position="relative">
+                    <Box
+                      position="absolute"
+                      top="50%"
+                      left="50%"
+                      transform="translate(-50%, -50%)"
+                      width="90%"
+                      height="90%"
+                      bgGradient="linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(208, 0, 0, 0.1))"
+                      filter="blur(1px)"
+                      boxShadow="0 0 80px rgba(255, 0, 0, 0.3)"
                       borderRadius="full"
-                      fontSize="xs"
-                      transition="all 0.3s ease"
-                      _hover={{ transform: "scale(1.05)", bg: "#A00000" }}
+                      zIndex={1}
+                    />
+                    <Image
+                      src={selectedGoal?.image}
+                      alt={selectedGoal?.title}
+                      maxH="240px"
+                      mx="auto"
+                      objectFit="contain"
+                      filter="drop-shadow(0 10px 25px rgba(255, 0, 0, 0.4))"
+                      zIndex={2}
+                      position="relative"
+                    />
+                  </Box>
+                  <Box>
+                    <Text
+                      fontFamily="'Oswald', sans-serif"
+                      fontSize="lg"
+                      fontWeight="extrabold"
+                      textTransform="uppercase"
+                      letterSpacing="1px"
+                      mt={2}
                     >
-                      {selectedGoal?.competition}
-                    </Badge>
-                    <Badge
-                      bg="gray.800"
-                      color="gray.200"
-                      px={3}
-                      py={1}
-                      borderRadius="full"
-                      fontSize="xs"
-                      transition="all 0.3s ease"
-                      _hover={{ transform: "scale(1.05)", bg: "gray.700" }}
-                    >
-                      {selectedGoal?.venue}
-                    </Badge>
-                  </HStack>
-                  <Text mt={4} fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
-                    {selectedGoal?.description}
-                  </Text>
-                  <HStack spacing={3} mt={2} fontSize="xs" color="gray.600">
-                    <AnimatePresence>
-                      <MotionText
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <strong style={{ color: "#D00000", fontWeight: "bold", textShadow: "1px 1px #000" }}>
-                          Goal #{goalNumber}
-                        </strong>
-                      </MotionText>
-                    </AnimatePresence>
-                    <Text>
-                      🕒 Minute: <strong style={{ color: "#D00000" }}>{selectedGoal?.minute}</strong>
+                      {selectedGoal?.title}
                     </Text>
-                    <Badge
-                      bg="#770000"
-                      color="white"
-                      px={2}
-                      py={1}
-                      borderRadius="full"
-                      fontSize="xs"
-                      transition="all 0.3s ease"
-                      _hover={{ transform: "scale(1.05)", bg: "#5A0000" }}
-                    >
-                      🥅 {selectedGoal?.type}
-                    </Badge>
-                    {selectedGoal?.assist !== "N/A" && (
-                      <Text>
-                        👟 Assist: <strong style={{ color: "#D00000" }}>{selectedGoal?.assist.toUpperCase()}</strong>
+                    <Text fontSize="sm" color="gray.500">
+                      <strong style={{ color: "#D00000" }}>{selectedGoal?.date}</strong> • <Text as="span" color="#800000" fontWeight="600">🏟️ {selectedGoal?.venue}</Text>
+                    </Text>
+                    <HStack spacing={2} mt={3}>
+                      <Badge
+                        bg="#B80000"
+                        color="white"
+                        px={3}
+                        py={1}
+                        borderRadius="full"
+                        fontSize="xs"
+                        transition="all 0.3s ease"
+                        _hover={{ transform: "scale(1.05)", bg: "#A00000" }}
+                      >
+                        {selectedGoal?.competition}
+                      </Badge>
+                      <Badge
+                        bg="gray.800"
+                        color="gray.200"
+                        px={3}
+                        py={1}
+                        borderRadius="full"
+                        fontSize="xs"
+                        transition="all 0.3s ease"
+                        _hover={{ transform: "scale(1.05)", bg: "gray.700" }}
+                      >
+                        {selectedGoal?.venue}
+                      </Badge>
+                    </HStack>
+                    <Text mt={4} fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
+                      {selectedGoal?.description}
+                    </Text>
+                    <HStack spacing={3} mt={2} fontSize="xs" color="gray.600">
+                      <AnimatePresence>
+                        <MotionText
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <strong style={{ color: "#D00000", fontWeight: "bold", textShadow: "1px 1px #000", fontFamily: "'Rajdhani', sans-serif", letterSpacing: "0.5px" }}>
+                            Goal #{goalNumber}
+                          </strong>
+                        </MotionText>
+                      </AnimatePresence>
+                      <Text fontFamily="'Rajdhani', sans-serif" letterSpacing="0.5px">
+                        🕒 Minute: <strong style={{ color: "#D00000" }}>{selectedGoal?.minute}</strong>
                       </Text>
-                    )}
-                  </HStack>
-                  <Text fontSize="xs" color="gray.600" mt={2}>
-                    ⚽ Match Result: <strong>{matchOutcomes[selectedGoal?.id]}</strong>
-                  </Text>
-                </Box>
-              </VStack>
+                      <Badge
+                        bg="#770000"
+                        color="white"
+                        px={2}
+                        py={1}
+                        borderRadius="full"
+                        fontSize="xs"
+                        boxShadow="0 2px 6px rgba(0, 0, 0, 0.15)"
+                        transition="all 0.3s ease"
+                        _hover={{ transform: "scale(1.05)", bg: "#5A0000" }}
+                      >
+                        ⚽ {selectedGoal?.type}
+                      </Badge>
+                      {selectedGoal?.assist !== "N/A" && (
+                        <Text>
+                          👟 Assist: <strong style={{ color: "#D00000" }}>{selectedGoal?.assist.toUpperCase()}</strong>
+                        </Text>
+                      )}
+                    </HStack>
+                    <Text fontSize="xs" color="gray.600" mt={2}>
+                      ⚽ Match Result: <strong>{matchOutcomes[selectedGoal?.id]}</strong>
+                    </Text>
+                  </Box>
+                </VStack>
+              </MotionBox>
             </ModalBody>
           </MotionModalContent>
         </ScaleFade>
