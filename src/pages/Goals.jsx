@@ -345,7 +345,6 @@ const Goals = () => {
       competition: "Competition here",
       venue: "Venue here",
     },
-    // Add more goals as needed
   ];
 
   const handleGoalClick = (goal) => {
