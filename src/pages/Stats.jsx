@@ -66,48 +66,66 @@ const Stats = () => {
     if (rating > 9.0) return neonBlue;
     if (rating > 8.0) return neonAqua;
     if (rating > 7.5) return neonGreen;
-    if (rating >= 6.5) return neonYellow;
+    if (rating > 6.5) return neonYellow;
     return neonRed;
   };
 
   return (
     <Box
-      minH="auto"
+      minH="100vh"
       bg={gradientBg}
-      py={4}
-      px={{ base: 2, md: 4 }}
+      py={{ base: '1vh', sm: '1.5vh', md: '2vh', lg: '2.5vh' }}
+      px={0}
       w="100vw"
       minW="100vw"
+      maxW="100vw"
       overflowX="hidden"
       position="relative"
       filter="drop-shadow(0 0 15px rgba(255, 69, 0, 0.15))"
     >
-      <Container maxW="100vw" width="100%" position="relative" zIndex={1} p={0}>
+      <Container
+        maxW="100%"
+        width="100%"
+        position="relative"
+        zIndex={1}
+        p={0}
+        m={0}
+        h="100%"
+      >
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          gap={{ base: 4, md: 6 }}
-          w="full"
-          alignItems="flex-start"
+          gap={{ base: '1vh', sm: '1.5vh', md: '2vh', lg: '2.5vh' }}
+          w="100%"
+          maxW="100%"
+          h="100%"
+          minH="0"
+          alignItems="stretch"
+          px={{ base: '2vw', sm: '3vw', md: '4vw', lg: '5vw' }}
         >
           {/* Left Section: Player Identity */}
           <MotionBox
             w={{ base: '100%', md: '1fr' }}
-            mb={{ base: 4, md: 0 }}
+            mb={{ base: '1vh', md: 0 }}
+            h="100%"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <VStack spacing={4} align="left">
+            <VStack spacing={{ base: '1vh', sm: '1.5vh', md: '2vh' }} align="left" h="100%">
               {/* Player Image with Jersey Number Overlay */}
-              <Box position="relative" w="full" h={{ base: '300px', md: '400px' }}>
+              <Box
+                position="relative"
+                w="100%"
+                h={{ base: '25vh', sm: '30vh', md: '35vh', lg: '40vh' }}
+              >
                 {/* Background Spotlight Effect */}
                 <Box
                   position="absolute"
                   top="50%"
                   left="50%"
                   transform="translate(-50%, -50%)"
-                  w={{ base: '150px', md: '200px' }}
-                  h={{ base: '150px', md: '200px' }}
+                  w={{ base: '20vw', sm: '18vw', md: '15vw', lg: '12vw' }}
+                  h={{ base: '20vw', sm: '18vw', md: '15vw', lg: '12vw' }}
                   bg="radial-gradient(circle, rgba(255, 60, 60, 0.15) 0%, transparent 70%)"
                   borderRadius="full"
                   zIndex={1}
@@ -115,9 +133,9 @@ const Stats = () => {
                 {/* Jersey Number */}
                 <Box
                   position="absolute"
-                  top={{ base: '10px', md: '20px' }}
-                  left={{ base: '150px', md: '200px' }}
-                  fontSize={{ base: '60px', md: '80px' }}
+                  top={{ base: '1vh', md: '2vh' }}
+                  left={{ base: '25vw', sm: '20vw', md: '18vw', lg: '15vw' }}
+                  fontSize={{ base: '8vw', sm: '7vw', md: '6vw', lg: '5vw' }}
                   fontWeight={900}
                   color={neonRed}
                   opacity={0.25}
@@ -136,7 +154,7 @@ const Stats = () => {
                   <Image
                     src={player.image}
                     alt={player.name}
-                    boxSize={{ base: '200px', md: '350px' }}
+                    boxSize={{ base: '25vw', sm: '22vw', md: '20vw', lg: '18vw' }}
                     objectFit="contain"
                     filter="drop-shadow(0 0 10px rgba(255, 69, 0, 0.3))"
                     _hover={{ filter: 'drop-shadow(0 0 20px rgba(255, 69, 0, 0.7))' }}
@@ -146,17 +164,17 @@ const Stats = () => {
               </Box>
 
               {/* Player Info Text */}
-              <HStack spacing={2} align="center">
+              <HStack spacing={{ base: '0.5vw', md: '1vw' }} align="center">
                 <MotionBox
                   whileHover={{ scale: 1.1, color: neonPurple, textShadow: '0 0 8px #BF00FF' }}
                 >
                   <Heading
-                    fontSize={{ base: '24px', md: '28px' }}
+                    fontSize={{ base: '4vw', sm: '3.5vw', md: '3vw', lg: '2.5vw' }}
                     fontWeight={800}
                     color="white"
                     fontFamily="'Poppins', sans-serif"
                     textTransform="uppercase"
-                    letterSpacing="1px"
+                    letterSpacing={{ base: '0.05vw', md: '0.1vw' }}
                     textShadow="0 1px 2px rgba(255, 255, 255, 0.1)"
                   >
                     {player.name}
@@ -165,17 +183,17 @@ const Stats = () => {
                 <Image
                   src="/src/assets/argentina.png"
                   alt="Argentina Flag"
-                  boxSize={{ base: '20px', md: '20px' }}
+                  boxSize={{ base: '3vw', sm: '2.5vw', md: '2vw' }}
                   objectFit="contain"
                   alignSelf="center"
                 />
               </HStack>
               <Text
-                fontSize={{ base: '12px', md: '12px' }}
+                fontSize={{ base: '2vw', sm: '1.8vw', md: '1.5vw' }}
                 fontWeight={500}
                 color={gray300}
-                letterSpacing="1px"
-                mt={{ base: '-8px', md: '-8px' }}
+                letterSpacing={{ base: '0.05vw', md: '0.1vw' }}
+                mt={{ base: '-1vh', md: '-0.8vh' }}
               >
                 {player.position}
               </Text>
@@ -183,20 +201,20 @@ const Stats = () => {
               {/* Bio Stats Panel */}
               <MotionBox
                 bg={cardBg}
-                borderRadius="12px"
+                borderRadius={{ base: '1vw', md: '1.2vw' }}
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 69, 0, 0.1)"
-                p={{ base: 3, md: 4 }}
-                w="full"
+                p={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
+                w="100%"
                 whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(255, 69, 0, 0.7)' }}
                 backdropFilter="blur(10px)"
               >
                 <Text
-                  fontSize="14px"
+                  fontSize={{ base: '2.2vw', sm: '2vw', md: '1.8vw' }}
                   fontWeight={700}
                   color="white"
                   textTransform="uppercase"
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
-                  mb={3}
+                  mb={{ base: '0.5vh', md: '1vh' }}
                 >
                   Bio Stats
                 </Text>
@@ -204,11 +222,11 @@ const Stats = () => {
                   color="white"
                   justify="space-between"
                   align="center"
-                  px={{ base: 3, md: 4 }}
-                  py={{ base: 1, md: 2 }}
+                  px={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
+                  py={{ base: '0.5vh', md: '1vh' }}
                   flexDirection={{ base: 'column', md: 'row' }}
-                  gap={{ base: 3, md: 0 }}
-                  borderRadius="8px"
+                  gap={{ base: '1vh', md: 0 }}
+                  borderRadius="0.8vw"
                 >
                   {[
                     { value: player.age, unit: "YR" },
@@ -218,23 +236,23 @@ const Stats = () => {
                     <MotionBox
                       key={index}
                       textAlign="center"
-                      px={{ base: 1, md: 3 }}
+                      px={{ base: '0.5vw', md: '1vw' }}
                       borderRight={index < 2 ? "1px solid rgba(255,255,255,0.1)" : "none"}
                       whileHover={{ scale: 1.1, color: neonOrange, textShadow: '0 0 12px #FF4500' }}
                     >
                       <Text
-                        fontSize={{ base: '16px', md: '18px' }}
+                        fontSize={{ base: '3vw', sm: '2.5vw', md: '2vw', lg: '1.8vw' }}
                         fontWeight="bold"
-                        letterSpacing="1px"
+                        letterSpacing="0.1vw"
                         textTransform="uppercase"
                         fontFamily="'Poppins', sans-serif"
                       >
                         {stat.value}
                       </Text>
                       <Text
-                        fontSize={{ base: '10px', md: '12px' }}
+                        fontSize={{ base: '1.5vw', sm: '1.2vw', md: '1vw' }}
                         opacity={0.7}
-                        letterSpacing="1.5px"
+                        letterSpacing="0.15vw"
                         textTransform="uppercase"
                         fontFamily="'Poppins', sans-serif"
                       >
@@ -253,13 +271,13 @@ const Stats = () => {
                 border="1px solid #FF3C3C"
                 color="#FF3C3C"
                 borderRadius="50px"
-                padding="4px 12px"
+                padding={{ base: '0.5vw 1.5vw', md: '0.8vw 2vw' }}
                 textTransform="uppercase"
                 fontWeight={600}
-                letterSpacing="1px"
+                letterSpacing="0.1vw"
                 fontFamily="'Poppins', sans-serif"
-                fontSize="12px"
-                rightIcon={<ArrowForwardIcon boxSize={3} />}
+                fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }}
+                rightIcon={<ArrowForwardIcon boxSize={{ base: '2vw', sm: '1.5vw', md: '1vw' }} />}
                 _hover={{ backgroundColor: '#FF3C3C', color: 'white', transform: 'translateY(-2px)' }}
               >
                 Full Bio
@@ -268,44 +286,54 @@ const Stats = () => {
           </MotionBox>
 
           {/* Right Section: Performance Dashboard */}
-          <Box w={{ base: '100%', md: '2fr' }}>
-            <VStack spacing={4} align="stretch">
+          <Box w={{ base: '100%', md: '2fr' }} h="100%">
+            <VStack spacing={{ base: '1vh', sm: '1.5vh', md: '2vh' }} align="stretch" h="100%">
               {/* Season Stats Panel */}
               <MotionBox
                 bg={cardBg}
-                borderRadius="12px"
+                borderRadius={{ base: '1vw', md: '1.2vw' }}
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 0, 0.1)"
-                p={{ base: 3, md: 4 }}
-                w="full" // Ensure full width
-                minHeight="auto" // Allow content to dictate height
+                p={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
+                w="100%"
+                minHeight="auto"
                 whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(0, 255, 0, 0.7)' }}
                 backdropFilter="blur(10px)"
               >
                 <Text
-                  fontSize="14px"
+                  fontSize={{ base: '2.2vw', sm: '2vw', md: '1.8vw' }}
                   fontWeight={700}
                   color="white"
                   textTransform="uppercase"
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
-                  mb={3}
+                  mb={{ base: '0.5vh', md: '1vh' }}
                 >
                   Season Stats
                 </Text>
-                <SimpleGrid columns={{ base: 2, md: 3 }} spacing={2} w="100%">
+                <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={{ base: '0.5vh', md: '1vh' }} w="100%">
                   <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 8px #00FF00' }}>
-                    <Text fontSize="12px" fontWeight={500} color={gray200}>Appearances: <Text as="span" fontWeight={600} color="white">{player.seasonStats.appearances.total} ({player.seasonStats.appearances.sub})</Text></Text>
+                    <Text fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }} fontWeight={500} color={gray200}>
+                      Appearances: <Text as="span" fontWeight={600} color="white">{player.seasonStats.appearances.total} ({player.seasonStats.appearances.sub})</Text>
+                    </Text>
                   </MotionBox>
                   <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 8px #00FF00' }}>
-                    <Text fontSize="12px" fontWeight={500} color={gray200}>Goals / Assists: <Text as="span" fontWeight={600} color="white">{player.seasonStats.goals} / {player.seasonStats.assists}</Text></Text>
+                    <Text fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }} fontWeight={500} color={gray200}>
+                      Goals / Assists: <Text as="span" fontWeight={600} color="white">{player.seasonStats.goals} / {player.seasonStats.assists}</Text>
+                    </Text>
                   </MotionBox>
                   <MotionBox whileHover={{ color: neonRed, textShadow: '0 0 8px #FF3C3C' }}>
-                    <Text fontSize="12px" fontWeight={500} color={gray200}>Shots/Game: <Text as="span" fontWeight={600} color={player.seasonStats.shotsPerGame < 3 ? neonRed : gray200}>{player.seasonStats.shotsPerGame}</Text></Text>
+                    <Text fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }} fontWeight={500} color={gray200}>
+                      Shots/Game: <Text as="span" fontWeight={600} color={player.seasonStats.shotsPerGame < 3 ? neonRed : gray200}>{player.seasonStats.shotsPerGame}</Text>
+                    </Text>
                   </MotionBox>
                   <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 8px #00FF00' }}>
-                    <Text fontSize="12px" fontWeight={500} color={gray200}>Dribbles/Game: <Text as="span" fontWeight={600} color={neonGreen}>{player.seasonStats.dribblesPerGame}</Text></Text>
+                    <Text fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }} fontWeight={500} color={gray200}>
+                      Dribbles/Game: <Text as="span" fontWeight={600} color={neonGreen}>{player.seasonStats.dribblesPerGame}</Text>
+                    </Text>
                   </MotionBox>
                   <MotionBox whileHover={{ color: neonRed, textShadow: '0 0 8px #FF3C3C' }}>
-                    <Text fontSize="12px" fontWeight={500} color={gray200}>Pass Acc.: <Text as="span" fontWeight={600} color={player.seasonStats.passAccuracy >= 85 ? "white" : neonRed}>{player.seasonStats.passAccuracy}%</Text></Text>
+                    <Text fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }} fontWeight={500} color={gray200}>
+                      Pass Acc.: <Text as="span" fontWeight={600} color={player.seasonStats.passAccuracy >= 85 ? "white" : neonRed}>{player.seasonStats.passAccuracy}%</Text>
+                    </Text>
                   </MotionBox>
                 </SimpleGrid>
               </MotionBox>
@@ -313,25 +341,25 @@ const Stats = () => {
               {/* Playing Positions Map */}
               <MotionBox
                 bg={cardBg}
-                borderRadius="12px"
+                borderRadius={{ base: '1vw', md: '1.2vw' }}
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 255, 0.1)"
-                p={{ base: 3, md: 4 }}
+                p={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
                 whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(0, 0, 255, 0.7)' }}
                 backdropFilter="blur(10px)"
               >
                 <Text
-                  fontSize="14px"
+                  fontSize={{ base: '2.2vw', sm: '2vw', md: '1.8vw' }}
                   fontWeight={700}
                   color="white"
                   textTransform="uppercase"
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
-                  mb={3}
+                  mb={{ base: '0.5vh', md: '1vh' }}
                 >
                   Playing Positions
                 </Text>
                 <Box
-                  w="full"
-                  h={{ base: '100px', md: '120px' }}
+                  w="100%"
+                  h={{ base: '10vh', sm: '12vh', md: '14vh', lg: '16vh' }}
                   bg="url('/src/assets/pitch.png') center/contain no-repeat"
                   position="relative"
                 />
@@ -340,48 +368,50 @@ const Stats = () => {
               {/* Best Performance Panel */}
               <MotionBox
                 bg={cardBg}
-                borderRadius="12px"
+                borderRadius={{ base: '1vw', md: '1.2vw' }}
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 165, 0, 0.1)"
-                p={{ base: 3, md: 4 }}
+                p={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
                 whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(255, 165, 0, 0.7)' }}
                 backdropFilter="blur(10px)"
               >
                 <Text
-                  fontSize="14px"
+                  fontSize={{ base: '2.2vw', sm: '2vw', md: '1.8vw' }}
                   fontWeight={700}
                   color="white"
                   textTransform="uppercase"
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
-                  mb={3}
+                  mb={{ base: '0.5vh', md: '1vh' }}
                 >
                   Best Performance
                 </Text>
-                <HStack spacing={3} wrap="wrap" justify="space-between">
+                <HStack spacing={{ base: '0.5vw', md: '1vw' }} wrap="wrap" justify="space-between">
                   {player.form.map((match, index) => (
                     <MotionBox
                       key={index}
-                      spacing={1}
+                      spacing={{ base: '0.2vh', md: '0.5vh' }}
                       align="center"
                       whileHover={{ scale: 1.1, boxShadow: `0 0 12px ${getRatingColor(match.rating)}` }}
                     >
-                      <VStack spacing={1}>
+                      <VStack spacing={{ base: '0.2vh', md: '0.5vh' }}>
                         <Image
                           src={match.clubLogo}
                           alt={`${match.opponent} logo`}
-                          boxSize="20px"
+                          boxSize={{ base: '3vw', sm: '2.5vw', md: '2vw' }}
                           objectFit="contain"
                           borderRadius="full"
                           filter="drop-shadow(0 0 4px rgba(255, 255, 255, 0.2))"
                           _hover={{ filter: `drop-shadow(0 0 8px ${getRatingColor(match.rating)})` }}
                         />
-                        <Text fontSize="10px" color={gray200}>{match.date.split('-')[1] + '.' + match.date.split('-')[2]}</Text>
+                        <Text fontSize={{ base: '1.5vw', sm: '1.2vw', md: '1vw' }} color={gray200}>
+                          {match.date.split('-')[1] + '.' + match.date.split('-')[2]}
+                        </Text>
                         <Badge
                           bg={getRatingColor(match.rating)}
                           color="white"
                           borderRadius="full"
-                          px={1.5}
-                          py={0.5}
-                          fontSize="10px"
+                          px={{ base: '0.5vw', md: '0.8vw' }}
+                          py={{ base: '0.2vh', md: '0.3vh' }}
+                          fontSize={{ base: '1.5vw', sm: '1.2vw', md: '1vw' }}
                           fontWeight={600}
                           boxShadow={`0 0 8px ${getRatingColor(match.rating)}`}
                           _hover={{ boxShadow: `0 0 15px ${getRatingColor(match.rating)}` }}
@@ -396,7 +426,7 @@ const Stats = () => {
                   position="relative"
                   h="1px"
                   bg="transparent"
-                  mt={1.5}
+                  mt={{ base: '0.5vh', md: '1vh' }}
                 >
                   {player.form.map((match, index) => (
                     index < player.form.length - 1 && (
@@ -414,7 +444,7 @@ const Stats = () => {
                     )
                   ))}
                 </Box>
-                <Text fontSize="11px" color={gray200} mt={1.5}>
+                <Text fontSize={{ base: '1.6vw', sm: '1.3vw', md: '1.1vw' }} color={gray200} mt={{ base: '0.5vh', md: '1vh' }}>
                   Average Rating: <Text as="span" color={neonOrange} fontWeight={600} textShadow="0 0 8px #FF4500">{averageRating.toFixed(1)}</Text>
                 </Text>
               </MotionBox>
@@ -422,32 +452,37 @@ const Stats = () => {
               {/* Live Stats */}
               <MotionBox
                 bg={cardBg}
-                borderRadius="12px"
+                borderRadius={{ base: '1vw', md: '1.2vw' }}
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 255, 0.1)"
-                p={{ base: 3, md: 4 }}
+                p={{ base: '1vw', sm: '1.5vw', md: '2vw' }}
                 whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(255, 0, 255, 0.7)' }}
                 position="relative"
-                minWidth="250px"
+                minWidth={{ base: '40vw', sm: '35vw', md: '30vw' }}
                 maxWidth="100%"
                 backdropFilter="blur(10px)"
               >
                 <Text
-                  fontSize="14px"
+                  fontSize={{ base: '2.2vw', sm: '2vw', md: '1.8vw' }}
                   fontWeight={700}
                   color="white"
                   textTransform="uppercase"
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
-                  mb={3}
+                  mb={{ base: '0.5vh', md: '1vh' }}
                 >
                   Live Stats
                 </Text>
-                <HStack justify="space-between" spacing={4} align="center" w="full">
-                  <Box position="relative" minWidth="150px" maxWidth="150px" height="80px">
+                <HStack justify="space-between" spacing={{ base: '1vw', md: '2vw' }} align="center" w="100%">
+                  <Box
+                    position="relative"
+                    minWidth={{ base: '25vw', sm: '20vw', md: '15vw' }}
+                    maxWidth={{ base: '25vw', sm: '20vw', md: '15vw' }}
+                    height={{ base: '10vh', sm: '12vh', md: '14vh' }}
+                  >
                     <Image
                       src="/src/assets/stats-icon.png"
                       alt="Live Stats Icon"
-                      width={{ base: '150px', md: '150px' }}
-                      height={{ base: '80px', md: '80px' }}
+                      width={{ base: '25vw', sm: '20vw', md: '15vw' }}
+                      height={{ base: '10vh', sm: '12vh', md: '14vh' }}
                       objectFit="contain"
                       position="center"
                       top="0"
@@ -465,12 +500,12 @@ const Stats = () => {
                     variant="ghost"
                     color="white"
                     _hover={{ color: neonPurple, transform: 'translateY(-2px)', textShadow: '0 0 8px #BF00FF' }}
-                    rightIcon={<ExternalLinkIcon boxSize={3} />}
+                    rightIcon={<ExternalLinkIcon boxSize={{ base: '2vw', sm: '1.5vw', md: '1vw' }} />}
                     fontWeight={600}
                     textTransform="uppercase"
-                    padding="4px 12px"
+                    padding={{ base: '0.5vw 1.5vw', md: '0.8vw 2vw' }}
                     borderRadius="50px"
-                    fontSize="12px"
+                    fontSize={{ base: '1.8vw', sm: '1.5vw', md: '1.2vw' }}
                   >
                     View
                   </Button>
