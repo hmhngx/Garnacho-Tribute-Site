@@ -175,7 +175,7 @@ const Goals = () => {
       title: "GOAL VS LEEDS",
       date: "February 12, 2023",
       opponent: "Leeds United",
-      description: "A well-placed header to open the scoring.",
+      description: "A well made finish to seal the win.",
       image: goal3Img,
       competition: "Premier League",
       venue: "Elland Road",
