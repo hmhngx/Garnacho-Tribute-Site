@@ -271,7 +271,7 @@ const Home = () => {
             <HStack spacing={4} mt={6}>
               <Button
                 as={RouterLink}
-                to="/goals"
+                to="/gallery"
                 size="lg"
                 bg="#D32F2F"
                 color="white"
@@ -284,7 +284,7 @@ const Home = () => {
                   boxShadow: '0 0 20px rgba(211, 47, 47, 0.8)',
                 }}
               >
-                Watch Highlights
+                Garnacho's Remarks
               </Button>
               <IconButton
                 aria-label={isAudioPlaying ? 'Play Audio' : 'Mute Audio'}
