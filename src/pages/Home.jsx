@@ -200,10 +200,10 @@ const Home = () => {
           alt="Alejandro Garnacho"
           position="absolute"
           zIndex={2}
-          width={{ base: '250px', md: '350px', lg: '380px', xl: '600px' }}
+          width={{ base: '250px', md: '350px', lg: '415px', xl: '600px' }}
           maxW="50%"
           bottom={{ base: '10%', md: '15%', lg: '0%' }}
-          right={{ base: '5%', md: '5%', lg: '5%', xl: '37%' }}
+          right={{ base: '5%', md: '5%', lg: '12%', xl: '37%' }}
           objectFit="contain"
           filter="brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))"
           initial={{ opacity: 0, scale: 0.8 }}
