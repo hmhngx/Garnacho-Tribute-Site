@@ -326,13 +326,14 @@ const Home = () => {
                 position="relative"
                 overflow="hidden"
                 borderRadius="xl"
-                boxShadow="0 0 15px rgba(211, 47, 47, 0.3)"
+                boxShadow="0 0 15px rgba(211, 47, 47, 0.3), 0 0 20px #D32F2F"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 0 25px rgba(211, 47, 47, 0.6)',
+                  scale: 1.1,
+                  boxShadow: '0 0 15px rgba(211, 47, 47, 0.6), 0 0 30px #D32F2F',
+                  transition: { duration: 0.3 }
                 }}
               >
                 <Image
