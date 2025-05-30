@@ -9,14 +9,39 @@ import {
   HStack,
   Icon,
   VStack,
+  Flex,
+  IconButton,
 } from '@chakra-ui/react';
-import { FaPlay, FaBookOpen } from 'react-icons/fa';
+import { FaPlay, FaBookOpen, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 
 const MotionBox = motion(Box);
+const MotionImage = motion(Image);
 
 const Home = () => {
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  const toggleAudio = () => {
+    if (isAudioPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsAudioPlaying(!isAudioPlaying);
+  };
+
+  useEffect(() => {
+    // Ensure audio is paused when component unmounts
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
+
   const cards = [
     {
       title: 'About Garnacho',
@@ -55,6 +80,19 @@ const Home = () => {
     },
   ];
 
+  // Parallax effect for background
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const background = document.getElementById('background-image');
+      if (background) {
+        background.style.transform = `translateY(${scrollY * 0.3}px)`;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Box
       minH="100vh"
@@ -65,19 +103,40 @@ const Home = () => {
       minW="100vw"
       overflowX="hidden"
       position="relative"
+      fontFamily="'Poppins', sans-serif"
     >
+      {/* Audio Element (hidden) */}
+      <audio ref={audioRef} src="/src/assets/viva-garnacho.mp3" loop />
+
       {/* Navigation Bar */}
       <Box
         bg="rgba(0, 0, 0, 0.8)"
         py={3}
         px={{ base: 4, md: 8 }}
-        position="absolute"
+        position="fixed"
         top={0}
         left={0}
         right={0}
         zIndex={10}
         borderBottom="1px solid rgba(255, 255, 255, 0.1)"
       >
+        <Flex justify="space-between" align="center">
+          <HStack spacing={4}>
+            {['Bio', 'Stats', 'Career', 'Goals', 'Merchandise'].map((item) => (
+              <Button
+                key={item}
+                as={RouterLink}
+                to={`/${item.toLowerCase()}`}
+                variant="ghost"
+                color="white"
+                _hover={{ color: '#D32F2F', transform: 'scale(1.05)' }}
+                transition="all 0.3s"
+              >
+                {item}
+              </Button>
+            ))}
+          </HStack>
+        </Flex>
       </Box>
 
       {/* Hero Section */}
@@ -90,8 +149,9 @@ const Home = () => {
         alignItems="center"
         justifyContent="center"
       >
-        {/* Background with Neon Eiffel Tower and Messi Silhouette */}
-        <Box
+        {/* Background with Parallax and Glow */}
+        <MotionBox
+          id="background-image"
           position="absolute"
           top={0}
           left={0}
@@ -101,9 +161,13 @@ const Home = () => {
           bgImage="/src/assets/nobg4.png"
           bgSize="cover"
           bgPosition="center"
-          filter="brightness(0.5)"
-          opacity={1}
+          filter="brightness(0.5) blur(2px)"
+          opacity={0.7}
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
         >
+          {/* Faded Background Silhouette */}
           <Box
             position="absolute"
             top={0}
@@ -115,70 +179,125 @@ const Home = () => {
             bgPosition="bottom right"
             bgRepeat="no-repeat"
             opacity={0.3}
+            mixBlendMode="overlay"
           />
-        </Box>
-
-        {/* Background Text: VIVA GARNACHO 17 */}
-        <MotionBox
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          position="absolute"
-          zIndex={1}
-          textAlign="center"
-        >
-          <Heading
-            fontSize={{ base: '3xl', md: '5xl', lg: '9xl' }}
-            fontWeight="extrabold"
-            fontFamily="sans-serif"
-            textTransform="uppercase"
-            color="white"
-            opacity={1}
-            textShadow="0 0 20px rgba(211, 47, 47, 0.5)"
-          >
-            VIVA GARNACHO <Text as="span" color="#D32F2F">17</Text>
-          </Heading>
+          {/* Radial Crimson Glow */}
+          <Box
+            position="absolute"
+            top="50%"
+            left="50%"
+            transform="translate(-50%, -50%)"
+            width="80%"
+            height="80%"
+            bg="radial-gradient(circle, rgba(153, 0, 0, 0.3), transparent)"
+            zIndex={1}
+          />
         </MotionBox>
 
         {/* Foreground: Garnacho Image */}
-        <MotionBox
+        <MotionImage
+          src="/src/assets/nobg.png"
+          alt="Alejandro Garnacho"
+          position="absolute"
+          zIndex={2}
+          boxSize={{ base: '250px', md: '350px', lg: '700px' }}
+          right={{ base: '5%', md: '10%', lg: '15%' }}
+          objectFit="contain"
+          filter="brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05, filter: 'drop-shadow(0 0 20px #D32F2F)' }}
           transition={{ duration: 0.5 }}
-          position="absolute"
-          zIndex={2}
-          boxSize={{ base: '300px', md: '400px', lg: '900px' }}
-          mx="auto"
-        >
-          <Image
-            src="/src/assets/nobg.png"
-            alt="Alejandro Garnacho"
-            boxSize="100%"
-            objectFit="contain"
-            filter="brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))"
-          />
-        </MotionBox>
+        />
 
         {/* Text Overlay */}
-        <Container maxW="100vw" width="100%" position="relative" zIndex={3} textAlign="center" px={{ base: 2, md: 4, lg: 8 }}>
-          <MotionBox
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Heading
-              fontSize={{ base: '2xl', md: '4xl', lg: '8xl' }}
-              fontWeight="extrabold"
-              fontFamily="sans-serif"
-              textTransform="uppercase"
-              color="azure"
-              textShadow="0 0 10px rgba(0, 0, 0, 0.3)"
-              mt={{ base: '100px', md: '200px', lg: '500px' }}
+        <Container maxW="100vw" width="100%" position="relative" zIndex={3} px={{ base: 2, md: 4, lg: 8 }}>
+          <VStack align="flex-start" spacing={2} ml={{ base: 4, md: 8, lg: 12 }}>
+            <MotionBox
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              RONALDO'S REGEN
-            </Heading>
-          </MotionBox>
+              <Heading
+                fontSize={{ base: '2xl', md: '4xl', lg: '6xl' }}
+                fontWeight="300"
+                textTransform="uppercase"
+                color="white"
+                letterSpacing="2px"
+                textShadow="0 0 12px rgba(211, 47, 47, 0.5)"
+              >
+                Alejandro
+              </Heading>
+              <Heading
+                fontSize={{ base: '3xl', md: '5xl', lg: '8xl' }}
+                fontWeight="800"
+                textTransform="uppercase"
+                bgGradient="linear(to-r, #D32F2F, #FF6666)"
+                bgClip="text"
+                letterSpacing="2px"
+                textShadow="0 0 12px rgba(211, 47, 47, 0.5)"
+              >
+                Garnacho
+              </Heading>
+              <Heading
+                fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
+                fontWeight="300"
+                textTransform="uppercase"
+                color="white"
+                letterSpacing="4px"
+                textShadow="0 0 8px rgba(211, 47, 47, 0.3)"
+              >
+                #17 Red Devil
+              </Heading>
+            </MotionBox>
+
+            {/* Subheading */}
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Text
+                fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
+                color="gray.200"
+                maxW="500px"
+                mt={4}
+              >
+                VIVA GARNACHO
+              </Text>
+            </MotionBox>
+
+            {/* CTA Buttons and Audio Toggle */}
+            <HStack spacing={4} mt={6}>
+              <Button
+                as={RouterLink}
+                to="/goals"
+                size="lg"
+                bg="#D32F2F"
+                color="white"
+                borderRadius="full"
+                leftIcon={<Icon as={FaPlay} />}
+                boxShadow="0 0 15px rgba(211, 47, 47, 0.5)"
+                _hover={{
+                  bg: '#FF6666',
+                  transform: 'scale(1.05)',
+                  boxShadow: '0 0 20px rgba(211, 47, 47, 0.8)',
+                }}
+              >
+                Watch Highlights
+              </Button>
+              <IconButton
+                aria-label={isAudioPlaying ? 'Play Audio' : 'Mute Audio'}
+                icon={<Icon as={isAudioPlaying ?  FaVolumeUp : FaVolumeMute} />}
+                onClick={toggleAudio}
+                size="lg"
+                variant="outline"
+                colorScheme="red"
+                borderRadius="full"
+                _hover={{ transform: 'scale(1.1)' }}
+              />
+            </HStack>
+          </VStack>
         </Container>
       </Box>
 
@@ -205,11 +324,13 @@ const Home = () => {
                 position="relative"
                 overflow="hidden"
                 borderRadius="xl"
-                boxShadow="0 0 15px rgba(29, 185, 84, 0.5)"
-                _hover={{
-                  transform: 'rotate(2deg) scale(1.05)',
-                  boxShadow: '0 0 25px rgba(29, 185, 84, 0.8)',
-                  transition: 'all 0.3s',
+                boxShadow="0 0 15px rgba(211, 47, 47, 0.3)"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 0 25px rgba(211, 47, 47, 0.6)',
                 }}
               >
                 <Image
@@ -218,7 +339,7 @@ const Home = () => {
                   width="100%"
                   height="100%"
                   objectFit="cover"
-                  filter="brightness(1.2)"
+                  filter="brightness(1.1)"
                 />
                 <Box
                   position="absolute"
@@ -264,15 +385,15 @@ const Home = () => {
                     as={RouterLink}
                     to={card.link}
                     size="sm"
-                    bgGradient="linear(to-r, #1E88E5, #AB47BC)"
+                    bgGradient="linear(to-r, #D32F2F, #FF6666)"
                     color="white"
                     borderRadius="full"
                     leftIcon={<Icon as={card.type === 'video' ? FaPlay : FaBookOpen} />}
-                    boxShadow="0 0 10px rgba(30, 136, 229, 0.5)"
+                    boxShadow="0 0 10px rgba(211, 47, 47, 0.5)"
                     _hover={{
-                      bgGradient: 'linear(to-r, #AB47BC, #1E88E5)',
+                      bgGradient: 'linear(to-r, #FF6666, #D32F2F)',
                       transform: 'scale(1.05)',
-                      boxShadow: '0 0 15px rgba(171, 71, 188, 0.8)',
+                      boxShadow: '0 0 15px rgba(211, 47, 47, 0.8)',
                     }}
                   >
                     {card.type === 'video' ? 'Watch' : 'Read More'}
