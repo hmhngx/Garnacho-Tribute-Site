@@ -1,27 +1,27 @@
 # Garnacho Tribute Site
 
-A modern, responsive tribute website dedicated to Alejandro Garnacho, the rising star of Manchester United. Built with React, Vite, and Chakra UI.
+A sleek, modern, and responsive tribute website dedicated to Alejandro Garnacho, the rising star of Manchester United. Crafted with React, Vite, and Chakra UI, this site celebrates his journey with an engaging and visually appealing experience.
 
 ## Features
 
-- Responsive design that works on all devices
-- Modern UI with smooth animations
-- Interactive gallery with lightbox
-- Detailed statistics and career history
-- E-commerce section for merchandise
-- Newsletter subscription
-- Social media integration
+- Fully Responsive Design: Optimized for seamless viewing across all devices (mobile, tablet, desktop).
+- Modern UI with Animations: Smooth transitions and interactive elements powered by Framer Motion.
+- Interactive Gallery: A lightbox-enabled gallery showcasing memorable moments.
+- Detailed Insights: Comprehensive statistics, career milestones, and a collection of standout goals.
+- E-commerce Integration: Dedicated merchandise store with official Garnacho gear.
+- Social Media Integration: Connect with fans via embedded social media feeds.
+- Audio Experience: Dynamic "Viva Garnacho" chant toggle for an immersive feel.
 
 ## Pages
 
-1. **Home** - Landing page with hero section and overview
-2. **Bio** - Detailed biography and early life
-3. **Stats** - Career statistics and achievements
-4. **Career History** - Timeline of career milestones
-5. **Goals** - Collection of memorable goals
-6. **Merchandise** - Official merchandise store
-7. **Gallery** - Photo gallery with lightbox
-8. **Gracias Garnacho** - Special thank you page
+1. **Home** - Engaging landing page with a hero section and site overview.
+2. **Bio** - In-depth biography and early life details.
+3. **Stats** - Detailed career statistics and notable achievements.
+4. **Career History** - Interactive timeline of key career milestones.
+5. **Goals** - Highlight reel of Garnacho’s memorable goals with Manchester United.
+6. **Merchandise** - Official online store for Garnacho merchandise.
+7. **Gallery** - Stunning photo gallery with lightbox functionality.
+8. **Gracias Garnacho** - A special thank you page to Garnacho.
 
 ## Tech Stack
 
@@ -31,10 +31,15 @@ A modern, responsive tribute website dedicated to Alejandro Garnacho, the rising
 - React Router
 - Framer Motion
 - React Icons
+- HTML5 Audio API
 
 ## Getting Started
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/garnacho-tribute.git
+   cd garnacho-tribute
+   ```
 2. Install dependencies:
    ```bash
    npm install
@@ -43,6 +48,8 @@ A modern, responsive tribute website dedicated to Alejandro Garnacho, the rising
    ```bash
    npm run dev
    ```
+   Open http://localhost:5173 or the port specified in the terminal.
+
 4. Build for production:
    ```bash
    npm run build
@@ -61,7 +68,13 @@ src/
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions to enhance the Garnacho Tribute Site! Please follow these steps:
+
+- Fork the repository.
+- Create a new branch (git checkout -b feature/your-feature).
+- Commit your changes (git commit -m "Add your feature").
+- Push to the branch (git push origin feature/your-feature).
+- Submit a Pull Request with a clear description of your changes.
 
 ## License
 
