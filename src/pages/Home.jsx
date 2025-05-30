@@ -200,8 +200,10 @@ const Home = () => {
           alt="Alejandro Garnacho"
           position="absolute"
           zIndex={2}
-          boxSize={{ base: '250px', md: '350px', lg: '700px' }}
-          right={{ base: '5%', md: '10%', lg: '15%' }}
+          width={{ base: '250px', md: '350px', lg: '380px', xl: '600px' }}
+          maxW="50%"
+          bottom={{ base: '10%', md: '15%', lg: '0%' }}
+          right={{ base: '5%', md: '5%', lg: '5%', xl: '37%' }}
           objectFit="contain"
           filter="brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -288,7 +290,7 @@ const Home = () => {
               </Button>
               <IconButton
                 aria-label={isAudioPlaying ? 'Play Audio' : 'Mute Audio'}
-                icon={<Icon as={isAudioPlaying ?  FaVolumeUp : FaVolumeMute} />}
+                icon={<Icon as={isAudioPlaying ? FaVolumeUp : FaVolumeMute} />}
                 onClick={toggleAudio}
                 size="lg"
                 variant="outline"
