@@ -110,9 +110,20 @@ const sections = [
     title: "Argentina Moments",
     board: "argentina",
     description: "Relive Garnacho's highlights with the Argentina national team.",
-    icon: <Box as="span" display="inline-block" boxSize="32px" verticalAlign="middle">
-      <img src={argentinaFlag} alt="Argentina Flag" style={{ base: '24px', md: '24px', filter: 'drop-shadow(0 0 8px #6EC1E4) drop-shadow(0 0 16px #6EC1E4)' }} />
-    </Box>,
+    icon: (
+      <Box as="span" display="inline-block" boxSize="24px" verticalAlign="middle">
+        <img
+          src={argentinaFlag}
+          alt="Argentina Flag"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 0 8px #6EC1E4) drop-shadow(0 0 16px #6EC1E4)'
+          }}
+        />
+      </Box>
+    ),
     color: "#6EC1E4", // Argentina blue
     direction: "ltr",
     pinterestUrl: "https://www.pinterest.com/pham3885055/alejandro-garnacho-17/argentina/",
@@ -163,9 +174,20 @@ const sections = [
     title: "Argentina Wallpapers",
     board: "argentina-wallpaper",
     description: "Garnacho's best Argentina-themed wallpapers.",
-    icon: <Box as="span" display="inline-block" boxSize="32px" verticalAlign="middle">
-      <img src={argentinaFlag} alt="Argentina Flag" style={{ base: '24px', md: '24px', filter: 'drop-shadow(0 0 8px #6EC1E4) drop-shadow(0 0 16px #6EC1E4)' }} />
-    </Box>,
+    icon: (
+      <Box as="span" display="inline-block" boxSize="24px" verticalAlign="middle">
+        <img
+          src={argentinaFlag}
+          alt="Argentina Flag"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 0 8px #6EC1E4) drop-shadow(0 0 16px #6EC1E4)'
+          }}
+        />
+      </Box>
+    ),
     color: "#6EC1E4", // Argentina blue
     direction: "rtl",
     pinterestUrl: "https://www.pinterest.com/pham3885055/alejandro-garnacho-17/argentina-wallpaper/",
@@ -348,18 +370,7 @@ const PinterestGallery = () => {
             >
               <VStack align="flex-start" spacing={2} mb={4}>
                 <Flex align="center" gap={2}>
-                  <Box as="span" display="inline-block" boxSize="24px">
-                    <img
-                      src={argentinaFlag}
-                      alt="Argentina Flag"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        filter: 'drop-shadow(0 0 8px #6EC1E4) drop-shadow(0 0 16px #6EC1E4)'
-                      }}
-                    />
-                  </Box>
+                  {section.icon}
                   <Text
                     as="span"
                     fontSize="2xl"
