@@ -106,7 +106,7 @@ const Home = () => {
       fontFamily="'Poppins', sans-serif"
     >
       {/* Audio Element (hidden) */}
-      <audio ref={audioRef} src="/images/viva-garnacho.mp3" loop />
+      <audio ref={audioRef} src="/viva-garnacho.mp3" loop />
 
       {/* Navigation Bar */}
       <Box
