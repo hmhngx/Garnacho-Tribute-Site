@@ -46,35 +46,35 @@ const Home = () => {
     {
       title: 'About Garnacho',
       description: 'Know more about Garnacho.',
-      image: '/src/assets/bio.png',
+      image: '/public/images/bio.png',
       link: '/bio',
       type: 'article',
     },
     {
       title: 'Garnacho Stats',
       description: 'Check out Alejandro Garnacho’s performance stats.',
-      image: '/src/assets/stats.png',
+      image: '/public/images/stats.png',
       link: '/stats',
       type: 'article',
     },
     {
       title: 'Career Milestones',
       description: 'Explore the key moments that shaped his journey.',
-      image: '/src/assets/goals.png',
+      image: '/public/images/goals.png',
       link: '/career-history',
       type: 'article',
     },
     {
       title: 'All Goals',
       description: 'All the goals Garnacho has scored for Manchester United first team',
-      image: '/src/assets/garnacho-hero.jpg',
+      image: '/public/images/garnacho-hero.jpg',
       link: '/goals',
       type: 'article',
     },
     {
       title: 'Shop Merchandise',
       description: 'Get official Garnacho gear and collectibles.',
-      image: '/src/assets/merch.png',
+      image: '/public/images/merch.png',
       link: '/merchandise',
       type: 'article',
     },
@@ -106,7 +106,7 @@ const Home = () => {
       fontFamily="'Poppins', sans-serif"
     >
       {/* Audio Element (hidden) */}
-      <audio ref={audioRef} src="/src/assets/viva-garnacho.mp3" loop />
+      <audio ref={audioRef} src="/public/images/viva-garnacho.mp3" loop />
 
       {/* Navigation Bar */}
       <Box
@@ -158,7 +158,7 @@ const Home = () => {
           right={0}
           bottom={0}
           zIndex={0}
-          bgImage="/src/assets/nobg4.png"
+          bgImage="/public/images/nobg4.png"
           bgSize="cover"
           bgPosition="center"
           filter="brightness(0.5) blur(2px)"
@@ -174,7 +174,7 @@ const Home = () => {
             left={0}
             right={0}
             bottom={0}
-            bgImage="/src/assets/garnacho-hero.jpg"
+            bgImage="/public/images/garnacho-hero.jpg"
             bgSize="contain"
             bgPosition="bottom right"
             bgRepeat="no-repeat"
@@ -196,7 +196,7 @@ const Home = () => {
 
         {/* Foreground: Garnacho Image */}
         <MotionImage
-          src="/src/assets/nobg.png"
+          src="/public/images/nobg.png"
           alt="Alejandro Garnacho"
           position="absolute"
           zIndex={2}

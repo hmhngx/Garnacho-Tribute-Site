@@ -1,6 +1,6 @@
 import { Box, Heading, Text, VStack, Flex, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import argentinaFlag from '../assets/argentina.png';
+import argentinaFlag from '/public/images/argentina.png';
 import { FaPinterest } from 'react-icons/fa';
 
 const sections = [

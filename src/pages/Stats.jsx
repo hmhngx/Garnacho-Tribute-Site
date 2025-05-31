@@ -28,7 +28,7 @@ const player = {
   age: 21,
   height: '180 CM',
   weight: '70 KG',
-  image: '/src/assets/nobg6.png',
+  image: '/public/images/nobg6.png',
   seasonStats: {
     appearances: { total: 58, sub: 22 },
     goals: 11,
@@ -39,11 +39,11 @@ const player = {
   },
   preferredPositions: ['LW', 'RW'],
   form: [
-    { opponent: 'Aston Villa', date: '2023-12-27', rating: 8.4, clubLogo: '/src/assets/clubs/aston.png' },
-    { opponent: 'Chelsea', date: '2024-04-05', rating: 8.5, clubLogo: '/src/assets/clubs/chelsea.png' },
-    { opponent: 'Leicester', date: '2024-10-31', rating: 8.6, clubLogo: '/src/assets/clubs/leicester.png' },
-    { opponent: 'West Ham', date: '2024-02-04', rating: 8.9, clubLogo: '/src/assets/clubs/westham.png' },
-    { opponent: 'Barnsley', date: '2024-09-18', rating: 9.8, clubLogo: '/src/assets/clubs/barnsley.png' },
+    { opponent: 'Aston Villa', date: '2023-12-27', rating: 8.4, clubLogo: '/public/clubs/aston.png' },
+    { opponent: 'Chelsea', date: '2024-04-05', rating: 8.5, clubLogo: '/public/clubs/chelsea.png' },
+    { opponent: 'Leicester', date: '2024-10-31', rating: 8.6, clubLogo: '/public/clubs/leicester.png' },
+    { opponent: 'West Ham', date: '2024-02-04', rating: 8.9, clubLogo: '/public/clubs/westham.png' },
+    { opponent: 'Barnsley', date: '2024-09-18', rating: 9.8, clubLogo: '/public/clubs/barnsley.png' },
   ],
 };
 
@@ -181,7 +181,7 @@ const Stats = () => {
                   </Heading>
                 </MotionBox>
                 <Image
-                  src="/src/assets/argentina.png"
+                  src="/public/images/argentina.png"
                   alt="Argentina Flag"
                   boxSize={{ base: '3vw', sm: '2.5vw', md: '2vw' }}
                   objectFit="contain"
@@ -360,7 +360,7 @@ const Stats = () => {
                 <Box
                   w="100%"
                   h={{ base: '10vh', sm: '12vh', md: '14vh', lg: '16vh' }}
-                  bg="url('/src/assets/pitch.png') center/contain no-repeat"
+                  bg="url('/public/images/pitch.png') center/contain no-repeat"
                   position="relative"
                 />
               </MotionBox>
@@ -479,7 +479,7 @@ const Stats = () => {
                     height={{ base: '10vh', sm: '12vh', md: '14vh' }}
                   >
                     <Image
-                      src="/src/assets/stats-icon.png"
+                      src="/public/images/stats-icon.png"
                       alt="Live Stats Icon"
                       width={{ base: '25vw', sm: '20vw', md: '15vw' }}
                       height={{ base: '10vh', sm: '12vh', md: '14vh' }}

@@ -23,62 +23,62 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 // Import goal images from assets
-import goal1Img from '/src/assets/goals/sociedad.png';
-import goal2Img from '/src/assets/goals/fulham.png';
-import goal3Img from '/src/assets/goals/leeds.png';
-import goal4Img from '/src/assets/goals/westham.png';
-import goal5Img from '/src/assets/goals/wolves.png';
-import goal6Img from '/src/assets/goals/palace.png';
-import goal7Img from '/src/assets/goals/everton.png';
-import goal8Img from '/src/assets/goals/gala.png';
-import goal9Img from '/src/assets/goals/villa1.png';
-import goal10Img from '/src/assets/goals/villa2.png';
-import goal11Img from '/src/assets/goals/west1.png';
-import goal12Img from '/src/assets/goals/west2.png';
-import goal13Img from '/src/assets/goals/chelsea1.png';
-import goal14Img from '/src/assets/goals/chelsea2.png';
-import goal15Img from '/src/assets/goals/city1.png';
-import goal16Img from '/src/assets/goals/city2.png';
-import goal17Img from '/src/assets/goals/southampton.png';
-import goal18Img from '/src/assets/goals/barn1.png';
-import goal19Img from '/src/assets/goals/barn2.png';
-import goal20Img from '/src/assets/goals/brent1.png';
-import goal21Img from '/src/assets/goals/lei1.png';
-import goal22Img from '/src/assets/goals/lei2.png';
-import goal23Img from '/src/assets/goals/bodo.png';
-import goal24Img from '/src/assets/goals/lei3.png';
-import goal25Img from '/src/assets/goals/newcastle.png';
-import goal26Img from '/src/assets/goals/brent2.png';
+import goal1Img from '/public/goals/sociedad.png';
+import goal2Img from '/public/goals/fulham.png';
+import goal3Img from '/public/goals/leeds.png';
+import goal4Img from '/public/goals/westham.png';
+import goal5Img from '/public/goals/wolves.png';
+import goal6Img from '/public/goals/palace.png';
+import goal7Img from '/public/goals/everton.png';
+import goal8Img from '/public/goals/gala.png';
+import goal9Img from '/public/goals/villa1.png';
+import goal10Img from '/public/goals/villa2.png';
+import goal11Img from '/public/goals/west1.png';
+import goal12Img from '/public/goals/west2.png';
+import goal13Img from '/public/goals/chelsea1.png';
+import goal14Img from '/public//goals/chelsea2.png';
+import goal15Img from '/public/goals/city1.png';
+import goal16Img from '/public/goals/city2.png';
+import goal17Img from '/public/goals/southampton.png';
+import goal18Img from '/public/goals/barn1.png';
+import goal19Img from '/public/goals/barn2.png';
+import goal20Img from '/public/goals/brent1.png';
+import goal21Img from '/public/goals/lei1.png';
+import goal22Img from '/public/goals/lei2.png';
+import goal23Img from '/public/goals/bodo.png';
+import goal24Img from '/public/goals/lei3.png';
+import goal25Img from '/public/goals/newcastle.png';
+import goal26Img from '/public/goals/brent2.png';
 
 // Import Manchester United logo
-import manUnitedLogo from '/src/assets/clubs/Manchester-United-FC-logo.png';
+import manUnitedLogo from '/public/clubs/Manchester-United-FC-logo.png';
 
 // Import opponent club logos (placeholders)
-import fulhamLogo from '/src/assets/clubs/fulham.png';
-import sociedadLogo from '/src/assets/clubs/sociedad.png';
-import leedsLogo from '/src/assets/clubs/leeds.png';
-import westHamLogo from '/src/assets/clubs/westham.png';
-import wolvesLogo from '/src/assets/clubs/wolves.png';
-import palaceLogo from '/src/assets/clubs/crystal.png';
-import evertonLogo from '/src/assets/clubs/everton.png';
-import galaLogo from '/src/assets/clubs/gala.png';
-import villaLogo from '/src/assets/clubs/aston.png';
-import chelseaLogo from '/src/assets/clubs/chelsea.png';
-import cityLogo from '/src/assets/clubs/mancity.png';
-import southamptonLogo from '/src/assets/clubs/southampton.png';
-import barnsleyLogo from '/src/assets/clubs/barnsley.png';
-import brentfordLogo from '/src/assets/clubs/brentford.png';
-import leicesterLogo from '/src/assets/clubs/leicester.png';
-import bodoLogo from '/src/assets/clubs/bodoglim.png';
-import newcastleLogo from '/src/assets/clubs/newcastle.png';
+import fulhamLogo from '/public/clubs/fulham.png';
+import sociedadLogo from '/public/clubs/sociedad.png';
+import leedsLogo from '/public/clubs/leeds.png';
+import westHamLogo from '/public/clubs/westham.png';
+import wolvesLogo from '/public/clubs/wolves.png';
+import palaceLogo from '/public/clubs/crystal.png';
+import evertonLogo from '/public/clubs/everton.png';
+import galaLogo from '/public/clubs/gala.png';
+import villaLogo from '/public/clubs/aston.png';
+import chelseaLogo from '/public/clubs/chelsea.png';
+import cityLogo from '/public/clubs/mancity.png';
+import southamptonLogo from '/public/clubs/southampton.png';
+import barnsleyLogo from '/public/clubs/barnsley.png';
+import brentfordLogo from '/public/clubs/brentford.png';
+import leicesterLogo from '/public/clubs/leicester.png';
+import bodoLogo from '/public/clubs/bodoglim.png';
+import newcastleLogo from '/public/clubs/newcastle.png';
 
 // Import tournament logos (placeholders)
-import premierLeagueLogo from '/src/assets/tournaments/epl.png';
-import championsLeagueLogo from '/src/assets/tournaments/ucl.png';
-import faCupLogo from '/src/assets/tournaments/fa.png';
-import eflCupLogo from '/src/assets/tournaments/efl.png';
-import europaLeagueLogo from '/src/assets/tournaments/uel.png';
-import communityLogo from '/src/assets/tournaments/community.png';
+import premierLeagueLogo from '/public/tournaments/epl.png';
+import championsLeagueLogo from '/public/tournaments/ucl.png';
+import faCupLogo from '/public/tournaments/fa.png';
+import eflCupLogo from '/public/tournaments/efl.png';
+import europaLeagueLogo from '/public/tournaments/uel.png';
+import communityLogo from '/public/tournaments/community.png';
 
 const glowAnimation = keyframes`
   0% { box-shadow: 0 0 10px #D00000, 0 0 20px #D00000, 0 0 30px #ffffff; }

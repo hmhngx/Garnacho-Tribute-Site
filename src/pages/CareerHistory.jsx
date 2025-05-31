@@ -22,20 +22,20 @@ const player = {
   position: 'Winger',
   nationality: 'Argentina',
   jersey: 17,
-  image: 'src/assets/armfolded.png',
+  image: '/public/images/armfolded.png',
   career: {
     clubs: [
       { name: 'Atletico Madrid Youth', years: '2015-2020', matches: 50, goals: 15 },
       { name: 'Manchester United', years: '2020-Present', matches: 144, goals: 26 },
     ],
     honours: [
-      { title: 'FA Youth Cup', count: 1, image: '/src/assets/trophies/youth.png' },
-      { title: 'EFL League Cup', count: 1, image: '/src/assets/trophies/league-cup.png' },
-      { title: 'FA Cup', count: 1, image: '/src/assets/trophies/fa-cup.png' },
-      { title: 'Copa America', count: 1, image: '/src/assets/trophies/copa.png' },
-      { title: 'FIFA Puskas Award', count: 1, image: '/src/assets/trophies/puskas.png' },
-      { title: 'Goal of the Season', count: 1, image: '/src/assets/trophies/goal-season.png' },
-      { title: 'Jimmy Murphy Award', count: 1, image: '/src/assets/trophies/jimmy.png' },
+      { title: 'FA Youth Cup', count: 1, image: '/public/trophies/youth.png' },
+      { title: 'EFL League Cup', count: 1, image: '/public/trophies/league-cup.png' },
+      { title: 'FA Cup', count: 1, image: '/public/trophies/fa-cup.png' },
+      { title: 'Copa America', count: 1, image: '/public/trophies/copa.png' },
+      { title: 'FIFA Puskas Award', count: 1, image: '/public/trophies/puskas.png' },
+      { title: 'Goal of the Season', count: 1, image: '/public/trophies/goal-season.png' },
+      { title: 'Jimmy Murphy Award', count: 1, image: '/public/trophies/jimmy.png' },
     ],
   },
   bio: 'Alejandro Garnacho is an Argentine professional footballer who plays as a winger for Manchester United and the Argentina national team. After starting at Atletico Madrid Youth, he joined Manchester United in 2020.',
@@ -106,7 +106,7 @@ const CareerHistory = () => {
               >
                 <HStack spacing={2} align="center">
                   <Image
-                  src="/src/assets/argentina.png"
+                  src="/public/images/argentina.png"
                   alt="Argentina Flag"
                   boxSize={{ base: '24px', md: '24px' }}
                   objectFit="contain"
@@ -292,7 +292,7 @@ const CareerHistory = () => {
 
             {/* Smoke Texture */}
             <Image
-              src="/src/assets/cloud.png"
+              src="/public/images/cloud.png"
               position="absolute"
               top="0"
               left="0"
