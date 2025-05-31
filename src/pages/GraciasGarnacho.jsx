@@ -53,7 +53,7 @@ const GraciasGarnacho = () => {
         left={0}
         right={0}
         bottom={0}
-        bgImage="/public/images/goodbye.png"
+        bgImage="/images/goodbye.png"
         bgSize="cover"
         bgPosition="center"
         filter="brightness(0.9)"

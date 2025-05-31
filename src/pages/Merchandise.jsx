@@ -129,7 +129,7 @@ const Merchandise = () => {
       title: "Garnacho Home Jersey",
       price: 89.99,
       description: "Limited edition authentic MUFC kit",
-      image: "/src/assets/cool.png",
+      image: "/images/cool.png",
       badge: "New",
       href: "https://www.kitbag.com/en/alejandro-garnacho/a-2581410041+z-902965-451765480"
     },
@@ -138,7 +138,7 @@ const Merchandise = () => {
       title: "Iconic Poster",
       price: 19.99,
       description: "Garnacho aesthetic poster",
-      image: "/src/assets/poster.png",
+      image: "/images/poster.png",
       href: "https://www.etsy.com/search?q=garnacho+poster&ref=search_bar&dd_referrer=https%3A%2F%2Fwww.etsy.com%2Flisting%2F1632801929%2Falejandro-garnacho-poster-alejandro"
     },
     {
@@ -146,7 +146,7 @@ const Merchandise = () => {
       title: "Signature T-Shirt",
       price: 29.99,
       description: "Designed with Garnacho’s autograph",
-      image: "/src/assets/signed.png",
+      image: "/images/signed.png",
       href: "https://www.ebay.co.uk/itm/256421464540"
     },
     {
@@ -154,7 +154,7 @@ const Merchandise = () => {
       title: "Training Kit",
       price: 59.99,
       description: "Official training gear for fans",
-      image: "/src/assets/training.png",
+      image: "/images/training.png",
       href: "https://www.uksoccershop.com/p-374298/2024-2025-man-utd-pre-match-shirt-black-kids-garnacho-17.html"
     },
     {
@@ -162,7 +162,7 @@ const Merchandise = () => {
       title: "Cap",
       price: 14.99,
       description: "Stylish cap with Garnacho logo",
-      image: "/src/assets/cap.png",
+      image: "/images/cap.png",
       href: "https://www.redbubble.com/shop?query=garnacho%20cap&ref=search_box"
     },
     {
@@ -170,7 +170,7 @@ const Merchandise = () => {
       title: "Mug",
       price: 9.99,
       description: "Collectible mug with player design",
-      image: "/src/assets/mug.png",
+      image: "/images/mug.png",
       href: "https://mustshop.org/products/Alejandro-Garnacho-Mug.html?fullSite=1"
     },
   ];

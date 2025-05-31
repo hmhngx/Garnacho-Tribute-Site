@@ -1,6 +1,5 @@
 import { Box, Heading, Text, VStack, Flex, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import argentinaFlag from '/public/images/argentina.png';
 import { FaPinterest } from 'react-icons/fa';
 
 const sections = [
@@ -113,7 +112,7 @@ const sections = [
     icon: (
       <Box as="span" display="inline-block" boxSize="24px" verticalAlign="middle">
         <img
-          src={argentinaFlag}
+          src="/images/argentina.png"
           alt="Argentina Flag"
           style={{
             width: '100%',
@@ -177,7 +176,7 @@ const sections = [
     icon: (
       <Box as="span" display="inline-block" boxSize="24px" verticalAlign="middle">
         <img
-          src={argentinaFlag}
+          src="/images/argentina.png"
           alt="Argentina Flag"
           style={{
             width: '100%',

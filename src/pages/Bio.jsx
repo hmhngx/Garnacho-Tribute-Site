@@ -32,7 +32,7 @@ const player = {
   marketValue: '45M',
   jersey: 17,
   teamLogo: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
-  image: '/public/images/nobg5.png',
+  image: '/images/nobg5.png',
   socials: {
     twitter: 'https://x.com/FanGarnacho',
     instagram: 'https://instagram.com/garnacho7',
