@@ -30,9 +30,9 @@ const player = {
   weight: '70 KG',
   image: '/src/assets/nobg6.png',
   seasonStats: {
-    appearances: { total: 30, sub: 5 },
-    goals: 8,
-    assists: 6,
+    appearances: { total: 58, sub: 22 },
+    goals: 11,
+    assists: 10,
     shotsPerGame: 2.3,
     dribblesPerGame: 3.1,
     passAccuracy: 82,
@@ -307,7 +307,7 @@ const Stats = () => {
                   textShadow="0 0 4px rgba(255, 255, 255, 0.3)"
                   mb={{ base: '0.5vh', md: '1vh' }}
                 >
-                  Season Stats
+                  2024/2025 Season Stats
                 </Text>
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={{ base: '0.5vh', md: '1vh' }} w="100%">
                   <MotionBox whileHover={{ color: neonGreen, textShadow: '0 0 8px #00FF00' }}>

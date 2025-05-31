@@ -24,7 +24,7 @@ const player = {
     assists: 19,
     minutes: 8368,
   },
-  age: 20, 
+  age: 21, 
   born: '01-07-2004',
   nationality: 'Argentina/Spain',
   height: '180 cm',
@@ -34,9 +34,9 @@ const player = {
   teamLogo: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
   image: '/src/assets/nobg5.png',
   socials: {
-    twitter: 'https://twitter.com/agarnacho7',
+    twitter: 'https://x.com/FanGarnacho',
     instagram: 'https://instagram.com/garnacho7',
-    facebook: 'https://facebook.com/garnacho.official',
+    facebook: 'https://www.facebook.com/AlejandroGarnacho07',
   },
 };
 

@@ -35,7 +35,7 @@ const Footer = () => {
         <Stack direction="row" spacing={8}>
           <Box
             as="a"
-            href="https://twitter.com/agarnacho7"
+            href="https://x.com/FanGarnacho"
             target="_blank"
             rel="noopener noreferrer"
             _hover={{
@@ -79,7 +79,7 @@ const Footer = () => {
           </Box>
           <Box
             as="a"
-            href="https://www.facebook.com/AlejandroGarnachoOfficial/"
+            href="https://www.facebook.com/AlejandroGarnacho07"
             target="_blank"
             rel="noopener noreferrer"
             _hover={{
