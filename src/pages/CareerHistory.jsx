@@ -25,8 +25,20 @@ const player = {
   image: '/images/armfolded.png',
   career: {
     clubs: [
-      { name: 'Atletico Madrid Youth', years: '2015-2020', matches: 50, goals: 15 },
-      { name: 'Manchester United', years: '2020-Present', matches: 144, goals: 26 },
+      { 
+        name: 'Atletico Madrid Youth', 
+        years: '2015 - 2020', 
+        matches: 50, 
+        goals: 15,
+        logo: '/clubs/atletico.png'
+      },
+      { 
+        name: 'Manchester United', 
+        years: '2020 - 2025', 
+        matches: 144, 
+        goals: 26,
+        logo: '/clubs/Manchester-United-FC-logo.png'
+      },
     ],
     honours: [
       { title: 'FA Youth Cup', count: 1, image: '/trophies/youth.png' },
@@ -37,6 +49,13 @@ const player = {
       { title: 'Goal of the Season', count: 1, image: '/trophies/goal-season.png' },
       { title: 'Jimmy Murphy Award', count: 1, image: '/trophies/jimmy.png' },
     ],
+  },
+  nationalTeam: {
+    name: 'Argentina',
+    years: '2023 - Present',
+    matches: 4,
+    goals: 0,
+    logo: '/images/argentina.png'
   },
   bio: 'Alejandro Garnacho is an Argentine professional footballer who plays as a winger for Manchester United and the Argentina national team. After starting at Atletico Madrid Youth, he joined Manchester United in 2020.',
 };
@@ -194,46 +213,146 @@ const CareerHistory = () => {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Text
-                    fontSize="lg"
-                    color="white"
-                    fontWeight="bold"
-                    fontFamily="'Poppins', sans-serif"
-                    _hover={{ color: 'gray.200', textShadow: '0 0 10px #BF00FF' }}
-                  >
-                    {club.name}
-                  </Text>
-                  <HStack spacing={4} mt={2}>
-                    <Text
-                      fontSize="xs"
-                      color="gray.400"
-                      opacity={0.7}
-                      fontFamily="'Poppins', sans-serif"
-                      _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                  <HStack justify="space-between" align="center">
+                    <VStack align="start" flex={1}>
+                      <Text
+                        fontSize="lg"
+                        color="white"
+                        fontWeight="bold"
+                        fontFamily="'Poppins', sans-serif"
+                        _hover={{ color: 'gray.200', textShadow: '0 0 10px #BF00FF' }}
+                      >
+                        {club.name}
+                      </Text>
+                      <HStack spacing={4} mt={2}>
+                        <Text
+                          fontSize="xs"
+                          color="gray.400"
+                          opacity={0.7}
+                          fontFamily="'Poppins', sans-serif"
+                          _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                        >
+                          Years: {club.years}
+                        </Text>
+                        <Text
+                          fontSize="xs"
+                          color="gray.400"
+                          opacity={0.7}
+                          fontFamily="'Poppins', sans-serif"
+                          _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                        >
+                          Matches: {club.matches}
+                        </Text>
+                        <Text
+                          fontSize="xs"
+                          color="gray.400"
+                          opacity={0.7}
+                          fontFamily="'Poppins', sans-serif"
+                          _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                        >
+                          Goals: {club.goals}
+                        </Text>
+                      </HStack>
+                    </VStack>
+                    <MotionBox
+                      whileHover={{ scale: 1.1, filter: 'drop-shadow(0 0 10px rgba(255, 60, 60, 0.8))' }}
+                      transition={{ duration: 0.3 }}
                     >
-                      Years: {club.years}
-                    </Text>
-                    <Text
-                      fontSize="xs"
-                      color="gray.400"
-                      opacity={0.7}
-                      fontFamily="'Poppins', sans-serif"
-                      _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
-                    >
-                      Matches: {club.matches}
-                    </Text>
-                    <Text
-                      fontSize="xs"
-                      color="gray.400"
-                      opacity={0.7}
-                      fontFamily="'Poppins', sans-serif"
-                      _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
-                    >
-                      Goals: {club.goals}
-                    </Text>
+                      <Image
+                        src={club.logo}
+                        alt={`${club.name} logo`}
+                        boxSize="40px"
+                        objectFit="contain"
+                        filter="drop-shadow(0 0 5px rgba(255, 60, 60, 0.4))"
+                      />
+                    </MotionBox>
                   </HStack>
                 </MotionBox>
               ))}
+            </Box>
+
+            {/* National Football Team */}
+            <Box w="full">
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                color="white"
+                mb={4}
+                textTransform="uppercase"
+                fontFamily="'Poppins', sans-serif"
+                letterSpacing="1px"
+              >
+                National Football Team
+              </Text>
+              <MotionBox
+                bg={cardBg}
+                borderRadius="lg"
+                p={4}
+                mb={4}
+                borderLeft="4px solid #FF3C3C"
+                boxShadow="0 2px 12px rgba(0, 0, 0, 0.3)"
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: '0 0 25px rgba(255, 60, 60, 0.7)',
+                  borderLeftColor: neonRed,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <HStack justify="space-between" align="center">
+                  <VStack align="start" flex={1}>
+                    <Text
+                      fontSize="lg"
+                      color="white"
+                      fontWeight="bold"
+                      fontFamily="'Poppins', sans-serif"
+                      _hover={{ color: 'gray.200', textShadow: '0 0 10px #BF00FF' }}
+                    >
+                      {player.nationalTeam.name}
+                    </Text>
+                    <HStack spacing={4} mt={2}>
+                      <Text
+                        fontSize="xs"
+                        color="gray.400"
+                        opacity={0.7}
+                        fontFamily="'Poppins', sans-serif"
+                        _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                      >
+                        Years: {player.nationalTeam.years}
+                      </Text>
+                      <Text
+                        fontSize="xs"
+                        color="gray.400"
+                        opacity={0.7}
+                        fontFamily="'Poppins', sans-serif"
+                        _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                      >
+                        Matches: {player.nationalTeam.matches}
+                      </Text>
+                      <Text
+                        fontSize="xs"
+                        color="gray.400"
+                        opacity={0.7}
+                        fontFamily="'Poppins', sans-serif"
+                        _hover={{ color: 'gray.300', textShadow: '0 0 5px #BF00FF' }}
+                      >
+                        Goals: {player.nationalTeam.goals}
+                      </Text>
+                    </HStack>
+                  </VStack>
+                  <MotionBox
+                    whileHover={{ scale: 1.1, filter: 'drop-shadow(0 0 10px rgba(255, 60, 60, 0.8))' }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={player.nationalTeam.logo}
+                      alt={`${player.nationalTeam.name} logo`}
+                      boxSize="40px"
+                      objectFit="contain"
+                      filter="drop-shadow(0 0 5px rgba(255, 60, 60, 0.4))"
+                    />
+                  </MotionBox>
+                </HStack>
+              </MotionBox>
             </Box>
 
             {/* Bio */}

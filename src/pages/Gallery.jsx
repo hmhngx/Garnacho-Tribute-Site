@@ -365,7 +365,7 @@ const PinterestGallery = () => {
                 boxShadow: `0 0 30px ${section.color}60`,
               }}
               transition="all 0.2s ease"
-              group
+              _group
             >
               <VStack align="flex-start" spacing={2} mb={4}>
                 <Flex align="center" gap={2}>

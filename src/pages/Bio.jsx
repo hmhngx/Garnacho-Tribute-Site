@@ -237,38 +237,36 @@ const Bio = () => {
                 </Heading>
               </VStack>
               <HStack spacing={3} mt={2}>
-                <Tag
-                  size="lg"
-                  borderRadius="full"
+                <HStack
                   bg="#C60010" // Crimson Red
                   color="white"
                   fontWeight="bold"
                   fontSize="md"
                   px={6}
                   py={2}
+                  borderRadius="full"
                   boxShadow="0 2px 8px rgba(0, 0, 0, 0.2)"
                   letterSpacing="0.5px"
-                  leftIcon={<Icon as={FaFutbol} mr={2} />}
                   _hover={{ transform: 'scale(1.05)', boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)', transition: 'all 0.3s' }}
                 >
-                  {player.position}
-                </Tag>
-                <Tag
-                  size="lg"
-                  borderRadius="full"
+                  <Icon as={FaFutbol} />
+                  <Text>{player.position}</Text>
+                </HStack>
+                <HStack
                   bg="#C60010" // Crimson Red
                   color="white"
                   fontWeight="bold"
                   fontSize="md"
                   px={6}
                   py={2}
+                  borderRadius="full"
                   boxShadow="0 2px 8px rgba(0, 0, 0, 0.2)"
                   letterSpacing="0.5px"
-                  leftIcon={<Icon as={FaShoePrints} mr={2} />}
                   _hover={{ transform: 'scale(1.05)', boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)', transition: 'all 0.3s' }}
                 >
-                  {player.foot}
-                </Tag>
+                  <Icon as={FaShoePrints} />
+                  <Text>{player.foot}</Text>
+                </HStack>
               </HStack>
             </VStack>
 

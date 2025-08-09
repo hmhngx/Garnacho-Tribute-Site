@@ -22,6 +22,8 @@ import { keyframes } from '@emotion/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
+const MotionImage = motion(Image);
+
 // Import goal images from assets
 import goal1Img from '/goals/sociedad.png';
 import goal2Img from '/goals/fulham.png';
@@ -49,6 +51,34 @@ import goal23Img from '/goals/bodo.png';
 import goal24Img from '/goals/lei3.png';
 import goal25Img from '/goals/newcastle.png';
 import goal26Img from '/goals/brent2.png';
+
+// Import modal images (different from thumbnail images)
+import modal1Img from '/modals/modal1.png';
+import modal2Img from '/modals/modal2.png';
+import modal3Img from '/modals/modal3.png';
+import modal4Img from '/modals/modal4.png';
+import modal5Img from '/modals/modal5.png';
+import modal6Img from '/modals/modal6.png';
+import modal7Img from '/modals/modal7.png';
+import modal8Img from '/modals/modal8.png';
+import modal9Img from '/modals/modal9.png';
+import modal10Img from '/modals/modal10.png';
+import modal11Img from '/modals/modal11.png';
+import modal12Img from '/modals/modal12.png';
+import modal13Img from '/modals/modal13.png';
+import modal14Img from '/modals/modal14.png';
+import modal15Img from '/modals/modal15.png';
+import modal16Img from '/modals/modal16.png';
+import modal17Img from '/modals/modal17.png';
+import modal18Img from '/modals/modal18.png';
+import modal19Img from '/modals/modal19.png';
+import modal20Img from '/modals/modal20.png';
+import modal21Img from '/modals/modal21.png';
+import modal22Img from '/modals/modal22.png';
+import modal23Img from '/modals/modal23.png';
+import modal24Img from '/modals/modal24.png';
+import modal25Img from '/modals/modal25.png';
+import modal26Img from '/modals/modal26.png';
 
 // Import Manchester United logo
 import manUnitedLogo from '/clubs/Manchester-United-FC-logo.png';
@@ -86,14 +116,14 @@ const glowAnimation = keyframes`
   100% { box-shadow: 0 0 10px #D00000, 0 0 20px #D00000, 0 0 30px #ffffff; }
 `;
 
-const fadeIn = keyframes`
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-`;
+
+
+
 
 const MotionBox = motion(Box);
 const MotionModalContent = motion(ModalContent);
 const MotionText = motion(Text);
+const MotionHeading = motion(Heading);
 
 const Goals = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -151,6 +181,7 @@ const Goals = () => {
       opponent: "Real Sociedad",
       description: "A stunning left foot strike to seal a crucial victory for Manchester United.",
       image: goal1Img,
+      modalImage: modal1Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "17",
@@ -164,6 +195,7 @@ const Goals = () => {
       opponent: "Fulham",
       description: "A late goal that secured a crucial victory for Manchester United.",
       image: goal2Img,
+      modalImage: modal2Img,
       competition: "Premier League",
       venue: "Craven Cottage",
       minute: "90+3",
@@ -177,6 +209,7 @@ const Goals = () => {
       opponent: "Leeds United",
       description: "A well made finish to seal the win.",
       image: goal3Img,
+      modalImage: modal3Img,
       competition: "Premier League",
       venue: "Elland Road",
       minute: "85",
@@ -190,6 +223,7 @@ const Goals = () => {
       opponent: "West Ham United",
       description: "A right-footed curve to the under edge of the box.",
       image: goal4Img,
+      modalImage: modal4Img,
       competition: "FA Cup",
       venue: "Old Trafford",
       minute: "90",
@@ -203,6 +237,7 @@ const Goals = () => {
       opponent: "Wolves",
       description: "A late strike to secure three points.",
       image: goal5Img,
+      modalImage: modal5Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "90 + 4",
@@ -216,6 +251,7 @@ const Goals = () => {
       opponent: "Crystal Palace",
       description: "A clean finish after a pass from Dalot.",
       image: goal6Img,
+      modalImage: modal6Img,
       competition: "EFL Cup",
       venue: "Old Trafford",
       minute: "21",
@@ -229,6 +265,7 @@ const Goals = () => {
       opponent: "Everton",
       description: "Puskas-winning bycicle kick.",
       image: goal7Img,
+      modalImage: modal7Img,
       competition: "Premier League",
       venue: "Goodison Park",
       minute: "3",
@@ -242,6 +279,7 @@ const Goals = () => {
       opponent: "Galatasaray",
       description: "A stunning top bin strike.",
       image: goal8Img,
+      modalImage: modal8Img,
       competition: "Champions League",
       venue: "Ali Sami Yen Spor Kompleksi RAMS Park",
       minute: "11",
@@ -255,6 +293,7 @@ const Goals = () => {
       opponent: "Aston Villa",
       description: "A precise left-footed strike to start a comeback.",
       image: goal9Img,
+      modalImage: modal9Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "59",
@@ -268,6 +307,7 @@ const Goals = () => {
       opponent: "Aston Villa",
       description: "A powerful strike to tie the game 2-2.",
       image: goal10Img,
+      modalImage: modal10Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "71",
@@ -281,6 +321,7 @@ const Goals = () => {
       opponent: "West Ham",
       description: "A quick turn and shot to beat the keeper.",
       image: goal11Img,
+      modalImage: modal11Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "49",
@@ -294,6 +335,7 @@ const Goals = () => {
       opponent: "West Ham",
       description: "A counter attack to seal the 3-0 win.",
       image: goal12Img,
+      modalImage: modal12Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "84",
@@ -307,6 +349,7 @@ const Goals = () => {
       opponent: "Chelsea",
       description: "A left=footed shot to end the counter attack.",
       image: goal13Img,
+      modalImage: modal13Img,
       competition: "Premier League",
       venue: "Stamford Bridge",
       minute: "34",
@@ -320,6 +363,7 @@ const Goals = () => {
       opponent: "Chelsea",
       description: "A towering header from a magnificient assist by Antony.",
       image: goal14Img,
+      modalImage: modal14Img,
       competition: "Premier League",
       venue: "Stamford Bridge",
       minute: "67",
@@ -333,6 +377,7 @@ const Goals = () => {
       opponent: "Manchester City",
       description: "A clinical finish in a heated derby during the FA Cup Final.",
       image: goal15Img,
+      modalImage: modal15Img,
       competition: "FA Cup",
       venue: "Wembley Stadium",
       minute: "30",
@@ -346,6 +391,7 @@ const Goals = () => {
       opponent: "Manchester City",
       description: "A stunning goal after being subbed in.",
       image: goal16Img,
+      modalImage: modal16Img,
       competition: "Community Shield",
       venue: "Wembley Stadium",
       minute: "82",
@@ -359,6 +405,7 @@ const Goals = () => {
       opponent: "Southampton",
       description: "A late top bin from a tight angle.",
       image: goal17Img,
+      modalImage: modal17Img,
       competition: "Premier League",
       venue: "St Mary's Stadium",
       minute: "90+6",
@@ -372,6 +419,7 @@ const Goals = () => {
       opponent: "Barnsley",
       description: "A right-footed strike before the half ended.",
       image: goal18Img,
+      modalImage: modal18Img,
       competition: "EFL Cup",
       venue: "Old Trafford",
       minute: "45+2",
@@ -385,6 +433,7 @@ const Goals = () => {
       opponent: "Barnsley",
       description: "A quick counter attack ended with a right-footed goal.",
       image: goal19Img,
+      modalImage: modal19Img,
       competition: "EFL Cup",
       venue: "Old Trafford",
       minute: "49",
@@ -398,6 +447,7 @@ const Goals = () => {
       opponent: "Brentford",
       description: "A magnificient volley to equalize the match.",
       image: goal20Img,
+      modalImage: modal20Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "47",
@@ -411,6 +461,7 @@ const Goals = () => {
       opponent: "Leicester",
       description: "A precise right-footed strike from a cross by Dalot.",
       image: goal21Img,
+      modalImage: modal21Img,
       competition: "EFL Cup",
       venue: "Old Trafford",
       minute: "28",
@@ -424,6 +475,7 @@ const Goals = () => {
       opponent: "Leicester",
       description: "A magnificient curve into the right top corner to seal the 3 - 0 win.",
       image: goal22Img,
+      modalImage: modal22Img,
       competition: "Premier League",
       venue: "Old Trafford",
       minute: "82",
@@ -437,6 +489,7 @@ const Goals = () => {
       opponent: "Bodo/Glimt",
       description: "A quick finish in a European night.",
       image: goal23Img,
+      modalImage: modal23Img,
       competition: "Europa League",
       venue: "Old Trafford",
       minute: "1",
@@ -450,6 +503,7 @@ const Goals = () => {
       opponent: "Leicester",
       description: "A quick turn after the pass from Fernandes.",
       image: goal24Img,
+      modalImage: modal24Img,
       competition: "Premier League",
       venue: "King Power Stadium",
       minute: "67",
@@ -463,6 +517,7 @@ const Goals = () => {
       opponent: "Newcastle",
       description: "A composed finish after a pass from Dalot to end the counter attack.",
       image: goal25Img,
+      modalImage: modal25Img,
       competition: "Premier League",
       venue: "St James' Park",
       minute: "37",
@@ -476,6 +531,7 @@ const Goals = () => {
       opponent: "Brentford",
       description: "A powerful curve with right foot to put the ball in the top corner.",
       image: goal26Img,
+      modalImage: modal26Img,
       competition: "Premier League",
       venue: "Gtech Community Stadium",
       minute: "82",
@@ -544,7 +600,7 @@ const Goals = () => {
           className="heading-container"
         >
           {/* Manchester United Logo on the Left */}
-          <Image
+          <MotionImage
             src={manUnitedLogo}
             alt="Manchester United Logo"
             height={{ base: '100px', md: '100px' }}
@@ -561,7 +617,7 @@ const Goals = () => {
           {/* Text Stack on the Right */}
           <VStack alignItems="flex-start" spacing={2}>
             <MotionBox>
-              <Heading
+              <MotionHeading
                 as="h1"
                 fontFamily="'Oswald', sans-serif"
                 fontWeight="700"
@@ -578,7 +634,7 @@ const Goals = () => {
                   textShadow: "0 0 15px #D00000, 0 0 30px #ffffff",
                   animation: `${glowAnimation} 1.5s infinite`,
                 }}
-              >
+                              >
                 <span
                   style={{
                     background: "linear-gradient(90deg,rgb(163, 51, 51),rgb(255, 255, 255))",
@@ -589,7 +645,7 @@ const Goals = () => {
                 >
                   ALL 26 GOALS FOR MAN UNITED
                 </span>{' '}
-              </Heading>
+              </MotionHeading>
             </MotionBox>
             <Text
               fontFamily="'Oswald', sans-serif"
@@ -616,28 +672,56 @@ const Goals = () => {
           maxW="100%"
           transition="all 0.5s ease"
         >
-          {currentGoals.map((goal, idx) => (
-            <MotionBox
-              key={goal.id}
-              bg="linear-gradient(to bottom, #2A2A2A, #111111)"
-              borderRadius="16px"
-              overflow="hidden"
-              position="relative"
-              boxShadow="inset 0 2px 4px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.5)"
-              p={{ base: 4, md: 6 }}
-              minH="450px"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              whileHover={{
-                scale: 1.03,
-                boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.3)",
-                border: "1px solid #D00000",
-                transition: { duration: 0.3 }
-              }}
-              cursor="pointer"
-              onClick={() => handleGoalClick(goal)}
-            >
+                     {currentGoals.map((goal, idx) => (
+             <MotionBox
+               key={goal.id}
+               bg="linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 50%, #111111 100%)"
+               borderRadius="20px"
+               overflow="hidden"
+               position="relative"
+               boxShadow="inset 0 2px 4px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.6)"
+               p={{ base: 4, md: 6 }}
+               minH="480px"
+               initial={{ opacity: 0, y: 30, scale: 0.9 }}
+               animate={{ opacity: 1, y: 0, scale: 1 }}
+               transition={{ 
+                 delay: idx * 0.15, 
+                 duration: 0.6,
+                 type: "spring",
+                 stiffness: 100
+               }}
+               whileHover={{
+                 scale: 1.05,
+                 y: -8,
+                 boxShadow: "inset 0 2px 4px rgba(0,0,0,0.3), 0 20px 40px rgba(208,0,0,0.3)",
+                 border: "2px solid #D00000",
+                 transition: { duration: 0.4, ease: "easeOut" }
+               }}
+               whileTap={{
+                 scale: 0.98,
+                 transition: { duration: 0.1 }
+               }}
+               cursor="pointer"
+               onClick={() => handleGoalClick(goal)}
+               _before={{
+                 content: '""',
+                 position: "absolute",
+                 top: 0,
+                 left: 0,
+                 right: 0,
+                 bottom: 0,
+                 background: "linear-gradient(45deg, transparent 30%, rgba(208,0,0,0.1) 50%, transparent 70%)",
+                 opacity: 0,
+                 transition: "opacity 0.3s ease",
+                 pointerEvents: "none",
+                 zIndex: 1
+               }}
+               _hover={{
+                 _before: {
+                   opacity: 1
+                 }
+               }}
+             >
               {/* Vertical Team-Colored Stripe */}
               <Box
                 position="absolute"
@@ -676,124 +760,192 @@ const Goals = () => {
                 transition="all 0.3s ease"
                 _hover={{ transform: "scale(1.1)" }}
               />
-              {/* Red Light Ray Effect Behind Player */}
-              <Box
-                position="relative"
-                width="100%"
-                height="280px"
-                zIndex={2}
-              >
-                <Box
-                  position="absolute"
-                  top="50%"
-                  left="50%"
-                  transform="translate(-50%, -50%)"
-                  width="80%"
-                  height="80%"
-                  bgGradient="radial(#D00000, rgba(208,0,0,0.2), transparent)"
-                  opacity={0.2}
-                  filter="blur(30px)"
-                  zIndex={1}
-                />
-                {/* Goal Image with Red Glow */}
-                <Image
-                  src={goal.image}
-                  alt={goal.title}
-                  width="100%"
-                  height="280px"
-                  objectFit="contain"
-                  borderRadius="md"
-                  mb={4}
-                  style={{ transform: 'translateY(10px)' }}
-                  filter="drop-shadow(0 10px 25px rgba(255, 0, 0, 0.4))"
-                  draggable={false}
-                  userSelect="none"
-                  zIndex={2}
-                  position="relative"
-                  transition="all 0.3s ease"
-                  _hover={{ filter: "drop-shadow(0 10px 30px rgba(255, 0, 0, 0.6))" }}
-                />
-              </Box>
-              {/* Card Content */}
-              <Box
-                p={2}
-                display="flex"
-                flexDirection="column"
-                alignItems="flex-start"
-                justifyContent="flex-end"
-                zIndex={3}
-              >
-                <Text
-                  fontFamily="'Oswald', sans-serif"
-                  fontSize="24px"
-                  fontWeight="700"
-                  color="#ffffff"
-                  textTransform="uppercase"
-                  letterSpacing="1px"
-                  mb={3}
-                  transition="all 0.3s ease"
-                  _hover={{ color: "#D00000" }}
-                >
-                  {goal.title}
-                </Text>
-                <Text
-                  fontFamily="'Inter', sans-serif"
-                  fontSize="14px"
-                  fontWeight="700"
-                  color="#D00000"
-                  mb={3}
-                >
-                  {goal.date} • {goal.venue}
-                </Text>
-                <HStack spacing={2} mb={3}>
-                  <Badge
-                    bg="#B80000"
-                    color="white"
-                    fontSize="12px"
-                    fontWeight="600"
+                                                          {/* Image Section */}
+               <Box
+                 position="relative"
+                 width="100%"
+                 height="300px"
+                 overflow="hidden"
+                 borderRadius="16px"
+                 mb={4}
+               >
+                 <Image
+                   src={goal.image}
+                   alt={goal.title}
+                   width="100%"
+                   height="100%"
+                   objectFit="contain"
+                   borderRadius="16px"
+                   transition="all 0.3s ease"
+                   _hover={{ 
+                     transform: "scale(1.02)"
+                   }}
+                 />
+               </Box>
+                             {/* Enhanced Card Content with Data Storytelling */}
+               <Box
+                 p={4}
+                 display="flex"
+                 flexDirection="column"
+                 alignItems="flex-start"
+                 justifyContent="flex-end"
+                 zIndex={3}
+                 bg="linear-gradient(180deg, transparent, rgba(0,0,0,0.3))"
+                 borderRadius="0 0 16px 16px"
+               >
+                 {/* Goal Title with Enhanced Typography */}
+                                   <MotionText
+                    fontFamily="'Oswald', sans-serif"
+                    fontSize="26px"
+                    fontWeight="900"
+                    color="#ffffff"
                     textTransform="uppercase"
-                    padding="4px 12px"
-                    borderRadius="full"
-                    transition="all 0.3s ease"
-                    _hover={{ transform: "scale(1.05)", bg: "#A00000" }}
+                    letterSpacing="2px"
+                    mb={3}
+                    textShadow="2px 2px 4px rgba(0,0,0,0.8)"
+                    whileHover={{ 
+                      color: "#D00000",
+                      textShadow: "0 0 10px rgba(208,0,0,0.5)"
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
                   >
-                    {goal.competition}
-                  </Badge>
-                  <Badge
-                    bg="gray.800"
-                    color="gray.200"
-                    fontSize="12px"
-                    fontWeight="600"
-                    textTransform="uppercase"
-                    padding="4px 12px"
-                    borderRadius="full"
-                    transition="all 0.3s ease"
-                    _hover={{ transform: "scale(1.05)", bg: "gray.700" }}
-                  >
-                    VS {goal.opponent.toUpperCase()}
-                  </Badge>
-                </HStack>
-                {/* Stats Grid */}
-                <HStack spacing={6} color="#c4c4c4" fontSize="14px" alignItems="flex-start">
-                  <Text fontWeight="600">
-                    🕒 MINUTE: <strong style={{ color: "#D00000" }}>{goal.minute}</strong>
-                  </Text>
-                  <Text fontWeight="600">🏟️ STADIUM: {goal.venue}</Text>
-                  <Badge
-                    bg="#770000"
-                    color="white"
-                    fontSize="12px"
-                    fontWeight="600"
-                    textTransform="uppercase"
-                    padding="4px 12px"
-                    borderRadius="full"
-                    transition="all 0.3s ease"
-                    _hover={{ transform: "scale(1.05)", bg: "#5A0000" }}
-                  >
-                    🥅 {goal.type}
-                  </Badge>
-                </HStack>
-              </Box>
+                   {goal.title}
+                 </MotionText>
+                 
+                 {/* Date and Venue with Enhanced Styling */}
+                 <MotionText
+                   fontFamily="'Inter', sans-serif"
+                   fontSize="14px"
+                   fontWeight="600"
+                   color="#D00000"
+                   mb={4}
+                   initial={{ opacity: 0, x: -20 }}
+                   animate={{ opacity: 1, x: 0 }}
+                   transition={{ delay: 0.3, duration: 0.5 }}
+                   _before={{
+                     content: '"📅"',
+                     marginRight: "8px"
+                   }}
+                 >
+                   {goal.date} • {goal.venue}
+                 </MotionText>
+                 
+                 {/* Enhanced Badges with Micro-interactions */}
+                 <HStack spacing={3} mb={4} flexWrap="wrap">
+                   <MotionBox
+                     initial={{ opacity: 0, scale: 0.8 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     transition={{ delay: 0.4, duration: 0.5 }}
+                   >
+                     <Badge
+                       bg="linear-gradient(135deg, #B80000, #A00000)"
+                       color="white"
+                       fontSize="11px"
+                       fontWeight="700"
+                       textTransform="uppercase"
+                       padding="6px 16px"
+                       borderRadius="full"
+                       boxShadow="0 4px 12px rgba(184,0,0,0.3)"
+                       transition="all 0.3s ease"
+                       _hover={{ 
+                         transform: "scale(1.1) translateY(-2px)",
+                         boxShadow: "0 6px 16px rgba(184,0,0,0.5)"
+                       }}
+                     >
+                       {goal.competition}
+                     </Badge>
+                   </MotionBox>
+                   <MotionBox
+                     initial={{ opacity: 0, scale: 0.8 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     transition={{ delay: 0.5, duration: 0.5 }}
+                   >
+                     <Badge
+                       bg="linear-gradient(135deg, #2A2A2A, #1A1A1A)"
+                       color="gray.200"
+                       fontSize="11px"
+                       fontWeight="700"
+                       textTransform="uppercase"
+                       padding="6px 16px"
+                       borderRadius="full"
+                       border="1px solid #D00000"
+                       transition="all 0.3s ease"
+                       _hover={{ 
+                         transform: "scale(1.1) translateY(-2px)",
+                         bg: "linear-gradient(135deg, #3A3A3A, #2A2A2A)"
+                       }}
+                     >
+                       VS {goal.opponent.toUpperCase()}
+                     </Badge>
+                   </MotionBox>
+                 </HStack>
+                 
+                 {/* Enhanced Stats Grid with Data Storytelling */}
+                 <VStack spacing={3} align="stretch" w="100%">
+                   <MotionBox
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: 0.6, duration: 0.5 }}
+                   >
+                     <HStack spacing={4} color="#c4c4c4" fontSize="13px" alignItems="center">
+                       <Box
+                         display="flex"
+                         alignItems="center"
+                         p={2}
+                         bg="rgba(208,0,0,0.1)"
+                         borderRadius="8px"
+                         border="1px solid rgba(208,0,0,0.3)"
+                       >
+                         <Text fontSize="16px" mr={2}>🕒</Text>
+                         <Text fontWeight="700">
+                           MINUTE: <Text as="span" color="#D00000" fontSize="16px">{goal.minute}</Text>
+                         </Text>
+                       </Box>
+                       <Box
+                         display="flex"
+                         alignItems="center"
+                         p={2}
+                         bg="rgba(255,255,255,0.05)"
+                         borderRadius="8px"
+                       >
+                         <Text fontSize="16px" mr={2}>🏟️</Text>
+                         <Text fontWeight="600">{goal.venue}</Text>
+                       </Box>
+                     </HStack>
+                   </MotionBox>
+                   
+                   <MotionBox
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ delay: 0.7, duration: 0.5 }}
+                   >
+                     <Badge
+                       bg="linear-gradient(135deg, #770000, #5A0000)"
+                       color="white"
+                       fontSize="12px"
+                       fontWeight="700"
+                       textTransform="uppercase"
+                       padding="8px 16px"
+                       borderRadius="full"
+                       boxShadow="0 4px 12px rgba(119,0,0,0.3)"
+                       transition="all 0.3s ease"
+                       _hover={{ 
+                         transform: "scale(1.05)",
+                         boxShadow: "0 6px 16px rgba(119,0,0,0.5)"
+                       }}
+                       display="flex"
+                       alignItems="center"
+                       justifyContent="center"
+                       w="fit-content"
+                     >
+                       <Text fontSize="16px" mr={2}>🥅</Text>
+                       {goal.type}
+                     </Badge>
+                   </MotionBox>
+                 </VStack>
+               </Box>
             </MotionBox>
           ))}
         </SimpleGrid>
@@ -849,24 +1001,33 @@ const Goals = () => {
         </HStack>
       </Container>
 
-      {/* Modal for Goal Details */}
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay
-          backdropFilter="blur(12px)"
-          bg="rgba(0, 0, 0, 0.6)"
-        />
-        <ScaleFade initialScale={0.9} in={isOpen}>
-          <MotionModalContent
-            bg="rgba(255, 255, 255, 0.95)"
-            borderRadius="xl"
-            p={6}
-            maxW="550px"
-            boxShadow="xl"
-            backdropFilter="blur(5px)"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
+             {/* Enhanced Modal for Goal Details */}
+       <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
+         <ModalOverlay
+           backdropFilter="blur(20px)"
+           bg="rgba(0, 0, 0, 0.8)"
+         />
+         <ScaleFade initialScale={0.8} in={isOpen}>
+           <MotionModalContent
+             bg="linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9))"
+             borderRadius="24px"
+             p={0}
+             maxW="700px"
+             boxShadow="0 25px 50px rgba(0,0,0,0.8)"
+             backdropFilter="blur(10px)"
+             border="2px solid rgba(208,0,0,0.2)"
+             initial={{ opacity: 0, scale: 0.8, y: 50 }}
+             animate={{ opacity: 1, scale: 1, y: 0 }}
+             transition={{ 
+               duration: 0.5,
+               type: "spring",
+               stiffness: 100,
+               damping: 20
+             }}
+             whileHover={{
+               boxShadow: "0 30px 60px rgba(0,0,0,0.9)"
+             }}
+           >
             <ModalCloseButton
               bg="black"
               color="white"
@@ -889,32 +1050,34 @@ const Goals = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <VStack spacing={4} align="stretch">
-                  <Box position="relative">
-                    <Box
-                      position="absolute"
-                      top="50%"
-                      left="50%"
-                      transform="translate(-50%, -50%)"
-                      width="90%"
-                      height="90%"
-                      bgGradient="linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(208, 0, 0, 0.1))"
-                      filter="blur(1px)"
-                      boxShadow="0 0 80px rgba(255, 0, 0, 0.3)"
-                      borderRadius="full"
-                      zIndex={1}
-                    />
-                    <Image
-                      src={selectedGoal?.image}
-                      alt={selectedGoal?.title}
-                      maxH="240px"
-                      mx="auto"
-                      objectFit="contain"
-                      filter="drop-shadow(0 10px 25px rgba(255, 0, 0, 0.4))"
-                      zIndex={2}
-                      position="relative"
-                    />
-                  </Box>
+                                 <VStack spacing={0} align="stretch">
+                   <Box position="relative" height="50%" minH="250px">
+                     <Box
+                       position="absolute"
+                       top="50%"
+                       left="50%"
+                       transform="translate(-50%, -50%)"
+                       width="90%"
+                       height="90%"
+                       bgGradient="linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(208, 0, 0, 0.1))"
+                       filter="blur(1px)"
+                       boxShadow="0 0 80px rgba(255, 0, 0, 0.3)"
+                       borderRadius="full"
+                       zIndex={1}
+                     />
+                     <Image
+                       src={selectedGoal?.modalImage}
+                       alt={selectedGoal?.title}
+                       width="100%"
+                       height="100%"
+                       mx="auto"
+                       objectFit="cover"
+                       filter="drop-shadow(0 10px 25px rgba(255, 0, 0, 0.4))"
+                       zIndex={2}
+                       position="relative"
+                       borderRadius="md"
+                     />
+                   </Box>
                   <Box>
                     <Text
                       fontFamily="'Oswald', sans-serif"
