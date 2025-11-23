@@ -11,12 +11,15 @@ This website is built with love and respect for Garnacho's contributions to Manc
 ## Features
 
 - **Personal Touch**: Every element reflects the passion of a true United fan
+- **Interactive Sidebar Navigation**: Animated sidebar menu with fast autocomplete search using Trie data structure
+- **Kit Display Gallery**: Browse through Garnacho's kit collection across multiple seasons with interactive voting
 - **Interactive Gallery**: Relive Garnacho's most memorable moments in stunning detail
 - **Goal Highlights**: Watch his spectacular goals that have lit up Old Trafford
 - **Career Timeline**: Follow his remarkable journey from youth prospect to first-team star
 - **Fan Merchandise**: Show your support with official Garnacho gear
 - **Immersive Experience**: "Viva Garnacho" audio chant to recreate the stadium atmosphere
-- **Responsive Design**: Perfect viewing experience across all devices
+- **Responsive Design**: Perfect viewing experience across all devices with mobile-optimized navigation
+- **Enhanced Styling**: Modern UI with Tailwind CSS integration and improved component layouts
 
 ## Pages
 
@@ -27,17 +30,20 @@ This website is built with love and respect for Garnacho's contributions to Manc
 5. **Goals** - Relive the moments that made us fall in love with his game
 6. **Merchandise** - Wear your support with pride
 7. **Gallery** - A visual celebration of his time at United
-8. **Gracias Garnacho** - A heartfelt thank you from a devoted fan
+8. **Kit Display** - Browse and vote on Garnacho's kit collection across seasons (2020-2025)
+9. **Gracias Garnacho** - A heartfelt thank you from a devoted fan
 
 ## Tech Stack
 
-- React
-- Vite
-- Chakra UI
-- React Router
-- Framer Motion
-- React Icons
-- HTML5 Audio API
+- **React** - UI library
+- **Vite** - Build tool and dev server
+- **Chakra UI** - Component library
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **Framer Motion** - Animation library
+- **React Icons** - Icon library
+- **HTML5 Audio API** - Audio playback
+- **Trie Data Structure** - Fast autocomplete search implementation
 
 ## Getting Started
 
@@ -66,10 +72,22 @@ This website is built with love and respect for Garnacho's contributions to Manc
 ```
 src/
   ├── components/     # Reusable components
+  │   ├── Sidebar.jsx        # Navigation sidebar with search
+  │   ├── SidebarToggle.jsx  # Hamburger menu button
+  │   ├── Navbar.jsx         # Top navigation bar
+  │   └── Footer.jsx         # Site footer
   ├── pages/         # Page components
+  │   ├── Home.jsx
+  │   ├── Bio.jsx
+  │   ├── KitDisplayPure.jsx # Kit display gallery
+  │   └── ...        # Other page components
+  ├── utils/         # Utility functions
+  │   └── Trie.js    # Trie data structure for search
   ├── assets/        # Images and other static assets
   ├── App.jsx        # Main App component
   └── main.jsx       # Entry point
+public/
+  └── kits/          # Football kit images
 ```
 
 ## Contributing
@@ -85,6 +103,15 @@ We welcome contributions from fellow Garnacho and Manchester United fans! Please
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Recent Updates
+
+### Latest Features (2024)
+- ✨ **Sidebar Navigation**: Added animated sidebar with intelligent search using Trie data structure
+- ⚽ **Kit Display Page**: New interactive gallery showcasing Garnacho's kits with voting functionality
+- 🎨 **Tailwind CSS Integration**: Enhanced styling with Tailwind CSS for modern, responsive design
+- 📱 **Improved Mobile Experience**: Better responsive behavior with mobile-optimized navigation
+- 🔍 **Fast Search**: Autocomplete search with O(1) average lookup time for quick navigation
 
 ---
 
