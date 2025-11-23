@@ -17,6 +17,7 @@ import {
   Button,
   SimpleGrid,
   ScaleFade,
+  Tooltip,
 } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -115,10 +116,6 @@ const glowAnimation = keyframes`
   50% { box-shadow: 0 0 20px #D00000, 0 0 40px #D00000, 0 0 60px #ffffff; }
   100% { box-shadow: 0 0 10px #D00000, 0 0 20px #D00000, 0 0 30px #ffffff; }
 `;
-
-
-
-
 
 const MotionBox = motion(Box);
 const MotionModalContent = motion(ModalContent);

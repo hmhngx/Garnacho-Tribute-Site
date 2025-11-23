@@ -180,19 +180,32 @@ const ProductCard = ({
         animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0 }}
         transition={{ duration: 0.2 }}
       >
-                 <IconButton
-           icon={<StarIcon />}
-           colorScheme={isWishlisted ? "red" : "gray"}
-           variant="solid"
-           size="sm"
-           borderRadius="full"
-           onClick={() => onAddToWishlist(product.id)}
-           _hover={{
-             transform: 'scale(1.1)',
-             boxShadow: '0 0 15px rgba(255, 0, 0, 0.5)'
-           }}
-           transition="all 0.2s"
-         />
+                 <Tooltip
+           label={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+           aria-label={`${isWishlisted ? 'Remove from' : 'Add to'} wishlist tooltip`}
+           hasArrow
+           placement="top"
+           openDelay={200}
+           bg="#1A1A1A"
+           color="white"
+           border="1px solid #D32F2F"
+           borderRadius="4px"
+         >
+           <IconButton
+             icon={<StarIcon />}
+             colorScheme={isWishlisted ? "red" : "gray"}
+             variant="solid"
+             size="sm"
+             borderRadius="full"
+             onClick={() => onAddToWishlist(product.id)}
+             _hover={{
+               transform: 'scale(1.1)',
+               boxShadow: '0 0 15px rgba(255, 0, 0, 0.5)'
+             }}
+             transition="all 0.2s"
+             aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+           />
+         </Tooltip>
       </MotionBox>
 
       {/* Image Container */}
@@ -529,14 +542,25 @@ const FilterSortBar = ({ filters, setFilters, sortBy, setSortBy }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button
-                leftIcon={<ChevronDownIcon />}
-                variant="outline"
-                colorScheme="orange"
-                onClick={() => setShowFilters(!showFilters)}
-                size="md"
-                borderRadius="12px"
-                border="2px solid"
+              <Tooltip
+                label={showFilters ? "Hide Filters" : "Show Filters"}
+                aria-label={`${showFilters ? 'Hide' : 'Show'} filters tooltip`}
+                hasArrow
+                placement="bottom"
+                openDelay={200}
+                bg="#1A1A1A"
+                color="white"
+                border="1px solid #D32F2F"
+                borderRadius="4px"
+              >
+                <Button
+                  leftIcon={<ChevronDownIcon />}
+                  variant="outline"
+                  colorScheme="orange"
+                  onClick={() => setShowFilters(!showFilters)}
+                  size="md"
+                  borderRadius="12px"
+                  border="2px solid"
                 borderColor="rgba(255, 167, 35, 0.3)"
                 bg="rgba(255, 167, 35, 0.05)"
                 color="orange.400"
@@ -555,6 +579,7 @@ const FilterSortBar = ({ filters, setFilters, sortBy, setSortBy }) => {
               >
                 Filters
               </Button>
+              </Tooltip>
             </MotionBox>
           </HStack>
 

@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Text, Icon } from '@chakra-ui/react';
+import { Box, Container, Stack, Text, Icon, Tooltip } from '@chakra-ui/react';
 import { FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
@@ -33,72 +33,108 @@ const Footer = () => {
           © 2025 Garnacho Tribute. All rights reserved
         </Text>
         <Stack direction="row" spacing={8}>
-          <Box
-            as="a"
-            href="https://x.com/FanGarnacho"
-            target="_blank"
-            rel="noopener noreferrer"
-            _hover={{
-              color: '#FF3C3C',
-              borderColor: '#FF3C3C',
-              transform: 'scale(1.1)',
-              boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
-              transition: 'all 0.3s',
-            }}
+          <Tooltip
+            label="Visit Twitter"
+            aria-label="Twitter tooltip"
+            hasArrow
+            placement="top"
+            openDelay={200}
+            bg="#1A1A1A"
+            color="white"
+            border="1px solid #D32F2F"
+            borderRadius="4px"
           >
-            <Icon
-              as={FaTwitter}
-              boxSize={6}
-              color="#FFFFFF"
-              border="1px solid #FFFFFF"
-              borderRadius="full"
-              p={1}
-            />
-          </Box>
-          <Box
-            as="a"
-            href="https://instagram.com/garnacho7"
-            target="_blank"
-            rel="noopener noreferrer"
-            _hover={{
-              color: '#FF3C3C',
-              borderColor: '#FF3C3C',
-              transform: 'scale(1.1)',
-              boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
-              transition: 'all 0.3s',
-            }}
+            <Box
+              as="a"
+              href="https://x.com/FanGarnacho"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{
+                color: '#FF3C3C',
+                borderColor: '#FF3C3C',
+                transform: 'scale(1.1)',
+                boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
+                transition: 'all 0.3s',
+              }}
+            >
+              <Icon
+                as={FaTwitter}
+                boxSize={6}
+                color="#FFFFFF"
+                border="1px solid #FFFFFF"
+                borderRadius="full"
+                p={1}
+              />
+            </Box>
+          </Tooltip>
+          <Tooltip
+            label="Visit Instagram"
+            aria-label="Instagram tooltip"
+            hasArrow
+            placement="top"
+            openDelay={200}
+            bg="#1A1A1A"
+            color="white"
+            border="1px solid #D32F2F"
+            borderRadius="4px"
           >
-            <Icon
-              as={FaInstagram}
-              boxSize={6}
-              color="#FFFFFF"
-              border="1px solid #FFFFFF"
-              borderRadius="full"
-              p={1}
-            />
-          </Box>
-          <Box
-            as="a"
-            href="https://www.facebook.com/AlejandroGarnacho07"
-            target="_blank"
-            rel="noopener noreferrer"
-            _hover={{
-              color: '#FF3C3C',
-              borderColor: '#FF3C3C',
-              transform: 'scale(1.1)',
-              boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
-              transition: 'all 0.3s',
-            }}
+            <Box
+              as="a"
+              href="https://instagram.com/garnacho7"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{
+                color: '#FF3C3C',
+                borderColor: '#FF3C3C',
+                transform: 'scale(1.1)',
+                boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
+                transition: 'all 0.3s',
+              }}
+            >
+              <Icon
+                as={FaInstagram}
+                boxSize={6}
+                color="#FFFFFF"
+                border="1px solid #FFFFFF"
+                borderRadius="full"
+                p={1}
+              />
+            </Box>
+          </Tooltip>
+          <Tooltip
+            label="Visit Facebook"
+            aria-label="Facebook tooltip"
+            hasArrow
+            placement="top"
+            openDelay={200}
+            bg="#1A1A1A"
+            color="white"
+            border="1px solid #D32F2F"
+            borderRadius="4px"
           >
-            <Icon
-              as={FaFacebook}
-              boxSize={6}
-              color="#FFFFFF"
-              border="1px solid #FFFFFF"
-              borderRadius="full"
-              p={1}
-            />
-          </Box>
+            <Box
+              as="a"
+              href="https://www.facebook.com/AlejandroGarnacho07"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{
+                color: '#FF3C3C',
+                borderColor: '#FF3C3C',
+                transform: 'scale(1.1)',
+                boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
+                transition: 'all 0.3s',
+              }}
+            >
+              <Icon
+                as={FaFacebook}
+                boxSize={6}
+                color="#FFFFFF"
+                border="1px solid #FFFFFF"
+                borderRadius="full"
+                p={1}
+              />
+            </Box>
+          </Tooltip>
         </Stack>
       </Container>
     </Box>

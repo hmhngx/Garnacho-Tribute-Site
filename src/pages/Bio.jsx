@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   Flex,
   Icon,
+  Tooltip,
 } from '@chakra-ui/react';
 import { FaTwitter, FaInstagram, FaFacebook, FaFutbol, FaShoePrints } from 'react-icons/fa';
 
@@ -21,7 +22,7 @@ const player = {
   stats: {
     appearances: 144,
     goals: 26,
-    assists: 19,
+    assists: 22,
     minutes: 8368,
   },
   age: 21, 
@@ -163,30 +164,66 @@ const Bio = () => {
               zIndex={4}
               _hover={{ boxShadow: '0 4px 16px 0 rgba(255, 69, 0, 0.3)', transition: 'all 0.3s' }}
             >
-              <a href={player.socials.facebook} target="_blank" rel="noopener noreferrer">
-                <Icon
-                  as={FaFacebook}
-                  boxSize={7}
-                  color="#1877F3"
-                  _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
-                />
-              </a>
-              <a href={player.socials.twitter} target="_blank" rel="noopener noreferrer">
-                <Icon
-                  as={FaTwitter}
-                  boxSize={7}
-                  color="#1DA1F2"
-                  _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
-                />
-              </a>
-              <a href={player.socials.instagram} target="_blank" rel="noopener noreferrer">
-                <Icon
-                  as={FaInstagram}
-                  boxSize={7}
-                  color="#E1306C"
-                  _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
-                />
-              </a>
+              <Tooltip
+                label="Visit Facebook"
+                aria-label="Facebook tooltip"
+                hasArrow
+                placement="top"
+                openDelay={200}
+                bg="#1A1A1A"
+                color="white"
+                border="1px solid #D32F2F"
+                borderRadius="4px"
+              >
+                <a href={player.socials.facebook} target="_blank" rel="noopener noreferrer">
+                  <Icon
+                    as={FaFacebook}
+                    boxSize={7}
+                    color="#1877F3"
+                    _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
+                  />
+                </a>
+              </Tooltip>
+              <Tooltip
+                label="Visit Twitter"
+                aria-label="Twitter tooltip"
+                hasArrow
+                placement="top"
+                openDelay={200}
+                bg="#1A1A1A"
+                color="white"
+                border="1px solid #D32F2F"
+                borderRadius="4px"
+              >
+                <a href={player.socials.twitter} target="_blank" rel="noopener noreferrer">
+                  <Icon
+                    as={FaTwitter}
+                    boxSize={7}
+                    color="#1DA1F2"
+                    _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
+                  />
+                </a>
+              </Tooltip>
+              <Tooltip
+                label="Visit Instagram"
+                aria-label="Instagram tooltip"
+                hasArrow
+                placement="top"
+                openDelay={200}
+                bg="#1A1A1A"
+                color="white"
+                border="1px solid #D32F2F"
+                borderRadius="4px"
+              >
+                <a href={player.socials.instagram} target="_blank" rel="noopener noreferrer">
+                  <Icon
+                    as={FaInstagram}
+                    boxSize={7}
+                    color="#E1306C"
+                    _hover={{ transform: 'scale(1.2) translateY(-2px)', color: neonGlow, transition: 'all 0.3s' }}
+                  />
+                </a>
+              </Tooltip>
             </HStack>
           </Box>
 

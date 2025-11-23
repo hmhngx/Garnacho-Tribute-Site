@@ -12,17 +12,23 @@ import {
   PopoverTrigger,
   PopoverContent,
   VStack,
+  Button,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { HamburgerIcon, CloseIcon, ChevronDownIcon, SearchIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 const MotionBox = motion(Box);
+const MotionButton = motion(Button);
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const openQuizWebsite = () => {
+    window.open('https://garnacho-quiz-app.vercel.app/', '_blank');
+  };
 
   return (
     <Box
@@ -194,6 +200,23 @@ const Navbar = () => {
                     </Link>
                     <Link
                       as={RouterLink}
+                      to="/kit-display"
+                      fontSize="xs"
+                      fontWeight="bold"
+                      color="#FFFFFF"
+                      textTransform="uppercase"
+                      letterSpacing="1px"
+                      fontFamily="sans-serif"
+                      _hover={{
+                        color: '#FF3C3C',
+                        transform: 'scale(1.05)',
+                        transition: 'all 0.3s',
+                      }}
+                    >
+                      Kit Display
+                    </Link>
+                    <Link
+                      as={RouterLink}
                       to="/gracias-garnacho"
                       fontSize="xs"
                       fontWeight="bold"
@@ -232,24 +255,78 @@ const Navbar = () => {
         {/* Right: Icons */}
         <Flex alignItems="center">
           <Stack direction="row" spacing={4} display={{ base: 'none', md: 'flex' }}> {/* Reduced spacing from 6 to 4 */}
-            <IconButton
-              as={RouterLink}
-              to="/#cards"
-              icon={<SearchIcon />}
-              variant="ghost"
-              color="#FFFFFF"
-              border="1px solid #FFFFFF"
+            <MotionButton
+              onClick={openQuizWebsite}
+              bg="transparent"
+              color="white"
+              border="2px solid #D32F2F"
               borderRadius="full"
-              _hover={{
-                color: '#FF3C3C',
-                borderColor: '#FF3C3C',
-                transform: 'scale(1.1)',
-                boxShadow: '0 0 10px rgba(255, 60, 60, 0.5)',
-                transition: 'all 0.3s',
+              px={4}
+              py={2}
+              fontWeight="bold"
+              fontSize="xs"
+              textTransform="uppercase"
+              letterSpacing="0.1em"
+              position="relative"
+              overflow="hidden"
+              _before={{
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(45deg, #D32F2F, #FF4444, #D32F2F)',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                zIndex: -1
               }}
-              aria-label="Scroll to Cards"
-              size="sm" // Reduced size
-            />
+              _after={{
+                content: '""',
+                position: 'absolute',
+                top: '-2px',
+                left: '-2px',
+                right: '-2px',
+                bottom: '-2px',
+                background: 'linear-gradient(45deg, #D32F2F, #FF4444, #D32F2F)',
+                borderRadius: 'full',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                zIndex: -2,
+                filter: 'blur(6px)'
+              }}
+              _hover={{
+                color: 'white',
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 15px rgba(211, 47, 47, 0.8), 0 0 30px rgba(255, 68, 68, 0.6), 0 0 45px rgba(211, 47, 47, 0.4)',
+                _before: {
+                  opacity: 0.1
+                },
+                _after: {
+                  opacity: 0.6
+                }
+              }}
+              _active={{
+                transform: 'scale(0.98)',
+                boxShadow: '0 0 12px rgba(211, 47, 47, 0.9), inset 0 0 8px rgba(0, 0, 0, 0.2)'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 0 20px rgba(211, 47, 47, 0.9), 0 0 40px rgba(255, 68, 68, 0.7), 0 0 60px rgba(211, 47, 47, 0.5)'
+              }}
+              whileTap={{ scale: 0.98 }}
+              transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+              sx={{
+                '&:hover::before': {
+                  opacity: 0.1
+                },
+                '&:hover::after': {
+                  opacity: 0.6
+                }
+              }}
+            >
+              🧠 QUIZ
+            </MotionButton>
           </Stack>
 
           {/* Mobile Hamburger */}
@@ -359,6 +436,19 @@ const Navbar = () => {
             </Link>
             <Link
               as={RouterLink}
+              to="/kit-display"
+              fontSize="sm"
+              fontWeight="bold"
+              color="#FFFFFF"
+              textTransform="uppercase"
+              letterSpacing="1px"
+              fontFamily="sans-serif"
+              _hover={{ color: '#FF3C3C', transform: 'scale(1.05)', transition: 'all 0.3s' }}
+            >
+              Kit Display
+            </Link>
+            <Link
+              as={RouterLink}
               to="/gracias-garnacho"
               fontSize="sm"
               fontWeight="bold"
@@ -370,6 +460,78 @@ const Navbar = () => {
             >
               Gracias Garnacho
             </Link>
+            <MotionButton
+              onClick={openQuizWebsite}
+              bg="transparent"
+              color="white"
+              border="2px solid #D32F2F"
+              borderRadius="full"
+              px={4}
+              py={2}
+              fontWeight="bold"
+              fontSize="xs"
+              textTransform="uppercase"
+              letterSpacing="0.1em"
+              position="relative"
+              overflow="hidden"
+              _before={{
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(45deg, #D32F2F, #FF4444, #D32F2F)',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                zIndex: -1
+              }}
+              _after={{
+                content: '""',
+                position: 'absolute',
+                top: '-2px',
+                left: '-2px',
+                right: '-2px',
+                bottom: '-2px',
+                background: 'linear-gradient(45deg, #D32F2F, #FF4444, #D32F2F)',
+                borderRadius: 'full',
+                opacity: 0,
+                transition: 'opacity 0.3s ease',
+                zIndex: -2,
+                filter: 'blur(6px)'
+              }}
+              _hover={{
+                color: 'white',
+                transform: 'scale(1.05)',
+                boxShadow: '0 0 15px rgba(211, 47, 47, 0.8), 0 0 30px rgba(255, 68, 68, 0.6), 0 0 45px rgba(211, 47, 47, 0.4)',
+                _before: {
+                  opacity: 0.1
+                },
+                _after: {
+                  opacity: 0.6
+                }
+              }}
+              _active={{
+                transform: 'scale(0.98)',
+                boxShadow: '0 0 12px rgba(211, 47, 47, 0.9), inset 0 0 8px rgba(0, 0, 0, 0.2)'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 0 20px rgba(211, 47, 47, 0.9), 0 0 40px rgba(255, 68, 68, 0.7), 0 0 60px rgba(211, 47, 47, 0.5)'
+              }}
+              whileTap={{ scale: 0.98 }}
+              transition="all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+              sx={{
+                '&:hover::before': {
+                  opacity: 0.1
+                },
+                '&:hover::after': {
+                  opacity: 0.6
+                }
+              }}
+            >
+              🧠 QUIZ
+            </MotionButton>
           </Stack>
         </Box>
       </Collapse>

@@ -1,3 +1,5 @@
+/* Tailwind CSS removed to avoid conflicts - using pure CSS instead */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +13,340 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced typography for Garnacho tribute */
+.garnacho-hero-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #d6001c 0%, #ff4040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 15px rgba(214, 0, 28, 0.6), 0 0 30px rgba(255, 64, 64, 0.4);
+  filter: contrast(1.2) brightness(1.1);
+}
+
+/* Ensure proper contrast ratios for accessibility */
+.garnacho-text-white {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  filter: contrast(1.1);
+}
+
+.garnacho-text-red {
+  color: #ff4040;
+  text-shadow: 0 0 10px rgba(255, 64, 64, 0.6);
+  filter: contrast(1.2);
+}
+
+/* Enhanced button styles for better accessibility */
+.garnacho-button {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #d6001c 0%, #ff4040 100%);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(214, 0, 28, 0.7), 0 0 50px rgba(255, 64, 64, 0.4);
+  transition: all 0.3s ease;
+}
+
+.garnacho-button:hover {
+  background: linear-gradient(135deg, #ff4040 0%, #d6001c 100%);
+  box-shadow: 0 0 35px rgba(214, 0, 28, 0.9), 0 0 70px rgba(255, 64, 64, 0.6);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.garnacho-button:focus {
+  outline: 3px solid rgba(255, 64, 64, 0.6);
+  outline-offset: 2px;
+}
+
+/* Ensure minimum contrast ratio of 4.5:1 */
+.garnacho-text-accessible {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  filter: contrast(1.2) brightness(1.1);
+}
+
+/* Kit Display specific styles */
+.kit-hanger {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.kit-hanger::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 20px;
+  background: #4a5568;
+  border-radius: 2px;
+}
+
+.kit-hanger::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 4px;
+  background: #4a5568;
+  border-radius: 2px;
+}
+
+/* Lamp glow effect */
+.lamp-glow {
+  background: radial-gradient(circle at 30% 20%, #FFFACD 0%, rgba(255, 250, 205, 0.3) 30%, transparent 70%);
+  animation: lamp-flicker 3s ease-in-out infinite;
+}
+
+@keyframes lamp-flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Fireworks animation */
+.fireworks {
+  animation: fireworks 2s ease-out infinite;
+}
+
+@keyframes fireworks {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+/* Float animation for kit */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Concrete texture */
+.concrete-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .lamp-glow,
+  .fireworks,
+  .float {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .kit-hanger::before,
+  .kit-hanger::after {
+    background: #ffffff;
+  }
+}
+
+/* Custom animations for Kit Display */
+@keyframes lamp-flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fireworks {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% { 
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
+  }
+}
+
+@keyframes smooth-scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Apply animations */
+.lamp-flicker {
+  animation: lamp-flicker 3s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.fireworks {
+  animation: fireworks 2s ease-out infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.smooth-scale {
+  animation: smooth-scale 3s ease-in-out infinite;
+}
+
+/* Refined neon glow effects */
+.neon-glow-subtle {
+  box-shadow: 0 0 10px rgba(255, 0, 64, 0.5);
+}
+
+.neon-glow-strong {
+  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
+}
+
+.neon-red {
+  color: #ff0040;
+  text-shadow: 0 0 10px #ff0040, 0 0 20px #ff0040, 0 0 30px #ff0040;
+}
+
+.neon-cyan {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+/* Accessibility-focused glow effects */
+.neon-red-accessible {
+  color: #ff0040;
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.8);
+}
+
+.neon-cyan-accessible {
+  color: #00ffff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+}
+
+/* Interactive hover effects with better performance */
+.interactive-glow:hover {
+  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  transform: scale(1.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-glow-subtle:hover {
+  box-shadow: 0 0 10px currentColor;
+  transform: scale(1.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Low glow mode styles */
+.low-glow-mode {
+  filter: brightness(0.7) contrast(1.2);
+}
+
+.low-glow-mode .neon-glow-strong {
+  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+}
+
+.low-glow-mode .neon-red {
+  text-shadow: 0 0 3px #ff0040;
+}
+
+.low-glow-mode .neon-cyan {
+  text-shadow: 0 0 3px #00ffff;
+}
+
+/* High contrast mode for accessibility */
+.high-contrast {
+  filter: contrast(1.5) brightness(1.2);
+}
+
+.high-contrast .neon-glow-strong {
+  box-shadow: 0 0 30px currentColor, 0 0 60px currentColor, 0 0 90px currentColor;
+}
+
+/* Responsive design with better mobile experience */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .mobile-full {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .mobile-glow-reduce {
+    box-shadow: 0 0 5px currentColor !important;
+    text-shadow: 0 0 3px currentColor !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-glow-reduce {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.focus-visible {
+  outline: 2px solid #00ffff;
+  outline-offset: 4px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .glow-pulse,
+  .smooth-scale,
+  .float,
+  .fireworks {
+    animation: none;
+  }
+  
+  .interactive-glow:hover,
+  .interactive-glow-subtle:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .neon-glow-subtle {
+    box-shadow: 0 0 15px rgba(255, 0, 64, 0.6);
+  }
 }
 
 a {
