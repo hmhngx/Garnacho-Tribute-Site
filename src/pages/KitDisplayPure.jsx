@@ -30,7 +30,7 @@ const KitDisplay = () => {
   const kitsData = [
     {
       name: "HOME KIT 20/21",
-      imageUrl: "public/kits/debutszn.png",
+      imageUrl: "/kits/debutszn.png",
       description: "The first season at Manchester United U18. Garnacho was a key player for the U18 team.",
       player: "Alejandro Garnacho",
       season: "2020-21",
@@ -45,7 +45,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 20/21",
-      imageUrl: "public/kits/debutszn2.png",
+      imageUrl: "/kits/debutszn2.png",
       description: "The first season at Manchester United U18. Garnacho was a key player for the U18 team.",
       player: "Alejandro Garnacho",
       season: "2020-21",
@@ -60,7 +60,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 20/21",
-      imageUrl: "public/kits/debutszn3.png",
+      imageUrl: "/kits/debutszn3.png",
       description: "The first season at Manchester United U18. Garnacho was a key player for the U18 team.",
       player: "Alejandro Garnacho",
       season: "2020-21",
@@ -75,7 +75,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 21/22",
-      imageUrl: "public/kits/u18(2).png",
+      imageUrl: "/kits/u18(2).png",
       description: "Alejandro Garnacho's second season at Manchester United U18, where he emerged as a key player with dynamic performances.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -90,7 +90,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 21/22",
-      imageUrl: "public/kits/u18(3).png",
+      imageUrl: "/kits/u18(3).png",
       description: "The second season at Manchester United U18. Garnacho was a key player for the U18 team.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -105,7 +105,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 21/22",
-      imageUrl: "public/kits/u18.png",
+      imageUrl: "/kits/u18.png",
       description: "The second season at Manchester United U18. Garnacho was a key player for the U18 team.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -120,7 +120,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 21/22",
-      imageUrl: "public/kits/first.png",
+      imageUrl: "/kits/first.png",
       description: "First title as a professional footballer for Manchester United U18.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -135,7 +135,7 @@ const KitDisplay = () => {
     },
     {
       name: "NUMBER 75 KIT",
-      imageUrl: "public/kits/number75.png",
+      imageUrl: "/kits/number75.png",
       description: "Garnacho's number 75 kit.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -148,7 +148,7 @@ const KitDisplay = () => {
     },
     {
       name: "U18 SPAIN KIT",
-      imageUrl: "public/kits/spain.png",
+      imageUrl: "/kits/spain.png",
       description: "Garnacho's U18 Spain kit.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -161,7 +161,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 22/23",
-      imageUrl: "public/kits/2223(1).png",
+      imageUrl: "/kits/2223(1).png",
       description: "Garnacho's home kit for the 2022-23 season.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -176,7 +176,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 22/23",
-      imageUrl: "public/kits/2223(2).png",
+      imageUrl: "/kits/2223(2).png",
       description: "Garnacho's home kit for the 2022-23 season.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -191,7 +191,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 22/23",
-      imageUrl: "public/kits/2223.png",
+      imageUrl: "/kits/2223.png",
       description: "Garnacho's away kit for the 2022-23 season.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -205,7 +205,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 22/23",
-      imageUrl: "public/kits/2223away.png",
+      imageUrl: "/kits/2223away.png",
       description: "Garnacho's away kit for the 2022-23 season.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -220,7 +220,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 22/23",
-      imageUrl: "public/kits/2223away(1).png",
+      imageUrl: "/kits/2223away(1).png",
       description: "Garnacho's away kit for the 2022-23 season.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -235,7 +235,7 @@ const KitDisplay = () => {
     },
     {
       name: "U20 ARGENTINA KIT",
-      imageUrl: "public/kits/argenu20.png",
+      imageUrl: "/kits/argenu20.png",
       description: "Garnacho's U20 Argentina kit.",
       player: "Alejandro Garnacho",
       season: "2021-22",
@@ -250,7 +250,7 @@ const KitDisplay = () => {
     },
     {
       name: "ARGENTINA KIT",
-      imageUrl: "public/kits/argen1.png",
+      imageUrl: "/kits/argen1.png",
       description: "Garnacho's Argentina kit.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -265,7 +265,7 @@ const KitDisplay = () => {
     },
     {
       name: "ARGENTINA KIT",
-      imageUrl: "public/kits/argen2.png",
+      imageUrl: "/kits/argen2.png",
       description: "Garnacho's Argentina kit.",
       player: "Alejandro Garnacho",
       season: "2022-23",
@@ -280,7 +280,7 @@ const KitDisplay = () => {
     },
     {
       name: "FRIENDLY MATCH KIT 23/24",
-      imageUrl: "public/kits/friendly.png",
+      imageUrl: "/kits/friendly.png",
       description: "Garnacho's friendly match kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -295,7 +295,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 23/24",
-      imageUrl: "public/kits/2324.png",
+      imageUrl: "/kits/2324.png",
       description: "Garnacho's home kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -309,7 +309,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 23/24",
-      imageUrl: "public/kits/2324(3).png",
+      imageUrl: "/kits/2324(3).png",
       description: "Garnacho's home kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -324,7 +324,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 23/24",
-      imageUrl: "public/kits/2324(2).png",
+      imageUrl: "/kits/2324(2).png",
       description: "Garnacho's away kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -339,7 +339,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 23/24",
-      imageUrl: "public/kits/2324(4).png",
+      imageUrl: "/kits/2324(4).png",
       description: "Garnacho's away kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -353,7 +353,7 @@ const KitDisplay = () => {
     },
     {
       name: "THIRD KIT 23/24",
-      imageUrl: "public/kits/2324(1).png",
+      imageUrl: "/kits/2324(1).png",
       description: "Garnacho's away kit for the 2023-24 season.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -368,7 +368,7 @@ const KitDisplay = () => {
     },
     {
       name: "ARGENTINA KIT",
-      imageUrl: "public/kits/argen17.png",
+      imageUrl: "/kits/argen17.png",
       description: "Garnacho's Argentina kit.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -382,7 +382,7 @@ const KitDisplay = () => {
     },
     {
       name: "ARGENTINA AWAY KIT",
-      imageUrl: "public/kits/argen17(1).png",
+      imageUrl: "/kits/argen17(1).png",
       description: "Garnacho's Argentina away kit.",
       player: "Alejandro Garnacho",
       season: "2023-24",
@@ -395,7 +395,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 24/25",
-      imageUrl: "public/kits/2425.png",
+      imageUrl: "/kits/2425.png",
       description: "Garnacho's home kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -410,7 +410,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 24/25",
-      imageUrl: "public/kits/2425comm.png",
+      imageUrl: "/kits/2425comm.png",
       description: "Garnacho's home kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -424,7 +424,7 @@ const KitDisplay = () => {
     },
     {
       name: "HOME KIT 24/25",
-      imageUrl: "public/kits/rare.png",
+      imageUrl: "/kits/rare.png",
       description: "Garnacho's home kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -439,7 +439,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 24/25",
-      imageUrl: "public/kits/2425away.png",
+      imageUrl: "/kits/2425away.png",
       description: "Garnacho's away kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -454,7 +454,7 @@ const KitDisplay = () => {
     },
     {
       name: "AWAY KIT 24/25",
-      imageUrl: "public/kits/2425away2.png",
+      imageUrl: "/kits/2425away2.png",
       description: "Garnacho's away kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -469,7 +469,7 @@ const KitDisplay = () => {
     },
     {
       name: "THIRD KIT 24/25",
-      imageUrl: "public/kits/2425third.png",
+      imageUrl: "/kits/2425third.png",
       description: "Garnacho's third kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -484,7 +484,7 @@ const KitDisplay = () => {
     },
     {
       name: "THIRD KIT 24/25",
-      imageUrl: "public/kits/2425third2.png",
+      imageUrl: "/kits/2425third2.png",
       description: "Garnacho's third kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
@@ -499,7 +499,7 @@ const KitDisplay = () => {
     },
     {
       name: "LAST MATCH KIT 24/25",
-      imageUrl: "public/kits/europa.png",
+      imageUrl: "/kits/europa.png",
       description: "Garnacho's last match kit for the 2024-25 season.",
       player: "Alejandro Garnacho",
       season: "2024-25",
