@@ -12,7 +12,7 @@ This website is built with love and respect for Garnacho's contributions to Manc
 
 - **Personal Touch**: Every element reflects the passion of a true United fan
 - **Interactive Sidebar Navigation**: Animated sidebar menu with fast autocomplete search using Trie data structure
-- **Kit Display Gallery**: Browse through Garnacho's kit collection across multiple seasons with interactive voting
+- **Kit Display Gallery**: Browse through Garnacho's kit collection with Swiper carousel, interactive voting with confetti animations, detailed stats, milestones, narratives, and social sharing
 - **Interactive Gallery**: Relive Garnacho's most memorable moments in stunning detail
 - **Goal Highlights**: Watch his spectacular goals that have lit up Old Trafford
 - **Career Timeline**: Follow his remarkable journey from youth prospect to first-team star
@@ -30,7 +30,7 @@ This website is built with love and respect for Garnacho's contributions to Manc
 5. **Goals** - Relive the moments that made us fall in love with his game
 6. **Merchandise** - Wear your support with pride
 7. **Gallery** - A visual celebration of his time at United
-8. **Kit Display** - Browse and vote on Garnacho's kit collection across seasons (2020-2025)
+8. **Kit Display** - Interactive gallery with Swiper carousel showcasing Garnacho's kit collection (2020-2025). Features voting with confetti animations, detailed stats, milestones, narratives, quotes, and social sharing
 9. **Gracias Garnacho** - A heartfelt thank you from a devoted fan
 
 ## Tech Stack
@@ -44,6 +44,8 @@ This website is built with love and respect for Garnacho's contributions to Manc
 - **React Icons** - Icon library
 - **HTML5 Audio API** - Audio playback
 - **Trie Data Structure** - Fast autocomplete search implementation
+- **Swiper** - Modern touch slider/carousel library
+- **Canvas Confetti** - Celebration animation library
 
 ## Getting Started
 
@@ -79,7 +81,7 @@ src/
   ├── pages/         # Page components
   │   ├── Home.jsx
   │   ├── Bio.jsx
-  │   ├── KitDisplayPure.jsx # Kit display gallery
+  │   ├── KitDisplayPure.jsx # Enhanced kit display with carousel, voting, and rich content
   │   └── ...        # Other page components
   ├── utils/         # Utility functions
   │   └── Trie.js    # Trie data structure for search
@@ -108,7 +110,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ### Latest Features (2024)
 - ✨ **Sidebar Navigation**: Added animated sidebar with intelligent search using Trie data structure
-- ⚽ **Kit Display Page**: New interactive gallery showcasing Garnacho's kits with voting functionality
+- ⚽ **Kit Display Page**: Enhanced interactive gallery with Swiper carousel, confetti voting animations, detailed stats, milestones, narratives, and social sharing
+- 🎠 **Swiper Carousel**: Smooth, touch-enabled kit navigation with keyboard support
+- 🎉 **Confetti Animations**: Celebratory effects for voting interactions
+- 📊 **Rich Kit Data**: Each kit now includes stats, milestones, narratives, and inspirational quotes
+- 🔗 **Social Sharing**: Share favorite kits on Twitter and Facebook
 - 🎨 **Tailwind CSS Integration**: Enhanced styling with Tailwind CSS for modern, responsive design
 - 📱 **Improved Mobile Experience**: Better responsive behavior with mobile-optimized navigation
 - 🔍 **Fast Search**: Autocomplete search with O(1) average lookup time for quick navigation
